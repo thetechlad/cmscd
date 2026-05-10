@@ -2,20 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Star, Zap } from "lucide-react";
 import macbook from "@/assets/mockup-macbook.jpg";
 import iphone from "@/assets/mockup-iphone.png";
-import { useReveal, useCountUp } from "@/hooks/useReveal";
-
-const Stat = ({ n, suffix = "+", label }: { n: number; suffix?: string; label: string }) => {
-  const { ref, visible } = useReveal<HTMLDivElement>(0.3);
-  const v = useCountUp(n, visible, 1200);
-  return (
-    <div ref={ref} className="flex flex-col">
-      <div className="display text-2xl md:text-3xl font-bold text-foreground tracking-tight">
-        {v.toLocaleString()}{suffix}
-      </div>
-      <div className="text-[13px] text-muted-soft mt-1">{label}</div>
-    </div>
-  );
-};
 
 const headlineWords = ["We", "ship", "the", "software", "that"];
 
@@ -57,7 +43,7 @@ const Hero = () => {
               CodersDive is a premium software studio for founders, executives and operators who want industry-leading products — engineered fast, without compromise.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 mb-14">
+            <div className="flex flex-wrap items-center gap-4">
               <Link to="/contact" className="btn-primary btn-shine group" style={{ height: 56, padding: "0 28px", fontSize: "15px" }}>
                 <Sparkles className="w-4 h-4" />
                 Start a Project
@@ -68,31 +54,10 @@ const Hero = () => {
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
-
-            <div className="grid grid-cols-2 gap-x-6 gap-y-6 max-w-md">
-              <Stat n={120} label="Products Shipped" />
-              <Stat n={6} suffix="-Wk" label="Avg. Delivery" />
-            </div>
           </div>
 
           {/* Mockup composition */}
           <div className="lg:col-span-5 relative hidden md:block h-[600px]">
-            {/* Rotating sticker */}
-            <div className="absolute -top-4 -right-2 z-30 w-[120px] h-[120px]">
-              <svg viewBox="0 0 120 120" className="w-full h-full sticker-spin">
-                <defs>
-                  <path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" />
-                </defs>
-                <circle cx="60" cy="60" r="55" fill="hsl(var(--foreground))" />
-                <text fill="white" fontSize="9.5" fontWeight="700" letterSpacing="2.8" fontFamily="Sora, sans-serif">
-                  <textPath href="#circ">SHIPPING WEEKLY · NEW PROJECTS · SHIPPING WEEKLY · </textPath>
-                </text>
-              </svg>
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <Zap className="w-7 h-7 text-accent-blue" style={{ fill: "hsl(var(--accent-blue))" }} />
-              </div>
-            </div>
-
             {/* Glow halo behind device */}
             <div className="absolute inset-8 rounded-[40px] pointer-events-none"
                  style={{ background: "radial-gradient(circle at 50% 40%, hsl(var(--accent-blue) / 0.35), transparent 65%)", filter: "blur(40px)" }} />
