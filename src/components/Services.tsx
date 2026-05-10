@@ -12,8 +12,9 @@ const services = [
 ];
 
 const Services = () => (
-  <Reveal as="section" className="bg-background-soft section">
-    <div className="container-tight">
+  <Reveal as="section" className="relative bg-mesh-soft section overflow-hidden">
+    <div className="absolute inset-0 grid-lines pointer-events-none" />
+    <div className="container-tight relative">
       <div className="max-w-3xl mb-16 reveal-child">
         <div className="label-eyebrow mb-6">Capabilities</div>
         <h2 className="display text-[28px] md:text-[36px] lg:text-[48px] font-bold leading-[1.1] mb-5">

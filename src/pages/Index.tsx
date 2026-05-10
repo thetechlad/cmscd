@@ -10,6 +10,7 @@ import Pricing from "@/components/Pricing";
 import TickerBand from "@/components/TickerBand";
 import TechStack from "@/components/TechStack";
 import Testimonials from "@/components/Testimonials";
+import CTABand from "@/components/CTABand";
 import Contact from "@/components/Contact";
 
 const Index = () => (
@@ -25,6 +26,7 @@ const Index = () => (
     <Services />
     <WorkProcess />
     <ProjectsGallery />
+    <CTABand />
     <TechStack />
     <Pricing />
     <Testimonials />
