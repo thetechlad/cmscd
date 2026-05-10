@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, Star, Zap, Play, TrendingUp } from "lucide-react";
+import { ArrowRight, Sparkles, Star, Zap } from "lucide-react";
 import macbook from "@/assets/mockup-macbook.jpg";
 import iphone from "@/assets/mockup-iphone.png";
 import { useReveal, useCountUp } from "@/hooks/useReveal";
@@ -69,11 +69,9 @@ const Hero = () => {
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-6 max-w-2xl">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-6 max-w-md">
               <Stat n={120} label="Products Shipped" />
-              <Stat n={48} suffix="M+" label="Value Unlocked ($)" />
               <Stat n={6} suffix="-Wk" label="Avg. Delivery" />
-              <Stat n={22} label="Awards Won" />
             </div>
           </div>
 
@@ -118,23 +116,6 @@ const Hero = () => {
                 height={1024}
                 className="w-full drop-shadow-[0_40px_60px_rgba(10,10,10,0.28)]"
               />
-            </div>
-            {/* Floating live badge */}
-            <div className="absolute top-6 -left-4 z-20 nav-pill px-4 py-2.5 flex items-center gap-2 animate-fade-in">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-xs font-semibold">3 projects shipping this week</span>
-            </div>
-            {/* Floating metric card */}
-            <div className="absolute -bottom-2 -left-6 z-20 bg-white border border-border rounded-2xl px-5 py-4 shadow-[0_20px_40px_-12px_rgba(10,10,10,0.18)] animate-fade-in">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-accent-blue/10 flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5 text-accent-blue" />
-                </div>
-                <div>
-                  <div className="text-[11px] text-muted-soft uppercase tracking-wider font-medium">MRR Growth</div>
-                  <div className="display text-lg font-bold leading-tight">+184% <span className="text-xs text-emerald-600 font-semibold">YoY</span></div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
