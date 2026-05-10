@@ -7,7 +7,7 @@ const headlineWords = ["We", "ship", "the", "software", "that"];
 
 const Hero = () => {
   return (
-    <section className="relative bg-mesh pt-[112px] pb-16 md:pb-24 flex items-center overflow-hidden grain">
+    <section className="relative bg-mesh pt-[104px] pb-12 md:pb-16 flex items-center overflow-hidden grain">
       {/* layered background */}
       <div className="absolute inset-0 grid-lines pointer-events-none" />
       <div className="absolute inset-0 dot-grid opacity-[0.35] pointer-events-none" />
@@ -16,18 +16,18 @@ const Hero = () => {
       <div className="blob -bottom-40 -left-40 w-[600px] h-[600px]" style={{ background: "hsl(var(--accent-blue-tint))", animationDelay: "-8s" }} />
       <div className="blob top-1/3 left-1/2 w-[500px] h-[500px]" style={{ background: "hsl(280 80% 80% / 0.18)", animationDelay: "-14s" }} />
 
-      <div className="container-tight relative w-full py-10 md:py-14">
+      <div className="container-tight relative w-full py-6 md:py-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <div className="lg:col-span-7">
             {/* trust badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-border shadow-sm mb-8 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-border shadow-sm mb-5 animate-fade-in">
               <span className="flex items-center gap-0.5">
                 {[0,1,2,3,4].map(i => <Star key={i} className="w-3.5 h-3.5 fill-accent-blue text-accent-blue" />)}
               </span>
               <span className="text-xs font-semibold text-foreground">Trusted by 120+ founders worldwide</span>
             </div>
 
-            <h1 className="display font-bold tracking-tight leading-[1.02] text-[44px] md:text-[60px] lg:text-[84px] mb-7 word-rise">
+            <h1 className="display font-bold tracking-tight leading-[1.02] text-[44px] md:text-[60px] lg:text-[84px] mb-5 word-rise">
               {headlineWords.map((w, i) => (
                 <span key={i} style={{ animationDelay: `${i * 60}ms` }}>{w}&nbsp;</span>
               ))}
@@ -39,7 +39,7 @@ const Hero = () => {
               </span>
             </h1>
 
-            <p className="text-base md:text-[19px] text-muted-foreground max-w-[540px] leading-[1.7] mb-10">
+            <p className="text-base md:text-[19px] text-muted-foreground max-w-[540px] leading-[1.6] mb-7">
               CodersDive is a premium software studio for founders, executives and operators who want industry-leading products — engineered fast, without compromise.
             </p>
 
