@@ -4,7 +4,9 @@ import LogoStrip from "@/components/LogoStrip";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import WorkProcess from "@/components/WorkProcess";
-import Portfolio from "@/components/Portfolio";
+import ProjectsGallery from "@/components/ProjectsGallery";
+import ProjectMarquee from "@/components/ProjectMarquee";
+import Pricing from "@/components/Pricing";
 import TechStack from "@/components/TechStack";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
@@ -16,11 +18,13 @@ const Index = () => (
   >
     <Hero />
     <LogoStrip />
+    <ProjectMarquee />
     <About />
     <Services />
     <WorkProcess />
-    <Portfolio />
+    <ProjectsGallery />
     <TechStack />
+    <Pricing />
     <Testimonials />
     <Contact />
   </Layout>
