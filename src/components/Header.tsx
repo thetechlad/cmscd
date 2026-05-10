@@ -37,56 +37,59 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b transition-all ${
-        scrolled ? "border-border shadow-[0_1px_8px_rgba(0,0,0,0.06)]" : "border-transparent"
-      }`}
+      className="fixed top-4 inset-x-0 z-50 px-4"
       onMouseLeave={scheduleClose}
     >
-      <div className="container-tight">
-        <div className="h-[72px] flex items-center justify-between">
-          <Link to="/" className="flex items-baseline gap-3">
-            <span className="display text-xl font-bold tracking-tight">CodersDive</span>
-            <span className="hidden md:inline text-xs text-muted-foreground">Engineering for the ambitious</span>
-          </Link>
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-3">
+        {/* Logo pill */}
+        <Link to="/" className={`nav-pill flex items-center gap-2 px-5 transition-all ${scrolled ? "h-12" : "h-14"}`}>
+          <span className="w-7 h-7 rounded-full bg-foreground text-background flex items-center justify-center text-xs font-bold">C</span>
+          <span className="display font-bold tracking-tight text-[15px]">CodersDive</span>
+        </Link>
 
-          <nav className="hidden lg:flex items-center gap-1">
-            <button className={navBtn} onMouseEnter={() => openMega("services")}>
-              Services <ChevronDown className="w-3.5 h-3.5" />
-            </button>
-            <button className={navBtn} onMouseEnter={() => openMega("work")}>
-              Work <ChevronDown className="w-3.5 h-3.5" />
-            </button>
-            <button className={navBtn} onMouseEnter={() => openMega("company")}>
-              Company <ChevronDown className="w-3.5 h-3.5" />
-            </button>
-            <Link to="/blog" className={navBtn} onMouseEnter={() => openMega(null)}>Insights</Link>
-          </nav>
-
-          <div className="hidden lg:block">
-            <Link to="/contact" className="btn-primary" style={{ height: 44, padding: "0 20px" }}>
-              Book a Call
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <button
-            className="lg:hidden p-2 text-foreground"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Menu"
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        {/* Center nav pill */}
+        <nav className={`nav-pill hidden lg:flex items-center px-2 transition-all ${scrolled ? "h-12" : "h-14"}`}>
+          <button className={navBtn} onMouseEnter={() => openMega("services")}>
+            Services <ChevronDown className="w-3.5 h-3.5" />
           </button>
+          <button className={navBtn} onMouseEnter={() => openMega("work")}>
+            Work <ChevronDown className="w-3.5 h-3.5" />
+          </button>
+          <button className={navBtn} onMouseEnter={() => openMega("company")}>
+            Company <ChevronDown className="w-3.5 h-3.5" />
+          </button>
+          <Link to="/blog" className={navBtn} onMouseEnter={() => openMega(null)}>Insights</Link>
+        </nav>
+
+        {/* CTA pill */}
+        <div className="hidden lg:flex items-center gap-2">
+          <Link
+            to="/contact"
+            className={`nav-pill flex items-center gap-2 px-5 font-semibold text-sm bg-foreground text-background hover:scale-[1.03] transition-transform ${scrolled ? "h-12" : "h-14"}`}
+            style={{ background: "hsl(var(--foreground))", color: "hsl(var(--background))", border: "1px solid hsl(var(--foreground))" }}
+          >
+            Book a Call
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
         </div>
+
+        <button
+          className={`nav-pill lg:hidden flex items-center justify-center transition-all ${scrolled ? "h-12 w-12" : "h-14 w-14"}`}
+          onClick={() => setMobileOpen((v) => !v)}
+          aria-label="Menu"
+        >
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
 
       {/* Mega menus (desktop) */}
       {mega && (
         <div
-          className="hidden lg:block absolute left-0 right-0 top-[72px] bg-white border-b border-border shadow-[0_20px_40px_-20px_rgba(0,0,0,0.15)] animate-mega-in"
+          className="hidden lg:block max-w-[1200px] mx-auto mt-3 nav-pill rounded-3xl animate-mega-in"
           onMouseEnter={() => openMega(mega)}
           onMouseLeave={scheduleClose}
         >
-          <div className="container-tight py-10">
+          <div className="px-8 py-10">
             {mega === "services" && <ServicesMega />}
             {mega === "work" && <WorkMega />}
             {mega === "company" && <CompanyMega />}
