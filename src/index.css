@@ -176,6 +176,74 @@
     to { transform: translateX(-50%); }
   }
 
+  .marquee-slow { animation: marquee 60s linear infinite; }
+  .marquee-fast { animation: marquee 35s linear infinite; }
+  .marquee-pause:hover .marquee-track,
+  .marquee-pause:hover .marquee-slow,
+  .marquee-pause:hover .marquee-fast { animation-play-state: paused; }
+
+  .dot-grid-strong {
+    background-image: radial-gradient(hsl(var(--foreground) / 0.12) 1.2px, transparent 1.2px);
+    background-size: 18px 18px;
+  }
+
+  .pricing-tag {
+    position: absolute;
+    top: 22px; right: -42px;
+    background: hsl(var(--accent-blue));
+    color: white;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 8px 48px;
+    transform: rotate(35deg);
+    box-shadow: 0 8px 20px hsl(var(--accent-blue) / 0.35);
+  }
+
+  .nav-pill {
+    background: hsl(var(--background) / 0.85);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid hsl(var(--border));
+    border-radius: 999px;
+    box-shadow: 0 10px 40px -12px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .gallery-tile {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 4 / 3;
+    background: hsl(var(--background-soft));
+    transition: transform 350ms cubic-bezier(0.22,1,0.36,1);
+  }
+  .gallery-tile img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 600ms cubic-bezier(0.22,1,0.36,1), filter 350ms ease;
+  }
+  .gallery-tile:hover img { transform: scale(1.06); filter: saturate(1.15); }
+  .gallery-tile .gallery-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 35%, rgba(10,10,10,0.85) 100%);
+    opacity: 0;
+    transition: opacity 300ms ease;
+    display: flex; align-items: flex-end; padding: 24px;
+  }
+  .gallery-tile:hover .gallery-overlay { opacity: 1; }
+  .gallery-tile .gallery-meta { color: white; transform: translateY(8px); transition: transform 300ms ease; }
+  .gallery-tile:hover .gallery-meta { transform: translateY(0); }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .float-slow { animation: float-slow 6s ease-in-out infinite; }
+  @keyframes float-med {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50% { transform: translateY(-10px) rotate(-6deg); }
+  }
+  .float-med { animation: float-med 5s ease-in-out infinite; }
+
   @keyframes word-rise {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
