@@ -21,7 +21,7 @@ const headlineWords = ["We", "ship", "the", "software", "that"];
 
 const Hero = () => {
   return (
-    <section className="relative bg-mesh pt-[120px] min-h-screen flex items-center overflow-hidden grain">
+    <section className="relative bg-mesh pt-[112px] pb-16 md:pb-24 flex items-center overflow-hidden grain">
       {/* layered background */}
       <div className="absolute inset-0 grid-lines pointer-events-none" />
       <div className="absolute inset-0 dot-grid opacity-[0.35] pointer-events-none" />
