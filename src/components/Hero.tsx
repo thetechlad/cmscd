@@ -78,21 +78,18 @@ const Hero = () => {
           {/* Mockup composition */}
           <div className="lg:col-span-5 relative hidden md:block h-[560px]">
             {/* Rotating sticker */}
-            <div className="absolute -top-2 -right-2 z-20 sticker-spin">
-              <svg viewBox="0 0 110 110" className="w-full h-full">
+            <div className="absolute -top-4 -right-2 z-20 w-[120px] h-[120px]">
+              <svg viewBox="0 0 120 120" className="w-full h-full sticker-spin">
                 <defs>
-                  <path id="circ" d="M55,55 m-42,0 a42,42 0 1,1 84,0 a42,42 0 1,1 -84,0" />
+                  <path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" />
                 </defs>
-                <circle cx="55" cy="55" r="50" fill="hsl(var(--foreground))" />
-                <text fill="white" fontSize="10" fontWeight="700" letterSpacing="2.5">
-                  <textPath href="#circ">SHIPPING WEEKLY · SHIPPING WEEKLY · </textPath>
+                <circle cx="60" cy="60" r="55" fill="hsl(var(--foreground))" />
+                <text fill="white" fontSize="9.5" fontWeight="700" letterSpacing="2.8" fontFamily="Sora, sans-serif">
+                  <textPath href="#circ">SHIPPING WEEKLY · NEW PROJECTS · SHIPPING WEEKLY · </textPath>
                 </text>
-                <g transform="translate(55 55)">
-                  <Zap />
-                </g>
               </svg>
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <Zap className="w-6 h-6 text-accent-blue fill-accent-blue" />
+                <Zap className="w-7 h-7 text-accent-blue" style={{ fill: "hsl(var(--accent-blue))" }} />
               </div>
             </div>
 
