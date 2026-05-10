@@ -29,7 +29,7 @@ const PricingCard = ({
   features: string[]; cta: string; popular?: boolean;
 }) => (
   <div
-    className={`reveal-child relative overflow-hidden rounded-2xl p-8 md:p-10 transition-transform duration-300 hover:-translate-y-2 ${
+    className={`reveal-child tilt-card border-glow relative overflow-hidden rounded-2xl p-8 md:p-10 ${
       popular ? "bg-foreground text-background" : "bg-white border border-border"
     }`}
     style={popular ? { boxShadow: "0 30px 80px -20px rgba(37, 99, 235, 0.45)" } : { boxShadow: "0 10px 40px -20px rgba(0,0,0,0.1)" }}
@@ -93,7 +93,7 @@ const PricingCard = ({
 );
 
 const Pricing = () => (
-  <Reveal as="section" className="relative bg-background-soft section overflow-hidden">
+  <Reveal as="section" className="relative bg-background-soft section overflow-hidden grain">
     <div className="absolute inset-0 dot-grid-strong opacity-60 pointer-events-none" />
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
          style={{ background: "radial-gradient(circle, hsl(var(--accent-blue-tint) / 0.5) 0%, transparent 70%)" }} />
@@ -101,8 +101,8 @@ const Pricing = () => (
     <div className="container-tight relative">
       <div className="text-center mb-16 reveal-child">
         <div className="label-eyebrow mb-6 justify-center" style={{ display: "inline-flex" }}>Pricing</div>
-        <h2 className="display text-[34px] md:text-[48px] lg:text-[64px] font-bold leading-[1.05] mb-4">
-          The right <span style={{ color: "hsl(var(--accent-blue))" }}>plans</span> for your ideas.
+        <h2 className="display text-[34px] md:text-[48px] lg:text-[64px] font-bold leading-[1.05] mb-6">
+          The right <span className="squiggle" style={{ color: "hsl(var(--accent-blue))" }}>plans</span> for your ideas.
         </h2>
         <p className="text-muted-foreground italic">
           Get the quality and speed of big agencies — at <strong className="text-foreground not-italic">honest prices</strong>.
