@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, Star } from "lucide-react";
+import { ArrowRight, Sparkles, Star, Zap } from "lucide-react";
 import macbook from "@/assets/mockup-macbook.jpg";
 import iphone from "@/assets/mockup-iphone.jpg";
 import { useReveal, useCountUp } from "@/hooks/useReveal";
@@ -21,18 +21,12 @@ const headlineWords = ["We", "ship", "the", "software", "that"];
 
 const Hero = () => {
   return (
-    <section className="relative bg-background pt-[120px] min-h-screen flex items-center overflow-hidden">
+    <section className="relative bg-background pt-[120px] min-h-screen flex items-center overflow-hidden grain">
       {/* dot grid */}
       <div className="absolute inset-0 dot-grid opacity-[0.5] pointer-events-none" />
-      {/* soft washes */}
-      <div
-        className="absolute -top-40 -right-40 w-[800px] h-[800px] pointer-events-none rounded-full"
-        style={{ background: "radial-gradient(circle, hsl(var(--accent-blue-tint) / 0.7) 0%, transparent 65%)" }}
-      />
-      <div
-        className="absolute -bottom-40 -left-40 w-[600px] h-[600px] pointer-events-none rounded-full"
-        style={{ background: "radial-gradient(circle, hsl(var(--accent-blue-soft)) 0%, transparent 70%)" }}
-      />
+      {/* drifting blobs */}
+      <div className="blob -top-32 -right-32 w-[700px] h-[700px]" style={{ background: "hsl(var(--accent-blue) / 0.18)" }} />
+      <div className="blob -bottom-40 -left-40 w-[600px] h-[600px]" style={{ background: "hsl(var(--accent-blue-tint))", animationDelay: "-8s" }} />
 
       <div className="container-tight relative w-full py-16 md:py-24">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -50,7 +44,7 @@ const Hero = () => {
                 <span key={i} style={{ animationDelay: `${i * 60}ms` }}>{w}&nbsp;</span>
               ))}
               <span className="block">
-                <span style={{ animationDelay: `${headlineWords.length * 60}ms`, color: "hsl(var(--accent-blue))" }}>
+                <span className="squiggle" style={{ animationDelay: `${headlineWords.length * 60}ms`, color: "hsl(var(--accent-blue))" }}>
                   defines
                 </span>{" "}
                 <span style={{ animationDelay: `${(headlineWords.length + 1) * 60}ms` }}>your category.</span>
@@ -62,7 +56,7 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mb-14">
-              <Link to="/contact" className="btn-primary group" style={{ height: 56, padding: "0 28px", fontSize: "15px" }}>
+              <Link to="/contact" className="btn-primary btn-shine group" style={{ height: 56, padding: "0 28px", fontSize: "15px" }}>
                 <Sparkles className="w-4 h-4" />
                 Start a Project
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -83,6 +77,25 @@ const Hero = () => {
 
           {/* Mockup composition */}
           <div className="lg:col-span-5 relative hidden md:block h-[560px]">
+            {/* Rotating sticker */}
+            <div className="absolute -top-2 -right-2 z-20 sticker-spin">
+              <svg viewBox="0 0 110 110" className="w-full h-full">
+                <defs>
+                  <path id="circ" d="M55,55 m-42,0 a42,42 0 1,1 84,0 a42,42 0 1,1 -84,0" />
+                </defs>
+                <circle cx="55" cy="55" r="50" fill="hsl(var(--foreground))" />
+                <text fill="white" fontSize="10" fontWeight="700" letterSpacing="2.5">
+                  <textPath href="#circ">SHIPPING WEEKLY · SHIPPING WEEKLY · </textPath>
+                </text>
+                <g transform="translate(55 55)">
+                  <Zap />
+                </g>
+              </svg>
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <Zap className="w-6 h-6 text-accent-blue fill-accent-blue" />
+              </div>
+            </div>
+
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="float-slow relative w-full">
                 <img
