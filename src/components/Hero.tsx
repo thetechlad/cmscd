@@ -21,7 +21,7 @@ const headlineWords = ["We", "ship", "the", "software", "that"];
 
 const Hero = () => {
   return (
-    <section className="relative bg-mesh pt-[120px] min-h-screen flex items-center overflow-hidden grain">
+    <section className="relative bg-mesh pt-[112px] pb-16 md:pb-24 flex items-center overflow-hidden grain">
       {/* layered background */}
       <div className="absolute inset-0 grid-lines pointer-events-none" />
       <div className="absolute inset-0 dot-grid opacity-[0.35] pointer-events-none" />
@@ -30,7 +30,7 @@ const Hero = () => {
       <div className="blob -bottom-40 -left-40 w-[600px] h-[600px]" style={{ background: "hsl(var(--accent-blue-tint))", animationDelay: "-8s" }} />
       <div className="blob top-1/3 left-1/2 w-[500px] h-[500px]" style={{ background: "hsl(280 80% 80% / 0.18)", animationDelay: "-14s" }} />
 
-      <div className="container-tight relative w-full py-16 md:py-24">
+      <div className="container-tight relative w-full py-10 md:py-14">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <div className="lg:col-span-7">
             {/* trust badge */}
