@@ -158,6 +158,34 @@
     background-size: 22px 22px;
   }
 
+  /* Rich layered backgrounds — adds depth without breaking the light aesthetic */
+  .bg-mesh {
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(at 12% 0%, hsl(var(--accent-blue) / 0.18) 0px, transparent 55%),
+      radial-gradient(at 88% 8%, hsl(var(--accent-blue-tint) / 0.55) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, hsl(var(--accent-blue-soft)) 0px, transparent 60%);
+  }
+  .bg-mesh-soft {
+    background-color: hsl(var(--background-soft));
+    background-image:
+      radial-gradient(at 0% 0%, hsl(var(--accent-blue) / 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsl(var(--accent-blue-tint) / 0.35) 0px, transparent 55%);
+  }
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, hsl(var(--foreground) / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--foreground) / 0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  }
+  .glow-ring {
+    box-shadow:
+      0 0 0 1px hsl(var(--border)),
+      0 30px 60px -20px rgba(37, 99, 235, 0.25),
+      0 60px 120px -40px rgba(10, 10, 10, 0.18);
+  }
+
   /* Section reveal */
   .reveal-section { opacity: 0; transform: translateY(20px); transition: opacity 700ms ease, transform 700ms ease; }
   .reveal-section.is-visible { opacity: 1; transform: translateY(0); }

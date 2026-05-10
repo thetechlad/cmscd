@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, Star, Zap } from "lucide-react";
+import { ArrowRight, Sparkles, Star, Zap, Play, TrendingUp } from "lucide-react";
 import macbook from "@/assets/mockup-macbook.jpg";
-import iphone from "@/assets/mockup-iphone.jpg";
+import iphone from "@/assets/mockup-iphone.png";
 import { useReveal, useCountUp } from "@/hooks/useReveal";
 
 const Stat = ({ n, suffix = "+", label }: { n: number; suffix?: string; label: string }) => {
@@ -21,12 +21,14 @@ const headlineWords = ["We", "ship", "the", "software", "that"];
 
 const Hero = () => {
   return (
-    <section className="relative bg-background pt-[120px] min-h-screen flex items-center overflow-hidden grain">
-      {/* dot grid */}
-      <div className="absolute inset-0 dot-grid opacity-[0.5] pointer-events-none" />
+    <section className="relative bg-mesh pt-[120px] min-h-screen flex items-center overflow-hidden grain">
+      {/* layered background */}
+      <div className="absolute inset-0 grid-lines pointer-events-none" />
+      <div className="absolute inset-0 dot-grid opacity-[0.35] pointer-events-none" />
       {/* drifting blobs */}
-      <div className="blob -top-32 -right-32 w-[700px] h-[700px]" style={{ background: "hsl(var(--accent-blue) / 0.18)" }} />
+      <div className="blob -top-32 -right-32 w-[700px] h-[700px]" style={{ background: "hsl(var(--accent-blue) / 0.28)" }} />
       <div className="blob -bottom-40 -left-40 w-[600px] h-[600px]" style={{ background: "hsl(var(--accent-blue-tint))", animationDelay: "-8s" }} />
+      <div className="blob top-1/3 left-1/2 w-[500px] h-[500px]" style={{ background: "hsl(280 80% 80% / 0.18)", animationDelay: "-14s" }} />
 
       <div className="container-tight relative w-full py-16 md:py-24">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -76,9 +78,9 @@ const Hero = () => {
           </div>
 
           {/* Mockup composition */}
-          <div className="lg:col-span-5 relative hidden md:block h-[560px]">
+          <div className="lg:col-span-5 relative hidden md:block h-[600px]">
             {/* Rotating sticker */}
-            <div className="absolute -top-4 -right-2 z-20 w-[120px] h-[120px]">
+            <div className="absolute -top-4 -right-2 z-30 w-[120px] h-[120px]">
               <svg viewBox="0 0 120 120" className="w-full h-full sticker-spin">
                 <defs>
                   <path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" />
@@ -93,30 +95,46 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="float-slow relative w-full">
+            {/* Glow halo behind device */}
+            <div className="absolute inset-8 rounded-[40px] pointer-events-none"
+                 style={{ background: "radial-gradient(circle at 50% 40%, hsl(var(--accent-blue) / 0.35), transparent 65%)", filter: "blur(40px)" }} />
+
+            <div className="absolute inset-0 flex items-center justify-center z-10">
+              <div className="float-slow relative w-full glow-ring rounded-2xl bg-white">
                 <img
                   src={macbook}
                   alt="CodersDive product on MacBook"
                   width={1280}
                   height={960}
-                  className="w-full rounded-2xl shadow-[0_40px_80px_-30px_rgba(37,99,235,0.4)]"
+                  className="w-full rounded-2xl"
                 />
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-2 lg:right-0 w-[55%] float-med">
+            <div className="absolute -bottom-10 -right-4 lg:-right-2 w-[48%] float-med z-20">
               <img
                 src={iphone}
                 alt="CodersDive product on iPhone"
                 width={800}
                 height={1024}
-                className="w-full drop-shadow-[0_30px_50px_rgba(0,0,0,0.18)]"
+                className="w-full drop-shadow-[0_40px_60px_rgba(10,10,10,0.28)]"
               />
             </div>
-            {/* Floating badge */}
-            <div className="absolute top-4 -left-2 nav-pill px-4 py-2.5 flex items-center gap-2 animate-fade-in">
+            {/* Floating live badge */}
+            <div className="absolute top-6 -left-4 z-20 nav-pill px-4 py-2.5 flex items-center gap-2 animate-fade-in">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-xs font-semibold">3 projects shipping this week</span>
+            </div>
+            {/* Floating metric card */}
+            <div className="absolute -bottom-2 -left-6 z-20 bg-white border border-border rounded-2xl px-5 py-4 shadow-[0_20px_40px_-12px_rgba(10,10,10,0.18)] animate-fade-in">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-accent-blue/10 flex items-center justify-center">
+                  <TrendingUp className="w-5 h-5 text-accent-blue" />
+                </div>
+                <div>
+                  <div className="text-[11px] text-muted-soft uppercase tracking-wider font-medium">MRR Growth</div>
+                  <div className="display text-lg font-bold leading-tight">+184% <span className="text-xs text-emerald-600 font-semibold">YoY</span></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
