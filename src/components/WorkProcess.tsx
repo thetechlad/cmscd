@@ -1,37 +1,51 @@
+import Reveal from "./Reveal";
+
 const steps = [
-  { n: "01", title: "Surface", depth: "0m", body: "We align on the problem, the user and the metric that matters. We leave with a sharp brief and a fixed scope." },
-  { n: "02", title: "Descend", depth: "200m", body: "Interface design, system architecture and a clickable prototype — we de-risk the build before production code is written." },
-  { n: "03", title: "Deep work", depth: "1,200m", body: "Weekly demos, production releases every sprint. You see progress in your hands, not in a status doc." },
-  { n: "04", title: "Resurface & scale", depth: "0m", body: "We stick around. Performance, observability, growth experiments and the next bet — engineered with you." },
+  { n: "01", title: "Surface", body: "You bring the idea. We listen hard, ask harder questions, and map the full picture. No templates. No guesswork." },
+  { n: "02", title: "Blueprint", body: "Architecture, tech stack, timelines, and design direction — all decided together. You approve before we build." },
+  { n: "03", title: "Deep Build", body: "Senior engineers and designers building in focused sprints. Weekly demos keep you in the loop without slowing us down." },
+  { n: "04", title: "Launch & Scale", body: "We don't disappear after deployment. Monitoring, support, and iteration — we're your long-term engineering partner.", highlight: true },
 ];
 
-const WorkProcess = () => {
-  return (
-    <section className="relative py-24 md:py-32 bg-secondary/20 border-y border-border overflow-hidden">
-      <div className="absolute inset-0 dot-bg-dense opacity-40" />
-      <div className="container-tight relative">
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <div className="text-xs uppercase tracking-[0.3em] text-primary mb-4">The Dive</div>
-          <h2 className="display text-4xl md:text-5xl font-semibold leading-tight">
-            A predictable path<br />from <span className="text-gradient">surface to shipped.</span>
-          </h2>
-        </div>
+const WorkProcess = () => (
+  <Reveal as="section" className="bg-background-soft section border-y border-border">
+    <div className="container-tight">
+      <div className="max-w-3xl mb-20 reveal-child">
+        <div className="label-eyebrow mb-6">Our Process</div>
+        <h2 className="display text-[28px] md:text-[36px] lg:text-[48px] font-bold leading-[1.1]">
+          A predictable path from idea to shipped.
+        </h2>
+      </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-3xl overflow-hidden">
+      <div className="relative">
+        {/* connecting dashed line (desktop) */}
+        <div
+          className="hidden lg:block absolute left-0 right-0 top-[28px] h-px"
+          style={{ borderTop: "1px dashed #D1D5DB" }}
+        />
+        <div className="grid lg:grid-cols-4 gap-6 relative">
           {steps.map((s) => (
-            <div key={s.n} className="bg-background p-8 hover:bg-secondary/40 transition-colors group">
-              <div className="flex items-baseline justify-between mb-6">
-                <div className="display text-5xl font-semibold text-gradient">{s.n}</div>
-                <div className="text-[10px] uppercase tracking-widest text-muted-foreground border border-border rounded-full px-2 py-0.5">{s.depth}</div>
+            <div key={s.n} className="reveal-child relative">
+              <div className="hidden lg:flex items-center justify-center w-[14px] h-[14px] rounded-full bg-background border-2 border-foreground mx-auto mb-6 relative z-10" />
+              <div
+                className={`relative p-7 rounded-xl border ${s.highlight ? "border-[hsl(var(--accent-blue))]/30" : "border-border"}`}
+                style={{ background: s.highlight ? "hsl(var(--accent-blue-soft))" : "white" }}
+              >
+                <div className="display text-[64px] font-bold text-muted-soft/30 leading-none absolute top-4 right-5 select-none">
+                  {s.n}
+                </div>
+                <div className="relative">
+                  <div className="text-xs uppercase tracking-[0.1em] text-muted-soft mb-2">Step {s.n}</div>
+                  <h3 className="display text-xl font-bold mb-3">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-[1.7]">{s.body}</p>
+                </div>
               </div>
-              <h3 className="display text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{s.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{s.body}</p>
             </div>
           ))}
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </Reveal>
+);
 
 export default WorkProcess;

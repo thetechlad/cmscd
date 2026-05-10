@@ -1,36 +1,59 @@
-const stack = [
-  "TypeScript", "React", "Next.js", "Node.js", "Python", "PostgreSQL",
-  "Supabase", "AWS", "Vercel", "Stripe", "OpenAI", "Anthropic",
-  "React Native", "Flutter", "Tailwind", "Figma", "Docker", "Terraform",
-];
+import { useState } from "react";
+import Reveal from "./Reveal";
+
+const tabs: Record<string, string[]> = {
+  Frontend: ["React", "Next.js", "Vue 3", "Tailwind CSS", "Framer Motion", "TypeScript"],
+  Backend: ["Node.js", "Python", "Go", "FastAPI", "Django", "GraphQL", "REST"],
+  Mobile: ["Swift", "Kotlin", "React Native", "Flutter", "Expo"],
+  "AI / ML": ["OpenAI GPT-4o", "Anthropic Claude", "LangChain", "Pinecone", "Hugging Face", "RAG"],
+  Cloud: ["AWS", "GCP", "Vercel", "Terraform", "Docker", "Kubernetes", "GitHub Actions"],
+  Design: ["Figma", "Framer", "Storybook", "Lottie", "Principle"],
+};
 
 const TechStack = () => {
+  const [active, setActive] = useState<string>("Frontend");
+  const keys = Object.keys(tabs);
+
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 dot-bg-dense opacity-30" />
-      <div className="container-tight relative">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Our Gear</div>
-          <h2 className="display text-4xl md:text-5xl font-semibold leading-tight">
-            Pressure-tested<br />tools for the <span className="text-gradient">deep.</span>
+    <Reveal as="section" className="bg-background section">
+      <div className="container-tight">
+        <div className="max-w-3xl mb-12 reveal-child">
+          <div className="label-eyebrow mb-6">Our Stack</div>
+          <h2 className="display text-[28px] md:text-[36px] lg:text-[48px] font-bold leading-[1.1] mb-5">
+            Pressure-tested tools for the ambitious.
           </h2>
-          <p className="text-muted-foreground mt-5">
-            A deliberately small, battle-hardened stack. Less novelty, more shipping.
-          </p>
+          <p className="text-muted-foreground leading-[1.7]">We don't chase trends. We use what delivers.</p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-          {stack.map((t) => (
+        <div className="flex flex-wrap gap-2 mb-10 reveal-child">
+          {keys.map((k) => (
+            <button
+              key={k}
+              onClick={() => setActive(k)}
+              className={`px-5 h-10 rounded-lg border text-sm font-medium transition-all ${
+                active === k
+                  ? "bg-foreground text-background border-foreground"
+                  : "bg-white text-foreground border-border hover:border-foreground/40"
+              }`}
+            >
+              {k}
+            </button>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap gap-3 reveal-child">
+          {tabs[active].map((t) => (
             <span
               key={t}
-              className="px-5 py-2.5 rounded-full glass text-sm font-medium text-foreground/90 hover:text-primary hover:border-primary/40 transition-all cursor-default"
+              className="inline-flex items-center gap-2 px-5 h-11 rounded-full bg-white border border-border text-sm font-medium text-foreground hover:border-[hsl(var(--accent-blue))] hover:text-accent-blue transition-all"
             >
+              <span className="w-1.5 h-1.5 rounded-full bg-foreground/40" />
               {t}
             </span>
           ))}
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 };
 
