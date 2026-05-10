@@ -7,6 +7,7 @@ import WorkProcess from "@/components/WorkProcess";
 import ProjectsGallery from "@/components/ProjectsGallery";
 import ProjectMarquee from "@/components/ProjectMarquee";
 import Pricing from "@/components/Pricing";
+import TickerBand from "@/components/TickerBand";
 import TechStack from "@/components/TechStack";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
@@ -20,6 +21,7 @@ const Index = () => (
     <LogoStrip />
     <ProjectMarquee />
     <About />
+    <TickerBand />
     <Services />
     <WorkProcess />
     <ProjectsGallery />
