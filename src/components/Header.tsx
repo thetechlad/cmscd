@@ -33,59 +33,65 @@ const Header = () => {
     closeTimer.current = window.setTimeout(() => setMega(null), 120);
   };
 
-  const navBtn = "px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors inline-flex items-center gap-1";
+  const navBtn = "relative px-4 h-9 rounded-full text-[13px] font-medium text-foreground/75 hover:text-foreground hover:bg-foreground/5 transition-all inline-flex items-center gap-1";
 
   return (
     <header
-      className="fixed top-4 inset-x-0 z-50 px-4"
+      className={`fixed inset-x-0 z-50 px-4 transition-all duration-300 ${scrolled ? "top-3" : "top-5"}`}
       onMouseLeave={scheduleClose}
     >
-      <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-3">
-        {/* Logo pill */}
-        <Link to="/" className={`nav-pill flex items-center gap-2 px-5 transition-all ${scrolled ? "h-12" : "h-14"}`}>
-          <span className="w-7 h-7 rounded-full bg-foreground text-background flex items-center justify-center text-xs font-bold">C</span>
+      <div className={`nav-pill mx-auto flex items-center justify-between gap-2 transition-all duration-300 ${scrolled ? "max-w-[920px] h-14 pl-4 pr-2" : "max-w-[1080px] h-16 pl-5 pr-2"}`}>
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2.5 group shrink-0">
+          <span className="relative w-8 h-8 rounded-lg bg-foreground text-background flex items-center justify-center text-[13px] font-bold overflow-hidden">
+            <span className="relative z-10">C</span>
+            <span className="absolute inset-0 bg-accent-blue translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+          </span>
           <span className="display font-bold tracking-tight text-[15px]">CodersDive</span>
+          <span className="hidden xl:inline text-[10px] font-medium text-muted-foreground border-l border-border pl-2.5 ml-1">est. 2019</span>
         </Link>
 
-        {/* Center nav pill */}
-        <nav className={`nav-pill hidden lg:flex items-center px-2 transition-all ${scrolled ? "h-12" : "h-14"}`}>
+        {/* Center nav */}
+        <nav className="hidden lg:flex items-center gap-0.5">
           <button className={navBtn} onMouseEnter={() => openMega("services")}>
-            Services <ChevronDown className="w-3.5 h-3.5" />
+            Services <ChevronDown className="w-3 h-3 opacity-60" />
           </button>
           <button className={navBtn} onMouseEnter={() => openMega("work")}>
-            Work <ChevronDown className="w-3.5 h-3.5" />
+            Work <ChevronDown className="w-3 h-3 opacity-60" />
           </button>
           <button className={navBtn} onMouseEnter={() => openMega("company")}>
-            Company <ChevronDown className="w-3.5 h-3.5" />
+            Company <ChevronDown className="w-3 h-3 opacity-60" />
           </button>
           <Link to="/blog" className={navBtn} onMouseEnter={() => openMega(null)}>Insights</Link>
         </nav>
 
-        {/* CTA pill */}
-        <div className="hidden lg:flex items-center gap-2">
+        {/* Right side */}
+        <div className="flex items-center gap-2">
+          <Link to="/contact" className="hidden md:inline text-[12px] font-medium text-muted-foreground hover:text-foreground transition-colors px-3">
+            Sign in
+          </Link>
           <Link
             to="/contact"
-            className={`nav-pill flex items-center gap-2 px-5 font-semibold text-sm bg-foreground text-background hover:scale-[1.03] transition-transform ${scrolled ? "h-12" : "h-14"}`}
-            style={{ background: "hsl(var(--foreground))", color: "hsl(var(--background))", border: "1px solid hsl(var(--foreground))" }}
+            className="hidden md:inline-flex items-center gap-1.5 h-11 px-5 rounded-full text-[13px] font-semibold transition-all hover:scale-[1.03] hover:shadow-lg"
+            style={{ background: "hsl(var(--foreground))", color: "hsl(var(--background))" }}
           >
             Book a Call
-            <ArrowUpRight className="w-4 h-4" />
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
+          <button
+            className="lg:hidden h-11 w-11 rounded-full flex items-center justify-center hover:bg-foreground/5 transition-colors"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label="Menu"
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
-
-        <button
-          className={`nav-pill lg:hidden flex items-center justify-center transition-all ${scrolled ? "h-12 w-12" : "h-14 w-14"}`}
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-label="Menu"
-        >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
       </div>
 
       {/* Mega menus (desktop) */}
       {mega && (
         <div
-          className="hidden lg:block max-w-[1200px] mx-auto mt-3 nav-pill rounded-3xl animate-mega-in"
+          className="hidden lg:block max-w-[1080px] mx-auto mt-3 nav-pill rounded-3xl animate-mega-in"
           onMouseEnter={() => openMega(mega)}
           onMouseLeave={scheduleClose}
         >
