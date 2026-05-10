@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CodersDive Design System — 2026 Modern Studio */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Brand */
+    --brand-ink: 220 60% 6%;        /* near-black navy */
+    --brand-deep: 218 55% 11%;      /* deep navy */
+    --brand-navy: 215 50% 16%;      /* card navy */
+    --brand-cyan: 188 95% 55%;      /* logo cyan */
+    --brand-cyan-soft: 188 95% 70%;
+    --brand-violet: 258 90% 66%;
+    --brand-paper: 210 25% 98%;
+    --brand-mist: 215 15% 70%;
+
+    --background: var(--brand-ink);
+    --foreground: var(--brand-paper);
+
+    --card: var(--brand-deep);
+    --card-foreground: var(--brand-paper);
+
+    --popover: var(--brand-deep);
+    --popover-foreground: var(--brand-paper);
+
+    --primary: var(--brand-cyan);
+    --primary-foreground: var(--brand-ink);
+
+    --secondary: var(--brand-navy);
+    --secondary-foreground: var(--brand-paper);
+
+    --muted: 215 30% 14%;
+    --muted-foreground: var(--brand-mist);
+
+    --accent: var(--brand-violet);
+    --accent-foreground: var(--brand-paper);
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: var(--brand-paper);
+
+    --border: 215 30% 18%;
+    --input: 215 30% 14%;
+    --ring: var(--brand-cyan);
+
+    --radius: 1rem;
+
+    --gradient-hero: radial-gradient(ellipse at top, hsl(218 55% 14% / 1), hsl(220 60% 5%) 70%);
+    --gradient-aurora: linear-gradient(135deg, hsl(var(--brand-cyan)), hsl(var(--brand-violet)));
+    --gradient-glass: linear-gradient(180deg, hsl(var(--brand-paper) / 0.06), hsl(var(--brand-paper) / 0.01));
+    --shadow-soft: 0 30px 80px -30px hsl(220 60% 0% / 0.6);
+    --shadow-glow: 0 0 60px hsl(var(--brand-cyan) / 0.25);
+  }
+
+  .light {
+    --background: 210 25% 98%;
+    --foreground: 220 60% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 60% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 60% 8%;
+    --primary: 188 90% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 20% 94%;
+    --secondary-foreground: 220 60% 8%;
+    --muted: 215 20% 94%;
+    --muted-foreground: 215 15% 40%;
+    --accent: 258 75% 55%;
+    --accent-foreground: 0 0% 100%;
+    --border: 215 20% 88%;
+    --input: 215 20% 92%;
+    --ring: 188 90% 40%;
+  }
+
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground font-inter antialiased; }
+
+  ::selection { background: hsl(var(--primary) / 0.3); color: hsl(var(--foreground)); }
+}
+
+@layer components {
+  .container-tight { @apply max-w-6xl mx-auto px-6; }
+
+  .display { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+
+  .text-gradient {
+    background: var(--gradient-aurora);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .card-elev {
+    @apply rounded-2xl border border-border bg-card/60 backdrop-blur-md p-6 transition-all duration-300;
+  }
+  .card-elev:hover { border-color: hsl(var(--primary) / 0.4); transform: translateY(-3px); }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold text-sm bg-primary text-primary-foreground;
+    @apply transition-all duration-300 hover:shadow-[0_0_40px_hsl(var(--primary)/0.5)] hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold text-sm border border-border bg-transparent text-foreground;
+    @apply transition-all duration-300 hover:bg-secondary hover:border-primary/40;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+
+  .dot-bg {
+    background-image: radial-gradient(hsl(var(--primary) / 0.18) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+  }
+
+  .dot-bg-dense {
+    background-image: radial-gradient(hsl(var(--foreground) / 0.12) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+
+  .depth-fade {
+    background: linear-gradient(180deg, transparent 0%, hsl(var(--background)) 100%);
+  }
+
+  .ocean-rays::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      conic-gradient(from 200deg at 50% -10%, transparent 0deg, hsl(var(--primary) / 0.10) 20deg, transparent 40deg),
+      conic-gradient(from 160deg at 50% -10%, transparent 0deg, hsl(var(--accent) / 0.08) 25deg, transparent 50deg);
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
+  .bubble {
+    position: absolute;
+    border-radius: 9999px;
+    background: radial-gradient(circle at 30% 30%, hsl(var(--primary) / 0.6), hsl(var(--primary) / 0.05) 60%, transparent 70%);
+    animation: rise linear infinite;
+    pointer-events: none;
+  }
+  @keyframes rise {
+    0% { transform: translateY(0) scale(0.6); opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { transform: translateY(-120vh) scale(1); opacity: 0; }
+  }
+
+  .ripple {
+    position: relative;
+  }
+  .ripple::after {
+    content: ""; position: absolute; inset: -2px;
+    border-radius: inherit;
+    border: 1px solid hsl(var(--primary) / 0.4);
+    animation: ripple 2.4s ease-out infinite;
+    pointer-events: none;
+  }
+  @keyframes ripple {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    animation: reveal 0.8s ease-out forwards;
+  }
+  @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+
+  .noise::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: 0.04; pointer-events: none; mix-blend-mode: overlay;
+  }
+
+  .marquee { animation: marquee 40s linear infinite; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .float-slow { animation: floaty 9s ease-in-out infinite; }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-24px) rotate(3deg); }
+  }
+
+  .glow-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+}
