@@ -20,7 +20,7 @@ const Layout = ({ children, title, description }: LayoutProps) => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Header />
-      <main className="pt-24">{children}</main>
+      <main>{children}</main>
       <Footer />
     </div>
   );

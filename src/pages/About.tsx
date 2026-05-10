@@ -2,16 +2,20 @@ import Layout from "@/components/Layout";
 import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 
+const PageHero = ({ eyebrow, title }: { eyebrow: string; title: React.ReactNode }) => (
+  <section className="bg-background pt-[120px] pb-12 border-b border-border">
+    <div className="container-tight">
+      <div className="label-eyebrow mb-6">{eyebrow}</div>
+      <h1 className="display text-[34px] md:text-[42px] lg:text-[68px] font-bold leading-[1.05] max-w-4xl">
+        {title}
+      </h1>
+    </div>
+  </section>
+);
+
 const AboutPage = () => (
-  <Layout title="About the studio" description="A small, senior product engineering studio with a serious obsession for shipping.">
-    <section className="relative pt-12 pb-4">
-      <div className="container-tight">
-        <div className="text-xs uppercase tracking-[0.3em] text-primary mb-4">The studio</div>
-        <h1 className="display text-5xl md:text-7xl font-semibold leading-[0.95] max-w-4xl">
-          We're a small team that takes shipping <span className="text-gradient">very seriously.</span>
-        </h1>
-      </div>
-    </section>
+  <Layout title="About" description="A small, senior product engineering team obsessed with shipping.">
+    <PageHero eyebrow="The Studio" title={<>A small team that takes shipping <span style={{ color: "hsl(var(--accent-blue))" }}>very seriously</span>.</>} />
     <About />
     <Testimonials />
   </Layout>

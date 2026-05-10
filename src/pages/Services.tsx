@@ -4,11 +4,11 @@ import TechStack from "@/components/TechStack";
 
 const ServicesPage = () => (
   <Layout title="Services" description="Product engineering, AI, mobile, cloud, design and growth — under one roof.">
-    <section className="relative pt-12 pb-4">
+    <section className="bg-background pt-[120px] pb-12 border-b border-border">
       <div className="container-tight">
-        <div className="text-xs uppercase tracking-[0.3em] text-primary mb-4">What we do</div>
-        <h1 className="display text-5xl md:text-7xl font-semibold leading-[0.95] max-w-4xl">
-          Every layer of your product, <span className="text-gradient">handled.</span>
+        <div className="label-eyebrow mb-6">What we do</div>
+        <h1 className="display text-[34px] md:text-[42px] lg:text-[68px] font-bold leading-[1.05] max-w-4xl">
+          Every layer of your product, <span style={{ color: "hsl(var(--accent-blue))" }}>handled</span>.
         </h1>
       </div>
     </section>
