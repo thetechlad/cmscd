@@ -24,7 +24,7 @@ const ProjectsGallery = () => (
         <div>
           <div className="label-eyebrow mb-6">Our Work</div>
           <h2 className="display text-[28px] md:text-[40px] lg:text-[56px] font-bold leading-[1.05] max-w-3xl">
-            We design <span style={{ color: "hsl(var(--accent-blue))" }}>SaaS products</span> for founders, creators and visionaries.
+            We design <span className="squiggle" style={{ color: "hsl(var(--accent-blue))" }}>SaaS products</span> for founders, creators and visionaries.
           </h2>
         </div>
         <Link to="/portfolio" className="link-blue shrink-0">View all <ArrowUpRight className="w-4 h-4" /></Link>
