@@ -3,11 +3,11 @@ import Testimonials from "@/components/Testimonials";
 
 const TestimonialsPage = () => (
   <Layout title="Testimonials" description="What founders and product leaders say about working with CodersDive.">
-    <section className="relative pt-12 pb-4">
+    <section className="bg-background pt-[120px] pb-12 border-b border-border">
       <div className="container-tight">
-        <div className="text-xs uppercase tracking-[0.3em] text-primary mb-4">Testimonials</div>
-        <h1 className="display text-5xl md:text-7xl font-semibold leading-[0.95] max-w-4xl">
-          Operators we've helped <span className="text-gradient">move faster.</span>
+        <div className="label-eyebrow mb-6">Testimonials</div>
+        <h1 className="display text-[34px] md:text-[42px] lg:text-[68px] font-bold leading-[1.05] max-w-4xl">
+          What our clients <span style={{ color: "hsl(var(--accent-blue))" }}>actually say</span>.
         </h1>
       </div>
     </section>
