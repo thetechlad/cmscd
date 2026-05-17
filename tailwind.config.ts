@@ -13,10 +13,11 @@ export default {
     container: { center: true, padding: '2rem', screens: { '2xl': '1400px' } },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
-        sora: ['Sora', 'sans-serif'],
-        display: ['Sora', 'sans-serif'],
+        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+        body: ['DM Sans', 'sans-serif'],
+        syne: ['Syne', 'sans-serif'],
+        display: ['Syne', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       colors: {
         border: 'hsl(var(--border))',

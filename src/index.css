@@ -3,13 +3,12 @@
 @tailwind utilities;
 
 /* CodersDive — Premium Light Mode Design System */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;            /* #FFFFFF */
-    --background-soft: 210 17% 98%;     /* #F8F9FA */
-    --foreground: 0 0% 4%;              /* #0A0A0A */
+    --background: 45 24% 96%;           /* #F7F6F2 warm off-white */
+    --background-soft: 0 0% 100%;       /* #FFFFFF surface */
+    --foreground: 0 0% 5%;              /* #0D0D0D ink */
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 4%;
@@ -17,29 +16,29 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 4%;
 
-    --primary: 0 0% 4%;                 /* #0A0A0A */
+    --primary: 0 0% 5%;                 /* #0D0D0D */
     --primary-foreground: 0 0% 100%;
 
-    --accent-blue: 221 83% 53%;         /* #2563EB */
-    --accent-blue-soft: 221 100% 97%;   /* #F0F4FF */
-    --accent-blue-tint: 213 97% 87%;    /* #DBEAFE */
+    --accent-blue: 221 100% 50%;        /* #0057FF cobalt */
+    --accent-blue-soft: 222 95% 95%;    /* #E8EFFE */
+    --accent-blue-tint: 221 100% 88%;   /* light cobalt */
 
     --secondary: 210 17% 98%;
     --secondary-foreground: 0 0% 4%;
 
     --muted: 210 17% 96%;
-    --muted-foreground: 220 9% 46%;     /* #6B7280 */
-    --muted-soft: 220 9% 65%;           /* #9CA3AF */
+    --muted-foreground: 0 0% 42%;       /* #6B6B6B */
+    --muted-soft: 0 0% 69%;             /* #B0B0B0 */
 
-    --accent: 221 83% 53%;
+    --accent: 221 100% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;              /* #E5E7EB */
-    --input: 220 13% 91%;
-    --ring: 221 83% 53%;
+    --border: 48 11% 87%;               /* #E2E2DC warm border */
+    --input: 48 11% 87%;
+    --ring: 221 100% 50%;
 
     --radius: 0.75rem;                  /* 12px */
 
@@ -63,7 +62,7 @@
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'DM Sans', system-ui, sans-serif;
     font-size: 16px;
     line-height: 1.7;
   }
@@ -71,7 +70,7 @@
   ::selection { background: hsl(var(--accent-blue) / 0.18); color: hsl(var(--foreground)); }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Sora', system-ui, sans-serif;
+    font-family: 'Syne', system-ui, sans-serif;
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.02em;
@@ -81,7 +80,7 @@
 
 @layer components {
   .container-tight { @apply max-w-[1200px] mx-auto px-6; }
-  .display { font-family: 'Sora', system-ui, sans-serif; letter-spacing: -0.025em; font-weight: 700; }
+  .display { font-family: 'Syne', system-ui, sans-serif; letter-spacing: -0.025em; font-weight: 700; }
 
   .label-eyebrow {
     @apply inline-flex items-center text-[11px] font-medium uppercase;
@@ -305,7 +304,7 @@
     background: hsl(var(--accent-blue));
     color: white;
     display: inline-flex; align-items: center; justify-content: center;
-    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 11px;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px;
     letter-spacing: 0.08em; text-align: center;
     transform: rotate(-12deg);
     box-shadow: 0 12px 30px hsl(var(--accent-blue) / 0.35);

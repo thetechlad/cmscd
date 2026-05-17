@@ -62,6 +62,7 @@ const Header = () => {
           <button className={navBtn} onMouseEnter={() => openMega("company")}>
             Company <ChevronDown className="w-3 h-3 opacity-60" />
           </button>
+          <a href="/#pricing" className={navBtn} onMouseEnter={() => openMega(null)}>Pricing</a>
           <Link to="/blog" className={navBtn} onMouseEnter={() => openMega(null)}>Insights</Link>
         </nav>
 
