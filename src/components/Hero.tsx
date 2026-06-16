@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Star, Zap } from "lucide-react";
-import macbook from "@/assets/mockup-macbook.jpg";
+import macbook from "@/assets/mockup-macbook.png";
 import iphone from "@/assets/mockup-iphone.png";
 
 const headlineWords = ["We", "ship", "the", "software", "that"];
@@ -57,29 +57,35 @@ const Hero = () => {
           </div>
 
           {/* Mockup composition */}
-          <div className="lg:col-span-5 relative hidden md:block h-[600px]">
+          <div className="lg:col-span-5 relative hidden md:block w-full aspect-[4/3] lg:aspect-square">
             {/* Glow halo behind device */}
-            <div className="absolute inset-8 rounded-[40px] pointer-events-none"
-                 style={{ background: "radial-gradient(circle at 50% 40%, hsl(var(--accent-blue) / 0.35), transparent 65%)", filter: "blur(40px)" }} />
+            <div
+              className="absolute inset-4 sm:inset-8 rounded-[40px] pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 40%, hsl(var(--accent-blue) / 0.35), transparent 65%)",
+                filter: "blur(40px)",
+              }}
+            />
 
             <div className="absolute inset-0 flex items-center justify-center z-10">
-              <div className="float-slow relative w-full glow-ring rounded-2xl bg-white">
+              <div className="float-slow relative w-full max-w-[640px]">
                 <img
                   src={macbook}
                   alt="CodersDive product on MacBook"
                   width={1280}
                   height={960}
-                  className="w-full rounded-2xl"
+                  className="w-full h-auto drop-shadow-[0_40px_60px_rgba(10,10,10,0.25)]"
                 />
               </div>
             </div>
-            <div className="absolute -bottom-10 -right-4 lg:-right-2 w-[48%] float-med z-20">
+            <div className="absolute bottom-0 right-0 lg:-right-2 w-[36%] sm:w-[40%] lg:w-[44%] float-med z-20">
               <img
                 src={iphone}
                 alt="CodersDive product on iPhone"
                 width={800}
                 height={1024}
-                className="w-full drop-shadow-[0_40px_60px_rgba(10,10,10,0.28)]"
+                className="w-full h-auto drop-shadow-[0_40px_60px_rgba(10,10,10,0.28)]"
               />
             </div>
           </div>
