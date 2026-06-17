@@ -21,7 +21,7 @@ const Services = () => (
           Every layer of your product, handled.
         </h2>
         <p className="text-muted-foreground leading-[1.7] max-w-xl">
-          From the first line of code to the infrastructure that keeps it running — we do it all, under one roof.
+          From the first line of code to the infrastructure that keeps it running. We do it all, under one roof.
         </p>
       </div>
 

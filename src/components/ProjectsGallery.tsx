@@ -1,21 +1,17 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
-import helio from "@/assets/proj-helio.jpg";
-import northwind from "@/assets/proj-northwind.jpg";
-import loop from "@/assets/proj-loop.jpg";
-import atlas from "@/assets/proj-atlas.jpg";
-import skalable from "@/assets/proj-skalable.jpg";
-import commerce from "@/assets/proj-commerce.jpg";
+
+const shot = (url: string) =>
+  `https://image.thum.io/get/width/1200/crop/900/noanimate/${url}`;
 
 const projects = [
-  { img: helio, name: "Helio", desc: "AI Sales Workspace", tags: ["Next.js", "OpenAI", "Postgres"] },
-  { img: skalable, name: "Skalable", desc: "Web3 Wallet Platform", tags: ["React", "Solidity", "Web3.js"] },
-  { img: northwind, name: "Northwind Capital", desc: "Fintech Trading Dashboard", tags: ["TypeScript", "WebSocket", "D3"] },
-  { img: loop, name: "Loop Health", desc: "Healthcare SaaS", tags: ["React", "Node", "HIPAA"] },
-  { img: atlas, name: "Atlas Logistics", desc: "Operations Platform", tags: ["Next.js", "GraphQL", "Mapbox"] },
-  { img: commerce, name: "Merchly", desc: "E-commerce Admin", tags: ["Remix", "Stripe", "Shopify"] },
-];
+  { url: "https://nooktravel.space",   name: "NookTravel",      desc: "Travel discovery & itinerary platform", tags: ["Next.js", "Mapbox", "Postgres"] },
+  { url: "https://suuper.cc",          name: "Suuper",          desc: "Consumer super-app experience",         tags: ["React Native", "Node", "Realtime"] },
+  { url: "https://pluraldynamics.com", name: "Plural Dynamics", desc: "Enterprise systems engineering",        tags: ["TypeScript", "AWS", "GraphQL"] },
+  { url: "https://modisoft.com",       name: "Modisoft",        desc: "Retail & restaurant POS platform",      tags: ["React", "Node", "Stripe"] },
+  { url: "https://kidan.cc",           name: "Kidan",           desc: "Web3 product studio",                   tags: ["Solidity", "Next.js", "Wagmi"] },
+].map((p) => ({ ...p, img: shot(p.url) }));
 
 const ProjectsGallery = () => (
   <Reveal as="section" className="bg-background section">
@@ -32,7 +28,7 @@ const ProjectsGallery = () => (
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {projects.map((p) => (
-          <Link to="/portfolio" key={p.name} className="gallery-tile group reveal-child block">
+          <a href={p.url} target="_blank" rel="noreferrer" key={p.name} className="gallery-tile group reveal-child block hover:-translate-y-1 transition-transform duration-500">
             <img src={p.img} alt={p.name} loading="lazy" />
             <div className="gallery-overlay">
               <div className="gallery-meta">
@@ -46,7 +42,7 @@ const ProjectsGallery = () => (
                 <div className="text-sm text-white/70 mt-1">{p.desc}</div>
               </div>
             </div>
-          </Link>
+          </a>
         ))}
       </div>
     </div>

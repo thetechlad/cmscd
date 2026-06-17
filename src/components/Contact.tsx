@@ -1,15 +1,41 @@
 import { useState } from "react";
-import { ArrowRight, Check, Calendar } from "lucide-react";
+import { ArrowRight, Check, Calendar, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+
+const CAL_URL = "https://cal.com/tayyabirfan/15min";
+const EMAIL = "hello@codersdive.com";
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
 
 const Contact = () => {
   const [data, setData] = useState({ name: "", email: "", company: "", message: "", timeline: "ASAP" });
+  const [submitting, setSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Message received", description: "We'll be in touch within 4 hours." });
-    setData({ name: "", email: "", company: "", message: "", timeline: "ASAP" });
+    setSubmitting(true);
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `New project inquiry from ${data.name}`,
+          _template: "table",
+          ...data,
+        }),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      toast({ title: "Message sent", description: "We'll be in touch within 4 hours." });
+      setData({ name: "", email: "", company: "", message: "", timeline: "ASAP" });
+    } catch {
+      toast({
+        title: "Couldn't send right now",
+        description: `Email us directly at ${EMAIL} and we'll reply fast.`,
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
@@ -22,7 +48,7 @@ const Contact = () => {
     <section className="bg-[#0A0A0A] text-white section">
       <div className="container-tight">
         <div className="max-w-3xl mb-14">
-          <div className="text-[11px] uppercase tracking-[0.15em] text-[hsl(var(--accent-blue))] mb-5 font-medium">— Let's Dive In —</div>
+          <div className="text-[11px] uppercase tracking-[0.15em] text-[hsl(var(--accent-blue))] mb-5 font-medium">Let's Dive In</div>
           <h2 className="display text-[28px] md:text-[40px] lg:text-[52px] font-bold leading-[1.1] text-white mb-5">
             Your idea deserves more than <span style={{ color: "hsl(var(--accent-blue))" }}>average execution</span>.
           </h2>
@@ -65,9 +91,10 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="w-full h-[52px] rounded-lg bg-white text-[#0A0A0A] font-semibold flex items-center justify-center gap-2 hover:scale-[1.01] transition-transform"
+              disabled={submitting}
+              className="w-full h-[52px] rounded-lg bg-white text-[#0A0A0A] font-semibold flex items-center justify-center gap-2 hover:scale-[1.01] transition-transform disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              Let's Build Together <ArrowRight className="w-4 h-4" />
+              {submitting ? <><Loader2 className="w-4 h-4 animate-spin" /> Sending…</> : <>Let's Build Together <ArrowRight className="w-4 h-4" /></>}
             </button>
           </form>
 
@@ -75,12 +102,17 @@ const Contact = () => {
             <div>
               <div className="text-xs uppercase tracking-[0.1em] text-white/50 mb-3">Or schedule directly:</div>
               <a
-                href="#"
-                className="inline-flex items-center gap-2 h-12 px-5 rounded-lg border border-white/40 text-white hover:bg-white hover:text-[#0A0A0A] transition-colors text-sm font-medium"
+                href={CAL_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 h-12 px-5 rounded-lg border border-white/40 text-white hover:bg-white hover:text-[#0A0A0A] hover:scale-[1.02] transition-all text-sm font-medium"
               >
                 <Calendar className="w-4 h-4" />
                 Schedule a 30-min call
               </a>
+              <div className="mt-3 text-xs text-white/50">
+                Or email <a href={`mailto:${EMAIL}`} className="text-white/80 hover:text-[hsl(var(--accent-blue))] underline-offset-2 hover:underline">{EMAIL}</a>
+              </div>
             </div>
 
             <ul className="space-y-3">

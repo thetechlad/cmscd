@@ -2,9 +2,9 @@ import Reveal from "./Reveal";
 
 const steps = [
   { n: "01", title: "Surface", body: "You bring the idea. We listen hard, ask harder questions, and map the full picture. No templates. No guesswork." },
-  { n: "02", title: "Blueprint", body: "Architecture, tech stack, timelines, and design direction — all decided together. You approve before we build." },
+  { n: "02", title: "Blueprint", body: "Architecture, tech stack, timelines, and design direction, all decided together. You approve before we build." },
   { n: "03", title: "Deep Build", body: "Senior engineers and designers building in focused sprints. Weekly demos keep you in the loop without slowing us down." },
-  { n: "04", title: "Launch & Scale", body: "We don't disappear after deployment. Monitoring, support, and iteration — we're your long-term engineering partner.", highlight: true },
+  { n: "04", title: "Launch & Scale", body: "We don't disappear after deployment. Monitoring, support, and iteration. We're your long-term engineering partner.", highlight: true },
 ];
 
 const WorkProcess = () => (

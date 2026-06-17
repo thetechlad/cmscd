@@ -71,14 +71,16 @@ const Header = () => {
           <Link to="/contact" className="hidden md:inline text-[12px] font-medium text-muted-foreground hover:text-foreground transition-colors px-3">
             Sign in
           </Link>
-          <Link
-            to="/contact"
+          <a
+            href="https://cal.com/tayyabirfan/15min"
+            target="_blank"
+            rel="noreferrer"
             className="hidden md:inline-flex items-center gap-1.5 h-11 px-5 rounded-full text-[13px] font-semibold transition-all hover:scale-[1.03] hover:shadow-lg"
             style={{ background: "hsl(var(--foreground))", color: "hsl(var(--background))" }}
           >
             Book a Call
             <ArrowUpRight className="w-3.5 h-3.5" />
-          </Link>
+          </a>
           <button
             className="lg:hidden h-11 w-11 rounded-full flex items-center justify-center hover:bg-foreground/5 transition-colors"
             onClick={() => setMobileOpen((v) => !v)}
@@ -143,7 +145,7 @@ const ServicesMega = () => {
       <MegaColumn title="Design & Delivery" items={col3} />
       <div className="col-span-3 rounded-xl p-6" style={{ background: "hsl(var(--accent-blue-soft))" }}>
         <div className="label-eyebrow mb-4">Featured Work</div>
-        <div className="display font-bold text-base mb-2 leading-snug">Northwind Capital — AI Trading Dashboard</div>
+        <div className="display font-bold text-base mb-2 leading-snug">NookTravel · Travel discovery platform</div>
         <p className="text-sm text-muted-foreground mb-5">From concept to live in 6 weeks.</p>
         <Link to="/portfolio" className="link-blue">Read Case Study <ArrowUpRight className="w-3.5 h-3.5" /></Link>
       </div>
@@ -205,8 +207,8 @@ const WorkMega = () => (
     </div>
     <div className="col-span-4 rounded-xl p-6" style={{ background: "hsl(var(--accent-blue-soft))" }}>
       <div className="label-eyebrow mb-4">Featured</div>
-      <div className="display font-bold text-base mb-2">Loop Health — Healthcare SaaS</div>
-      <p className="text-sm text-muted-foreground mb-5">200+ enterprise teams. Built from scratch in 12 weeks.</p>
+      <div className="display font-bold text-base mb-2">Modisoft · Retail SaaS platform</div>
+      <p className="text-sm text-muted-foreground mb-5">Used by thousands of operators. Built from scratch.</p>
       <Link to="/portfolio" className="link-blue">View case study <ArrowUpRight className="w-3.5 h-3.5" /></Link>
     </div>
   </div>
@@ -221,7 +223,7 @@ const CompanyMega = () => (
         {[
           ["About Us", "/about"],
           ["How We Work", "/process"],
-          ["Careers — We're Hiring", "/about"],
+          ["Careers (We're Hiring)", "/about"],
           ["Press & Recognition", "/about"],
         ].map(([n, p]) => (
           <Link key={n} to={p} className="p-3 -mx-3 rounded-lg hover:bg-background-soft transition-colors">
@@ -284,6 +286,7 @@ const MobileNav = ({ sub, setSub }: { sub: string | null; setSub: (s: string | n
         </div>
       ))}
       <Link to="/blog" className="block py-4 font-semibold">Insights</Link>
+      <a href="https://cal.com/tayyabirfan/15min" target="_blank" rel="noreferrer" className="block py-4 font-semibold">Book a Call</a>
     </div>
   );
 };

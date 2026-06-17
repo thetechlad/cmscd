@@ -15,7 +15,7 @@ const About = () => (
         <div className="reveal-child">
           <div className="label-eyebrow mb-6">Our Philosophy</div>
           <h2 className="display text-[28px] md:text-[36px] lg:text-[48px] font-bold leading-[1.1] mb-8">
-            A small team. <span style={{ fontStyle: "italic", color: "hsl(var(--accent-blue))" }}>An unfair</span> output.
+            A small team with <span style={{ fontStyle: "italic", color: "hsl(var(--accent-blue))" }}>an unfair</span> output.
           </h2>
           <p className="text-muted-foreground leading-[1.7] mb-5">
             We're not a 500-person chop shop that assigns your project to a junior in month three. CodersDive is a curated crew of senior engineers and product designers who have shipped real products for real markets.
