@@ -105,7 +105,7 @@ const Pricing = () => (
           The right <span className="squiggle" style={{ color: "hsl(var(--accent-blue))" }}>plans</span> for your ideas.
         </h2>
         <p className="text-muted-foreground italic">
-          Get the quality and speed of big agencies — at <strong className="text-foreground not-italic">honest prices</strong>.
+          Get the quality and speed of big agencies, at <strong className="text-foreground not-italic">honest prices</strong>.
         </p>
       </div>
 

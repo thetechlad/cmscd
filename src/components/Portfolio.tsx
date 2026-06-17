@@ -1,12 +1,15 @@
-import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
 
+const shot = (url: string) =>
+  `https://image.thum.io/get/width/1400/crop/900/noanimate/${url}`;
+
 const projects = [
-  { name: "Helio", tag: "AI Sales Workspace", body: "We rebuilt their entire prospecting pipeline with AI. Result: 3× pipeline growth in 60 days.", bg: "#EFF6FF", text: "#1E3A8A" },
-  { name: "Northwind Capital", tag: "Fintech Dashboard", body: "Real-time trading data, custom charting, role-based access — in 6 weeks flat.", bg: "#F0FDF4", text: "#14532D" },
-  { name: "Loop Health", tag: "Healthcare SaaS", body: "A multi-tenant health benefits platform used by 200+ enterprise teams. Built from scratch.", bg: "#FFF7ED", text: "#7C2D12" },
-  { name: "Atlas Logistics", tag: "Operations Platform", body: "End-to-end logistics management. Reduced manual ops by 70%. Scaled to 5 countries.", bg: "#F5F3FF", text: "#4C1D95" },
+  { name: "NookTravel",      url: "https://nooktravel.space",   tag: "Travel Platform",       body: "A discovery and itinerary product for modern travellers — search, plan and book in one cohesive flow.", bg: "#EFF6FF", text: "#1E3A8A" },
+  { name: "Suuper",          url: "https://suuper.cc",          tag: "Consumer Super-App",    body: "A cross-category consumer experience engineered for speed, with realtime state across web and mobile.", bg: "#F0FDF4", text: "#14532D" },
+  { name: "Plural Dynamics", url: "https://pluraldynamics.com", tag: "Enterprise Engineering",body: "End-to-end systems engineering for an enterprise platform: services, dashboards, integrations.", bg: "#FFF7ED", text: "#7C2D12" },
+  { name: "Modisoft",        url: "https://modisoft.com",       tag: "Retail SaaS",            body: "POS, inventory and back-office tooling for thousands of retail and restaurant operators.", bg: "#F5F3FF", text: "#4C1D95" },
+  { name: "Kidan",           url: "https://kidan.cc",           tag: "Web3 Studio",            body: "A Web3 product studio brand and platform — smart contracts, dashboards, and a polished marketing surface.", bg: "#FEF2F2", text: "#7F1D1D" },
 ];
 
 const Portfolio = () => (
@@ -19,28 +22,39 @@ const Portfolio = () => (
             Things we've built.
           </h2>
         </div>
-        <Link to="/portfolio" className="link-blue">See all case studies <ArrowRight className="w-4 h-4" /></Link>
+        <a href="https://cal.com/tayyabirfan/15min" target="_blank" rel="noreferrer" className="link-blue">Start your project <ArrowUpRight className="w-4 h-4" /></a>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
         {projects.map((p) => (
-          <article
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noreferrer"
             key={p.name}
-            className="reveal-child card-light overflow-hidden flex flex-col"
+            className="reveal-child card-light overflow-hidden flex flex-col group transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_25px_60px_-20px_rgba(0,0,0,0.25)]"
             style={{ minHeight: 400 }}
           >
             <div
-              className="flex-1 flex flex-col justify-end p-8"
-              style={{ background: p.bg, color: p.text, minHeight: 200 }}
+              className="relative flex-1 overflow-hidden"
+              style={{ background: p.bg, minHeight: 220 }}
             >
-              <div className="text-[11px] uppercase tracking-[0.15em] font-medium opacity-70 mb-3">{p.tag}</div>
-              <div className="display text-3xl md:text-4xl font-bold tracking-tight">{p.name}</div>
+              <img
+                src={shot(p.url)}
+                alt={p.name}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700"
+              />
+              <div className="absolute top-5 left-5">
+                <span className="text-[11px] uppercase tracking-[0.15em] font-semibold px-3 py-1.5 rounded-full bg-white/85 backdrop-blur text-foreground">{p.tag}</span>
+              </div>
             </div>
             <div className="p-7 bg-white">
+              <div className="display text-2xl md:text-3xl font-bold tracking-tight mb-2 group-hover:text-accent-blue transition-colors">{p.name}</div>
               <p className="text-sm text-muted-foreground leading-[1.7] mb-5">{p.body}</p>
-              <Link to="/portfolio" className="link-blue">View Project <ArrowRight className="w-4 h-4" /></Link>
+              <span className="link-blue">Visit live site <ArrowUpRight className="w-4 h-4" /></span>
             </div>
-          </article>
+          </a>
         ))}
       </div>
     </div>

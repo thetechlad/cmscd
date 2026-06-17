@@ -40,7 +40,7 @@ const Hero = () => {
             </h1>
 
             <p className="text-base md:text-[19px] text-muted-foreground max-w-[540px] leading-[1.6] mb-7">
-              CodersDive is a premium software studio for founders, executives and operators who want industry-leading products — engineered fast, without compromise.
+              CodersDive is a premium software studio for founders, executives and operators who want industry-leading products, engineered fast, without compromise.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
