@@ -93,7 +93,7 @@ const PricingCard = ({
 );
 
 const Pricing = () => (
-  <Reveal as="section" className="relative bg-background-soft section overflow-hidden grain">
+  <Reveal as="section" id="pricing" className="relative bg-background-soft section overflow-hidden grain">
     <div className="absolute inset-0 dot-grid-strong opacity-60 pointer-events-none" />
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
          style={{ background: "radial-gradient(circle, hsl(var(--accent-blue-tint) / 0.5) 0%, transparent 70%)" }} />
