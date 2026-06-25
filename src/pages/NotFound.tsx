@@ -1,32 +1,28 @@
-import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import Layout from "@/components/Layout";
+import { Link } from "react-router-dom";
+import SeoHead from "@/components/site/SeoHead";
 
-const NotFound = () => {
-  const location = useLocation();
-  useEffect(() => {
-    console.error("404:", location.pathname);
-  }, [location.pathname]);
+const LINKS = [
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "Insights", href: "/insights" },
+  { label: "Start a project", href: "/start-a-project" },
+];
 
+export default function NotFound() {
   return (
-    <Layout title="Page Not Found" description="The page you're looking for doesn't exist.">
-      <section className="bg-background section pt-[160px]">
-        <div className="container-tight text-center max-w-2xl mx-auto">
-          <div className="display text-7xl md:text-8xl font-bold mb-6" style={{ color: "hsl(var(--accent-blue))" }}>
-            404
-          </div>
-          <h1 className="display text-3xl md:text-4xl font-bold mb-5">Page not found</h1>
-          <p className="text-muted-foreground leading-[1.7] mb-8">
-            The page you're looking for doesn't exist. It might have moved, or the link is wrong.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/" className="btn-primary">Go home</Link>
-            <Link to="/contact" className="btn-secondary">Contact us</Link>
+    <>
+      <SeoHead title="Page not found | CodersDive" description="This route did not ship. Find your way back to Services, Work, Insights, or Start a project." path="/404" noindex />
+      <section className="container-cd pt-24 md:pt-32 pb-24 relative">
+        <div className="absolute inset-0 grid-hairline opacity-50" aria-hidden />
+        <div className="relative">
+          <p className="mono text-aqua">/ 404</p>
+          <h1 className="display-1 mt-6 max-w-3xl">This route did not ship.</h1>
+          <p className="mt-6 text-lg text-foreground/70 max-w-xl">The page you tried to reach is not here. It might have moved, or it might never have existed.</p>
+          <div className="mt-10 grid sm:grid-cols-2 gap-3 max-w-xl">
+            {LINKS.map((l) => <Link key={l.href} to={l.href} className="card-cd p-5 hover:border-aqua/50"><span className="font-serif text-xl">{l.label} →</span></Link>)}
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
-};
-
-export default NotFound;
+}
