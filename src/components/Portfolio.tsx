@@ -1,16 +1,19 @@
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
-
-const shot = (url: string) =>
-  `https://image.thum.io/get/width/1400/crop/900/noanimate/${url}`;
+import imgNook from "@/assets/proj-nooktravel.jpg";
+import imgSuuper from "@/assets/proj-suuper.jpg";
+import imgPlural from "@/assets/proj-plural.jpg";
+import imgModisoft from "@/assets/proj-modisoft.jpg";
+import imgKidan from "@/assets/proj-kidan.jpg";
 
 const projects = [
-  { name: "NookTravel",      url: "https://nooktravel.space",   tag: "Travel Platform",       body: "A discovery and itinerary product for modern travellers — search, plan and book in one cohesive flow.", bg: "#EFF6FF", text: "#1E3A8A" },
-  { name: "Suuper",          url: "https://suuper.cc",          tag: "Consumer Super-App",    body: "A cross-category consumer experience engineered for speed, with realtime state across web and mobile.", bg: "#F0FDF4", text: "#14532D" },
-  { name: "Plural Dynamics", url: "https://pluraldynamics.com", tag: "Enterprise Engineering",body: "End-to-end systems engineering for an enterprise platform: services, dashboards, integrations.", bg: "#FFF7ED", text: "#7C2D12" },
-  { name: "Modisoft",        url: "https://modisoft.com",       tag: "Retail SaaS",            body: "POS, inventory and back-office tooling for thousands of retail and restaurant operators.", bg: "#F5F3FF", text: "#4C1D95" },
-  { name: "Kidan",           url: "https://kidan.cc",           tag: "Web3 Studio",            body: "A Web3 product studio brand and platform — smart contracts, dashboards, and a polished marketing surface.", bg: "#FEF2F2", text: "#7F1D1D" },
+  { name: "NookTravel",      url: "https://nooktravel.space",   img: imgNook,     tag: "Travel Platform",       body: "A discovery and itinerary product for modern travellers — search, plan and book in one cohesive flow.", bg: "#EFF6FF", text: "#1E3A8A" },
+  { name: "Suuper",          url: "https://suuper.cc",          img: imgSuuper,   tag: "Consumer Super-App",    body: "A cross-category consumer experience engineered for speed, with realtime state across web and mobile.", bg: "#F0FDF4", text: "#14532D" },
+  { name: "Plural Dynamics", url: "https://pluraldynamics.com", img: imgPlural,   tag: "Enterprise Engineering",body: "End-to-end systems engineering for an enterprise platform: services, dashboards, integrations.", bg: "#FFF7ED", text: "#7C2D12" },
+  { name: "Modisoft",        url: "https://modisoft.com",       img: imgModisoft, tag: "Retail SaaS",            body: "POS, inventory and back-office tooling for thousands of retail and restaurant operators.", bg: "#F5F3FF", text: "#4C1D95" },
+  { name: "Kidan",           url: "https://kidan.cc",           img: imgKidan,    tag: "Web3 Studio",            body: "A Web3 product studio brand and platform — smart contracts, dashboards, and a polished marketing surface.", bg: "#FEF2F2", text: "#7F1D1D" },
 ];
+
 
 const Portfolio = () => (
   <Reveal as="section" className="bg-background section">
