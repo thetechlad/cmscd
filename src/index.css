@@ -323,14 +323,12 @@
 
   /* Subtle ticker band */
   .ticker-band {
-    background: hsl(var(--foreground));
-    color: hsl(var(--background));
+    background: hsl(var(--accent-blue));
+    color: white;
     overflow: hidden;
     transform: rotate(-2deg);
     margin: 0 -40px;
     padding: 18px 0;
-    border-top: 1px solid hsl(var(--foreground));
-    border-bottom: 1px solid hsl(var(--foreground));
   }
   .ticker-track {
     display: flex; gap: 48px; width: max-content;
