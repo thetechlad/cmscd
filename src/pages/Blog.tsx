@@ -1,12 +1,14 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { blogPosts, blogCategories } from "@/data/blogData";
 
 const Blog = () => {
-  const [active, setActive] = useState<string>("all");
+  const [searchParams] = useSearchParams();
+  const initial = searchParams.get("category") || "all";
+  const [active, setActive] = useState<string>(initial);
   const posts = active === "all" ? blogPosts : blogPosts.filter((p) => p.categorySlug === active);
 
   return (
