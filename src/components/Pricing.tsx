@@ -30,10 +30,15 @@ const PricingCard = ({
 }) => (
   <div
     className={`reveal-child tilt-card border-glow relative overflow-hidden rounded-2xl p-8 md:p-10 ${
-      popular ? "bg-foreground text-background" : "bg-white border border-border"
+      popular ? "text-white" : "bg-white border border-border"
     }`}
-    style={popular ? { boxShadow: "0 30px 80px -20px rgba(37, 99, 235, 0.45)" } : { boxShadow: "0 10px 40px -20px rgba(0,0,0,0.1)" }}
+    style={
+      popular
+        ? { background: "linear-gradient(135deg, hsl(var(--accent-blue)) 0%, hsl(221 100% 42%) 100%)", boxShadow: "0 30px 80px -20px rgba(37, 99, 235, 0.45)" }
+        : { boxShadow: "0 10px 40px -20px rgba(0,0,0,0.1)" }
+    }
   >
+
     {popular && <div className="pricing-tag">MOST POPULAR</div>}
 
     <div className="flex items-center gap-3 mb-6">
@@ -41,10 +46,11 @@ const PricingCard = ({
       <span
         className="text-[10px] font-bold px-2.5 py-1 rounded-full"
         style={{
-          background: popular ? "hsl(var(--accent-blue))" : "hsl(var(--accent-blue-soft))",
+          background: popular ? "rgba(255,255,255,0.2)" : "hsl(var(--accent-blue-soft))",
           color: popular ? "white" : "hsl(var(--accent-blue))",
         }}
       >
+
         {badge}
       </span>
     </div>
@@ -67,10 +73,11 @@ const PricingCard = ({
           <span
             className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
             style={{
-              background: popular ? "hsl(var(--accent-blue))" : "hsl(var(--accent-blue-soft))",
+              background: popular ? "rgba(255,255,255,0.2)" : "hsl(var(--accent-blue-soft))",
               color: popular ? "white" : "hsl(var(--accent-blue))",
             }}
           >
+
             <Check className="w-3 h-3" strokeWidth={3} />
           </span>
           <span className={popular ? "text-background/90 font-medium" : "text-foreground"}>{f}</span>
@@ -83,9 +90,10 @@ const PricingCard = ({
       className="flex items-center justify-center w-full h-14 rounded-full font-bold text-sm transition-transform hover:scale-[1.02]"
       style={
         popular
-          ? { background: "hsl(var(--accent-blue))", color: "white" }
+          ? { background: "white", color: "hsl(var(--accent-blue))" }
           : { background: "hsl(var(--foreground))", color: "hsl(var(--background))" }
       }
+
     >
       {cta}
     </Link>

@@ -1,15 +1,18 @@
 import Reveal from "./Reveal";
-
-const shot = (url: string) =>
-  `https://image.thum.io/get/width/1200/crop/800/noanimate/${url}`;
+import imgNook from "@/assets/proj-nooktravel.jpg";
+import imgSuuper from "@/assets/proj-suuper.jpg";
+import imgPlural from "@/assets/proj-plural.jpg";
+import imgModisoft from "@/assets/proj-modisoft.jpg";
+import imgKidan from "@/assets/proj-kidan.jpg";
 
 const row1 = [
-  { url: "https://nooktravel.space",   name: "NookTravel",       tag: "Travel" },
-  { url: "https://suuper.cc",          name: "Suuper",           tag: "Consumer" },
-  { url: "https://pluraldynamics.com", name: "Plural Dynamics",  tag: "Enterprise" },
-  { url: "https://modisoft.com",       name: "Modisoft",         tag: "Retail SaaS" },
-  { url: "https://kidan.cc",           name: "Kidan",            tag: "Web3" },
-].map((p) => ({ ...p, img: shot(p.url) }));
+  { url: "https://nooktravel.space",   name: "NookTravel",       tag: "Travel",      img: imgNook },
+  { url: "https://suuper.cc",          name: "Suuper",           tag: "Consumer",    img: imgSuuper },
+  { url: "https://pluraldynamics.com", name: "Plural Dynamics",  tag: "Enterprise",  img: imgPlural },
+  { url: "https://modisoft.com",       name: "Modisoft",         tag: "Retail SaaS", img: imgModisoft },
+  { url: "https://kidan.cc",           name: "Kidan",            tag: "Web3",        img: imgKidan },
+];
+
 
 const row2 = [...row1].reverse();
 

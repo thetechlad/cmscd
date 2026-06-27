@@ -4,6 +4,7 @@ import {
   Menu, X, ChevronDown, ArrowUpRight,
   Code2, Brain, Hexagon, MousePointer2, Smartphone, Cloud,
 } from "lucide-react";
+import logo from "@/assets/logo-full.png";
 
 type Mega = null | "services" | "work" | "company";
 
@@ -43,13 +44,10 @@ const Header = () => {
       <div className={`nav-pill mx-auto flex items-center justify-between gap-2 transition-all duration-300 ${scrolled ? "max-w-[920px] h-14 pl-4 pr-2" : "max-w-[1080px] h-16 pl-5 pr-2"}`}>
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 group shrink-0">
-          <span className="relative w-8 h-8 rounded-lg bg-foreground text-background flex items-center justify-center text-[13px] font-bold overflow-hidden">
-            <span className="relative z-10">C</span>
-            <span className="absolute inset-0 bg-accent-blue translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-          </span>
-          <span className="display font-bold tracking-tight text-[15px]">CodersDive</span>
+          <img src={logo} alt="CodersDive" className="h-7 md:h-8 w-auto" />
           <span className="hidden xl:inline text-[10px] font-medium text-muted-foreground border-l border-border pl-2.5 ml-1">est. 2019</span>
         </Link>
+
 
         {/* Center nav */}
         <nav className="hidden lg:flex items-center gap-0.5">
@@ -68,16 +66,17 @@ const Header = () => {
 
         {/* Right side */}
         <div className="flex items-center gap-2">
-          <Link to="/contact" className="hidden md:inline text-[12px] font-medium text-muted-foreground hover:text-foreground transition-colors px-3">
+          <Link to="/contact" className="hidden md:inline whitespace-nowrap text-[12px] font-medium text-muted-foreground hover:text-foreground transition-colors px-3">
             Sign in
           </Link>
           <a
             href="https://cal.com/tayyabirfan/15min"
             target="_blank"
             rel="noreferrer"
-            className="hidden md:inline-flex items-center gap-1.5 h-11 px-5 rounded-full text-[13px] font-semibold transition-all hover:scale-[1.03] hover:shadow-lg"
+            className="hidden md:inline-flex whitespace-nowrap items-center gap-1.5 h-11 px-5 rounded-full text-[13px] font-semibold transition-all hover:scale-[1.03] hover:shadow-lg"
             style={{ background: "hsl(var(--foreground))", color: "hsl(var(--background))" }}
           >
+
             Book a Call
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
