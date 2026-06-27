@@ -32,8 +32,11 @@ const App = () => (
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/insights" element={<BlogPage />} />
+          <Route path="/insights/:slug" element={<BlogPost />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          {/* Content-driven marketing pages (industries, services, careers, legal, etc.) */}
+          <Route path="*" element={<ContentPage />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
