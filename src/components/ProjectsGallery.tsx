@@ -1,17 +1,20 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
-
-const shot = (url: string) =>
-  `https://image.thum.io/get/width/1200/crop/900/noanimate/${url}`;
+import imgNook from "@/assets/proj-nooktravel.jpg";
+import imgSuuper from "@/assets/proj-suuper.jpg";
+import imgPlural from "@/assets/proj-plural.jpg";
+import imgModisoft from "@/assets/proj-modisoft.jpg";
+import imgKidan from "@/assets/proj-kidan.jpg";
 
 const projects = [
-  { url: "https://nooktravel.space",   name: "NookTravel",      desc: "Travel discovery & itinerary platform", tags: ["Next.js", "Mapbox", "Postgres"] },
-  { url: "https://suuper.cc",          name: "Suuper",          desc: "Consumer super-app experience",         tags: ["React Native", "Node", "Realtime"] },
-  { url: "https://pluraldynamics.com", name: "Plural Dynamics", desc: "Enterprise systems engineering",        tags: ["TypeScript", "AWS", "GraphQL"] },
-  { url: "https://modisoft.com",       name: "Modisoft",        desc: "Retail & restaurant POS platform",      tags: ["React", "Node", "Stripe"] },
-  { url: "https://kidan.cc",           name: "Kidan",           desc: "Web3 product studio",                   tags: ["Solidity", "Next.js", "Wagmi"] },
-].map((p) => ({ ...p, img: shot(p.url) }));
+  { url: "https://nooktravel.space",   name: "NookTravel",      img: imgNook,     desc: "Travel discovery & itinerary platform", tags: ["Next.js", "Mapbox", "Postgres"] },
+  { url: "https://suuper.cc",          name: "Suuper",          img: imgSuuper,   desc: "Consumer super-app experience",         tags: ["React Native", "Node", "Realtime"] },
+  { url: "https://pluraldynamics.com", name: "Plural Dynamics", img: imgPlural,   desc: "Enterprise systems engineering",        tags: ["TypeScript", "AWS", "GraphQL"] },
+  { url: "https://modisoft.com",       name: "Modisoft",        img: imgModisoft, desc: "Retail & restaurant POS platform",      tags: ["React", "Node", "Stripe"] },
+  { url: "https://kidan.cc",           name: "Kidan",           img: imgKidan,    desc: "Web3 product studio",                   tags: ["Solidity", "Next.js", "Wagmi"] },
+];
+
 
 const ProjectsGallery = () => (
   <Reveal as="section" className="bg-background section">
