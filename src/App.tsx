@@ -11,6 +11,8 @@ import ProcessPage from "./pages/Process";
 import TestimonialsPage from "./pages/Testimonials";
 import ContactPage from "./pages/Contact";
 import BlogPage from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import ContentPage from "./pages/ContentPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
