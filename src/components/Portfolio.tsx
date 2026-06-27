@@ -43,7 +43,7 @@ const Portfolio = () => (
               style={{ background: p.bg, minHeight: 220 }}
             >
               <img
-                src={shot(p.url)}
+                src={p.img}
                 alt={p.name}
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700"
