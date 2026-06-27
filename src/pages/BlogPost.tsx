@@ -16,6 +16,8 @@ const BlogPost = () => {
     window.scrollTo(0, 0);
   }, [slug]);
 
+  if (isCategory) return <Navigate to={`/blog?category=${slug}`} replace />;
+
   if (!post) {
     return (
       <Layout title="Article not found">
