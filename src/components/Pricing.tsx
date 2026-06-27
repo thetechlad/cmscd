@@ -73,10 +73,11 @@ const PricingCard = ({
           <span
             className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
             style={{
-              background: popular ? "hsl(var(--accent-blue))" : "hsl(var(--accent-blue-soft))",
+              background: popular ? "rgba(255,255,255,0.2)" : "hsl(var(--accent-blue-soft))",
               color: popular ? "white" : "hsl(var(--accent-blue))",
             }}
           >
+
             <Check className="w-3 h-3" strokeWidth={3} />
           </span>
           <span className={popular ? "text-background/90 font-medium" : "text-foreground"}>{f}</span>
