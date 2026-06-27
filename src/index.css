@@ -152,6 +152,9 @@
   .section { padding: 120px 0; }
   @media (max-width: 768px) { .section { padding: 64px 0; } }
 
+  .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+
   .dot-grid {
     background-image: radial-gradient(hsl(var(--foreground) / 0.06) 1px, transparent 1px);
     background-size: 22px 22px;
