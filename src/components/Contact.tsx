@@ -6,7 +6,8 @@ const CAL_URL = "https://cal.com/tayyabirfan/15min";
 const EMAIL = "hello@codersdive.com";
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
 
-const Contact = () => {
+const Contact = ({ asPage = false }: { asPage?: boolean }) => {
+  const Heading = asPage ? "h1" : "h2";
   const [data, setData] = useState({ name: "", email: "", company: "", message: "", timeline: "ASAP" });
   const [submitting, setSubmitting] = useState(false);
   const { toast } = useToast();
@@ -45,13 +46,13 @@ const Contact = () => {
   const labelCls = "block text-xs uppercase tracking-[0.1em] text-muted-foreground mb-2 font-medium";
 
   return (
-    <section className="bg-background-soft text-foreground section">
+    <section className={`bg-background-soft text-foreground section ${asPage ? "pt-[140px] md:pt-[160px]" : ""}`}>
       <div className="container-tight">
         <div className="max-w-3xl mb-14">
           <div className="text-[11px] uppercase tracking-[0.15em] text-[hsl(var(--accent-blue))] mb-5 font-medium">Let's Dive In</div>
-          <h2 className="display text-[28px] md:text-[40px] lg:text-[52px] font-bold leading-[1.1] mb-5">
+          <Heading className="display text-[28px] md:text-[40px] lg:text-[52px] font-bold leading-[1.1] mb-5">
             Your idea deserves more than <span style={{ color: "hsl(var(--accent-blue))" }}>average execution</span>.
-          </h2>
+          </Heading>
           <p className="text-muted-foreground leading-[1.7] text-lg max-w-2xl">
             Tell us about your project. Most clients hear back within 4 hours.
           </p>
