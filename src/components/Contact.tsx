@@ -6,7 +6,8 @@ const CAL_URL = "https://cal.com/tayyabirfan/15min";
 const EMAIL = "hello@codersdive.com";
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
 
-const Contact = () => {
+const Contact = ({ asPage = false }: { asPage?: boolean }) => {
+  const Heading = asPage ? "h1" : "h2";
   const [data, setData] = useState({ name: "", email: "", company: "", message: "", timeline: "ASAP" });
   const [submitting, setSubmitting] = useState(false);
   const { toast } = useToast();
