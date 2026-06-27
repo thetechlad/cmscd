@@ -13,6 +13,8 @@ import ContactPage from "./pages/Contact";
 import BlogPage from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import ContentPage from "./pages/ContentPage";
+import StartProject from "./pages/StartProject";
+import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +36,8 @@ const App = () => (
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/insights" element={<BlogPage />} />
           <Route path="/insights/:slug" element={<BlogPost />} />
+          <Route path="/start-a-project" element={<StartProject />} />
+          <Route path="/thank-you" element={<ThankYou />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           {/* Content-driven marketing pages (industries, services, careers, legal, etc.) */}
           <Route path="*" element={<ContentPage />} />
