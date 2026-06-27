@@ -4,6 +4,7 @@ import {
   Menu, X, ChevronDown, ArrowUpRight,
   Code2, Brain, Hexagon, MousePointer2, Smartphone, Cloud,
 } from "lucide-react";
+import logo from "@/assets/logo-full.png";
 
 type Mega = null | "services" | "work" | "company";
 
