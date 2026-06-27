@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+
 
 /**
  * Lightweight markdown renderer for CodersDive content.
@@ -12,7 +12,7 @@ const renderInline = (text: string) => {
     if (p.startsWith("**") && p.endsWith("**")) {
       return <strong key={i} className="font-semibold text-foreground">{p.slice(2, -2)}</strong>;
     }
-    return <Fragment key={i}>{p}</Fragment>;
+    return <span key={i}>{p}</span>;
   });
 };
 
