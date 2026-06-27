@@ -1,15 +1,16 @@
 import { useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import Markdown from "@/components/Markdown";
 import Reveal from "@/components/Reveal";
-import { getPostBySlug, blogPosts } from "@/data/blogData";
+import { getPostBySlug, blogPosts, blogCategories } from "@/data/blogData";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const post = slug ? getPostBySlug(slug) : undefined;
+  const isCategory = slug ? blogCategories.some((c) => c.slug === slug) : false;
 
   useEffect(() => {
     window.scrollTo(0, 0);
