@@ -66,16 +66,17 @@ const Header = () => {
 
         {/* Right side */}
         <div className="flex items-center gap-2">
-          <Link to="/contact" className="hidden md:inline text-[12px] font-medium text-muted-foreground hover:text-foreground transition-colors px-3">
+          <Link to="/contact" className="hidden md:inline whitespace-nowrap text-[12px] font-medium text-muted-foreground hover:text-foreground transition-colors px-3">
             Sign in
           </Link>
           <a
             href="https://cal.com/tayyabirfan/15min"
             target="_blank"
             rel="noreferrer"
-            className="hidden md:inline-flex items-center gap-1.5 h-11 px-5 rounded-full text-[13px] font-semibold transition-all hover:scale-[1.03] hover:shadow-lg"
+            className="hidden md:inline-flex whitespace-nowrap items-center gap-1.5 h-11 px-5 rounded-full text-[13px] font-semibold transition-all hover:scale-[1.03] hover:shadow-lg"
             style={{ background: "hsl(var(--foreground))", color: "hsl(var(--background))" }}
           >
+
             Book a Call
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
