@@ -90,9 +90,10 @@ const PricingCard = ({
       className="flex items-center justify-center w-full h-14 rounded-full font-bold text-sm transition-transform hover:scale-[1.02]"
       style={
         popular
-          ? { background: "hsl(var(--accent-blue))", color: "white" }
+          ? { background: "white", color: "hsl(var(--accent-blue))" }
           : { background: "hsl(var(--foreground))", color: "hsl(var(--background))" }
       }
+
     >
       {cta}
     </Link>
