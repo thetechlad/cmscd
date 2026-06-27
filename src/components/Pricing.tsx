@@ -46,10 +46,11 @@ const PricingCard = ({
       <span
         className="text-[10px] font-bold px-2.5 py-1 rounded-full"
         style={{
-          background: popular ? "hsl(var(--accent-blue))" : "hsl(var(--accent-blue-soft))",
+          background: popular ? "rgba(255,255,255,0.2)" : "hsl(var(--accent-blue-soft))",
           color: popular ? "white" : "hsl(var(--accent-blue))",
         }}
       >
+
         {badge}
       </span>
     </div>
