@@ -1,18 +1,22 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
-import imgNook from "@/assets/proj-nooktravel.jpg";
-import imgSuuper from "@/assets/proj-suuper.jpg";
-import imgPlural from "@/assets/proj-plural.jpg";
-import imgModisoft from "@/assets/proj-modisoft.jpg";
-import imgKidan from "@/assets/proj-kidan.jpg";
+import imgNook from "@/assets/shot-nooktravel.png";
+import imgSuuper from "@/assets/shot-suuper.png";
+import imgPlural from "@/assets/shot-plural.png";
+import imgModisoft from "@/assets/shot-modisoft.png";
+import imgKidan from "@/assets/shot-kidan.png";
+import imgVinn from "@/assets/shot-vinncorp.png";
+import imgOrganix from "@/assets/shot-ogorganix.png";
 
 const projects = [
-  { url: "https://nooktravel.space",   name: "NookTravel",      img: imgNook,     desc: "Travel discovery & itinerary platform", tags: ["Next.js", "Mapbox", "Postgres"] },
-  { url: "https://suuper.cc",          name: "Suuper",          img: imgSuuper,   desc: "Consumer super-app experience",         tags: ["React Native", "Node", "Realtime"] },
-  { url: "https://pluraldynamics.com", name: "Plural Dynamics", img: imgPlural,   desc: "Enterprise systems engineering",        tags: ["TypeScript", "AWS", "GraphQL"] },
-  { url: "https://modisoft.com",       name: "Modisoft",        img: imgModisoft, desc: "Retail & restaurant POS platform",      tags: ["React", "Node", "Stripe"] },
-  { url: "https://kidan.cc",           name: "Kidan",           img: imgKidan,    desc: "Web3 product studio",                   tags: ["Solidity", "Next.js", "Wagmi"] },
+  { url: "https://suuper.cc",          name: "Suuper",          img: imgSuuper,   desc: "AI support that answers customers in seconds",  tags: ["AI", "React", "Realtime"] },
+  { url: "https://kidan.co",           name: "Kidan",           img: imgKidan,    desc: "End-to-end IT services for Swiss enterprises",   tags: ["Enterprise", "Security", "Cloud"] },
+  { url: "https://modisoft.com",       name: "Modisoft",        img: imgModisoft, desc: "Retail & restaurant POS + back-office platform",  tags: ["SaaS", "POS", "Stripe"] },
+  { url: "https://pluraldynamics.com", name: "Plural Dynamics", img: imgPlural,   desc: "Global technology consulting & IT solutions",     tags: ["TypeScript", "AWS", "GraphQL"] },
+  { url: "https://vinncorp.com",       name: "VinnCorp",        img: imgVinn,     desc: "On-demand engineering & product talent",          tags: ["Web", "Mobile", "Teams"] },
+  { url: "https://nooktravel.space",   name: "NookTravel",      img: imgNook,     desc: "AI trip planning & itinerary platform",           tags: ["AI", "Next.js", "Postgres"] },
+  { url: "https://ogorganix.com.pk",   name: "OG Organix",      img: imgOrganix,  desc: "Science-led skincare e-commerce store",           tags: ["E-commerce", "Shopify", "Brand"] },
 ];
 
 
@@ -32,7 +36,7 @@ const ProjectsGallery = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {projects.map((p) => (
           <a href={p.url} target="_blank" rel="noreferrer" key={p.name} className="gallery-tile group reveal-child block hover:-translate-y-1 transition-transform duration-500">
-            <img src={p.img} alt={p.name} loading="lazy" />
+            <img src={p.img} alt={`${p.name} website screenshot`} loading="lazy" />
             <div className="gallery-overlay">
               <div className="gallery-meta">
                 <div className="flex flex-wrap gap-1.5 mb-3">

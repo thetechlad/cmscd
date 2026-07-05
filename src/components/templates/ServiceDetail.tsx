@@ -8,7 +8,7 @@ import CtaRibbon from "@/components/templates/CtaRibbon";
 import ProofStrip from "@/components/templates/ProofStrip";
 import FaqAccordion from "@/components/templates/FaqAccordion";
 import RelatedContent from "@/components/templates/RelatedContent";
-import Motif from "@/components/templates/Motif";
+import CoverArt from "@/components/templates/CoverArt";
 import { ContentPage } from "@/data/pageData";
 import {
   parseSections,
@@ -70,9 +70,11 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
               </div>
             </div>
             <div className="lg:col-span-5">
-              <div className="aspect-square max-w-[380px] mx-auto rounded-3xl bg-background-soft border border-border p-6 glow-ring">
-                <Motif seed={page.slug} className="w-full h-full" />
-              </div>
+              <CoverArt
+                seed={page.slug}
+                label={page.title}
+                className="aspect-[4/3] w-full rounded-3xl glow-ring"
+              />
             </div>
           </div>
         </div>

@@ -28,8 +28,8 @@ const Index = () => (
     <ProjectsGallery />
     <CTABand />
     <TechStack />
-    <Pricing />
     <Testimonials />
+    <Pricing />
     <Contact />
   </Layout>
 );

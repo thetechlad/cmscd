@@ -1,17 +1,21 @@
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
-import imgNook from "@/assets/proj-nooktravel.jpg";
-import imgSuuper from "@/assets/proj-suuper.jpg";
-import imgPlural from "@/assets/proj-plural.jpg";
-import imgModisoft from "@/assets/proj-modisoft.jpg";
-import imgKidan from "@/assets/proj-kidan.jpg";
+import imgNook from "@/assets/shot-nooktravel.png";
+import imgSuuper from "@/assets/shot-suuper.png";
+import imgPlural from "@/assets/shot-plural.png";
+import imgModisoft from "@/assets/shot-modisoft.png";
+import imgKidan from "@/assets/shot-kidan.png";
+import imgVinn from "@/assets/shot-vinncorp.png";
+import imgOrganix from "@/assets/shot-ogorganix.png";
 
 const projects = [
-  { name: "NookTravel",      url: "https://nooktravel.space",   img: imgNook,     tag: "Travel Platform",       body: "A discovery and itinerary product for modern travellers — search, plan and book in one cohesive flow.", bg: "#EFF6FF", text: "#1E3A8A" },
-  { name: "Suuper",          url: "https://suuper.cc",          img: imgSuuper,   tag: "Consumer Super-App",    body: "A cross-category consumer experience engineered for speed, with realtime state across web and mobile.", bg: "#F0FDF4", text: "#14532D" },
-  { name: "Plural Dynamics", url: "https://pluraldynamics.com", img: imgPlural,   tag: "Enterprise Engineering",body: "End-to-end systems engineering for an enterprise platform: services, dashboards, integrations.", bg: "#FFF7ED", text: "#7C2D12" },
-  { name: "Modisoft",        url: "https://modisoft.com",       img: imgModisoft, tag: "Retail SaaS",            body: "POS, inventory and back-office tooling for thousands of retail and restaurant operators.", bg: "#F5F3FF", text: "#4C1D95" },
-  { name: "Kidan",           url: "https://kidan.cc",           img: imgKidan,    tag: "Web3 Studio",            body: "A Web3 product studio brand and platform — smart contracts, dashboards, and a polished marketing surface.", bg: "#FEF2F2", text: "#7F1D1D" },
+  { name: "Suuper",          url: "https://suuper.cc",          img: imgSuuper,   tag: "AI Support SaaS",       body: "An AI reply engine that trains on a business and answers customers across web and WhatsApp in seconds — no code, live in under a minute.", bg: "#EEF2FF" },
+  { name: "Kidan",           url: "https://kidan.co",           img: imgKidan,    tag: "Enterprise IT",         body: "A polished marketing and services surface for a Swiss enterprise IT partner spanning security, strategy and scalable cloud technology.", bg: "#0B1220" },
+  { name: "Modisoft",        url: "https://modisoft.com",       img: imgModisoft, tag: "Retail SaaS",           body: "POS, inventory and back-office tooling trusted by 10,000+ retail and restaurant operators, unified into one cohesive point-of-sale platform.", bg: "#F0FDF4" },
+  { name: "Plural Dynamics", url: "https://pluraldynamics.com", img: imgPlural,   tag: "Tech Consulting",       body: "A bold, cinematic brand and platform for a global technology consultancy delivering world-class software through a refined process.", bg: "#1A1113" },
+  { name: "VinnCorp",        url: "https://vinncorp.com",       img: imgVinn,     tag: "Talent & Delivery",     body: "Custom software design, development and marketing powered by on-demand tech talent — turning complex challenges into elegant solutions.", bg: "#EFF6FF" },
+  { name: "NookTravel",      url: "https://nooktravel.space",   img: imgNook,     tag: "Travel Platform",       body: "An AI itinerary product that builds a personalised day-by-day plan with budget, hotels, food and packing — all generated in minutes.", bg: "#FEF2F2" },
+  { name: "OG Organix",      url: "https://ogorganix.com.pk",   img: imgOrganix,  tag: "E-commerce",            body: "A clean, science-led skincare storefront with best-seller merchandising, product education and a full shopping and checkout experience.", bg: "#F5F5F4" },
 ];
 
 
@@ -44,9 +48,9 @@ const Portfolio = () => (
             >
               <img
                 src={p.img}
-                alt={p.name}
+                alt={`${p.name} website screenshot`}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700"
+                className="absolute inset-0 w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700"
               />
               <div className="absolute top-5 left-5">
                 <span className="text-[11px] uppercase tracking-[0.15em] font-semibold px-3 py-1.5 rounded-full bg-white/85 backdrop-blur text-foreground">{p.tag}</span>
