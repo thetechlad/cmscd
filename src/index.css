@@ -385,6 +385,24 @@
   }
 }
 
+/* ===== Animated CoverArt motion ===== */
+@keyframes cover-spin { to { transform: rotate(360deg); } }
+@keyframes cover-spin-rev { to { transform: rotate(-360deg); } }
+@keyframes cover-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes cover-float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(9px, 7px); } }
+@keyframes cover-pulse { 0%, 100% { opacity: 0.32; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.09); } }
+@keyframes cover-sheen { 0% { transform: translateX(-160%); } 55%, 100% { transform: translateX(520%); } }
+@keyframes cover-dash { to { stroke-dashoffset: -60; } }
+
+.cv-spin { animation: cover-spin 46s linear infinite; transform-box: fill-box; transform-origin: center; }
+.cv-spin-rev { animation: cover-spin-rev 60s linear infinite; transform-box: fill-box; transform-origin: center; }
+.cv-float { animation: cover-float 8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.cv-float2 { animation: cover-float2 11s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.cv-pulse { animation: cover-pulse 6.5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.cv-sheen { animation: cover-sheen 7.5s ease-in-out infinite; }
+.cv-dash { stroke-dasharray: 6 8; animation: cover-dash 2.4s linear infinite; }
+
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
