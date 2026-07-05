@@ -70,9 +70,11 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
               </div>
             </div>
             <div className="lg:col-span-5">
-              <div className="aspect-square max-w-[380px] mx-auto rounded-3xl bg-background-soft border border-border p-6 glow-ring">
-                <Motif seed={page.slug} className="w-full h-full" />
-              </div>
+              <CoverArt
+                seed={page.slug}
+                label={page.title}
+                className="aspect-[4/3] w-full rounded-3xl glow-ring"
+              />
             </div>
           </div>
         </div>
