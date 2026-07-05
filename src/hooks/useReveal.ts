@@ -6,9 +6,12 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0.
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Trigger as soon as the element enters the viewport. A fixed threshold
+    // (e.g. 0.15) never fires for elements taller than the viewport, so we
+    // use threshold 0 with a small bottom margin instead — robust for any size.
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold }
+      { threshold: 0, rootMargin: "0px 0px -80px 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
