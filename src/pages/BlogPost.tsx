@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import Markdown from "@/components/Markdown";
 import Reveal from "@/components/Reveal";
+import CoverArt from "@/components/templates/CoverArt";
 import { getPostBySlug, blogPosts, blogCategories } from "@/data/blogData";
 
 const BlogPost = () => {
