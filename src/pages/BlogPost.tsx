@@ -74,6 +74,11 @@ const BlogPost = () => {
         <section className="bg-background section">
           <div className="container-tight max-w-3xl">
             <Markdown content={post.body} />
+            {blogExtra[post.slug] && (
+              <div className="mt-4 pt-2">
+                <Markdown content={blogExtra[post.slug]} />
+              </div>
+            )}
 
             {/* Final CTA */}
             <div className="mt-12 rounded-2xl p-8 md:p-10" style={{ background: "hsl(var(--foreground))" }}>
