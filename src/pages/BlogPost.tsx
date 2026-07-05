@@ -60,6 +60,14 @@ const BlogPost = () => {
             </h1>
             <p className="text-lg text-muted-foreground leading-[1.7]">{post.excerpt}</p>
           </div>
+          <div className="container-tight max-w-4xl mt-10">
+            <CoverArt
+              seed={post.slug}
+              category={post.categorySlug}
+              label={post.category}
+              className="w-full h-56 md:h-80 rounded-2xl glow-ring"
+            />
+          </div>
         </section>
 
         {/* Body */}
