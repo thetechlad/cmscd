@@ -8,7 +8,6 @@ import CtaRibbon from "@/components/templates/CtaRibbon";
 import ProofStrip from "@/components/templates/ProofStrip";
 import FaqAccordion from "@/components/templates/FaqAccordion";
 import RelatedContent from "@/components/templates/RelatedContent";
-import Motif from "@/components/templates/Motif";
 import CoverArt from "@/components/templates/CoverArt";
 import { ContentPage } from "@/data/pageData";
 import {
