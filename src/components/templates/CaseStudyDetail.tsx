@@ -45,9 +45,14 @@ const CaseStudyDetail = ({ page }: { page: ContentPage }) => {
           <h1 className="display text-[32px] md:text-[46px] lg:text-[56px] font-bold leading-[1.05] max-w-4xl mb-6">
             {page.title}
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-[1.55]">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-[1.55] mb-10">
             {page.subtitle}
           </p>
+          <CoverArt
+            seed={page.slug}
+            label={page.title}
+            className="w-full h-56 md:h-80 rounded-2xl glow-ring"
+          />
         </div>
       </section>
 
