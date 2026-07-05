@@ -104,17 +104,25 @@ const BlogPost = () => {
                   <Link
                     to={`/insights/${p.slug}`}
                     key={p.slug}
-                    className="reveal-child card-light p-7 group flex flex-col"
+                    className="reveal-child card-light overflow-hidden group flex flex-col"
                   >
-                    <div className="flex items-center justify-between mb-6">
-                      <span className="tag-pill">{p.category}</span>
-                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent-blue group-hover:translate-x-1 transition-all" />
+                    <div className="relative h-36 overflow-hidden">
+                      <CoverArt
+                        seed={p.slug}
+                        category={p.categorySlug}
+                        className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <span className="absolute top-3 left-3 text-[10px] font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full bg-white/90 text-foreground backdrop-blur">
+                        {p.category}
+                      </span>
                     </div>
-                    <h3 className="display text-base font-bold mb-3 leading-snug">{p.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-[1.7] flex-1">{p.excerpt}</p>
-                    <div className="mt-6 pt-5 border-t border-border text-xs text-muted-foreground flex items-center justify-between">
-                      <span>{p.date}</span>
-                      <span>{p.readTime} read</span>
+                    <div className="p-7 flex flex-col flex-1">
+                      <h3 className="display text-base font-bold mb-3 leading-snug group-hover:text-accent-blue transition-colors">{p.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-[1.7] flex-1">{p.excerpt}</p>
+                      <div className="mt-6 pt-5 border-t border-border text-xs text-muted-foreground flex items-center justify-between">
+                        <span>{p.date}</span>
+                        <span className="inline-flex items-center gap-1">{p.readTime} read <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" /></span>
+                      </div>
                     </div>
                   </Link>
                 ))}
