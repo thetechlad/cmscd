@@ -6,6 +6,7 @@ import Markdown from "@/components/Markdown";
 import Reveal from "@/components/Reveal";
 import CoverArt from "@/components/templates/CoverArt";
 import { getPostBySlug, blogPosts, blogCategories } from "@/data/blogData";
+import { blogExtra } from "@/data/blogExtra";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
