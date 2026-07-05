@@ -6,6 +6,7 @@ import Markdown from "@/components/Markdown";
 import Breadcrumbs from "@/components/templates/Breadcrumbs";
 import CtaRibbon from "@/components/templates/CtaRibbon";
 import RelatedContent from "@/components/templates/RelatedContent";
+import CoverArt from "@/components/templates/CoverArt";
 import { ContentPage } from "@/data/pageData";
 import { parseSections, findSection, parseSubsections, parseCta } from "@/lib/content";
 
