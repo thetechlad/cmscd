@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import { Link, useSearchParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import CoverArt from "@/components/templates/CoverArt";
 import { blogPosts, blogCategories } from "@/data/blogData";
 
 const Blog = () => {
