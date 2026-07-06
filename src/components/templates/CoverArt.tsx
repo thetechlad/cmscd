@@ -59,8 +59,41 @@ const CoverArt = ({
   const dB = -(((h >> 3) % 55) / 10);
   const dC = -(((h >> 6) % 70) / 10);
 
+  // Lazy-mount + pause: only render the animated SVG once it nears the viewport,
+  // and pause its animations whenever it scrolls back off-screen. This keeps the
+  // page smooth when many covers exist (blog grid) and honours reduced motion
+  // (animations are also disabled globally via CSS media query).
+  const rootRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) setMounted(true);
+        setActive(e.isIntersecting);
+      },
+      { rootMargin: "200px 0px", threshold: 0 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <div className={`relative overflow-hidden ${className}`} aria-hidden="true">
+    <div
+      ref={rootRef}
+      className={`relative overflow-hidden ${active ? "" : "cv-paused"} ${className}`}
+      style={{ contentVisibility: "auto", containIntrinsicSize: "250px" } as React.CSSProperties}
+      aria-hidden="true"
+    >
+      {!mounted ? (
+        <div
+          className="w-full h-full"
+          style={{ background: `linear-gradient(135deg, ${p.from}, ${p.to})` }}
+        />
+      ) : (
       <svg viewBox="0 0 400 250" className="w-full h-full block" preserveAspectRatio="xMidYMid slice">
         <defs>
           <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
