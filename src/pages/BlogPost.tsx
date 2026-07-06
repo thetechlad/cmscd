@@ -55,8 +55,34 @@ const BlogPost = () => {
     .filter((p) => p.categorySlug === post.categorySlug && p.slug !== post.slug)
     .slice(0, 3);
 
+  const path = `/insights/${post.slug}`;
+  const faqs = extractFaqs(blogExtra[post.slug]);
+  const jsonLd = [
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Insights", path: "/insights" },
+      { name: post.title, path },
+    ]),
+    articleSchema({
+      title: post.title,
+      description: post.excerpt,
+      path,
+      image: blogOgImage(post.slug),
+      datePublished: post.date,
+      section: post.category,
+    }),
+    faqSchema(faqs),
+  ];
+
   return (
-    <Layout title={post.title} description={post.excerpt}>
+    <Layout
+      title={post.title}
+      description={post.excerpt}
+      path={path}
+      image={blogOgImage(post.slug)}
+      type="article"
+      jsonLd={jsonLd}
+    >
       <article>
         {/* Hero */}
         <section className="bg-background pt-[120px] pb-10 border-b border-border">
