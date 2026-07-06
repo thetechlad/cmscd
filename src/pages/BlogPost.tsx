@@ -8,6 +8,22 @@ import CoverArt from "@/components/templates/CoverArt";
 import { getPostBySlug, blogPosts, blogCategories } from "@/data/blogData";
 import { blogExtra } from "@/data/blogExtra";
 import { getBlogImage } from "@/data/blogImages";
+import { blogOgImage, articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo";
+
+/** Extract FAQ Q/A pairs from a "Frequently asked questions" section in markdown. */
+function extractFaqs(md?: string): { q: string; a: string }[] {
+  if (!md) return [];
+  const idx = md.toLowerCase().indexOf("frequently asked questions");
+  if (idx === -1) return [];
+  const section = md.slice(idx);
+  const out: { q: string; a: string }[] = [];
+  const re = /\*\*(.+?)\*\*\s*\n+([^\n]+(?:\n(?!\*\*|##)[^\n]+)*)/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(section)) !== null) {
+    out.push({ q: m[1].trim().replace(/\?*$/, "?"), a: m[2].trim() });
+  }
+  return out.slice(0, 8);
+}
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
