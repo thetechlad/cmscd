@@ -74,11 +74,21 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
               </div>
             </div>
             <div className="lg:col-span-5">
-              <CoverArt
-                seed={page.slug}
-                label={page.title}
-                className="aspect-[4/3] w-full rounded-3xl glow-ring"
-              />
+              {heroImg ? (
+                <img
+                  src={heroImg}
+                  alt={page.title}
+                  width={1280}
+                  height={896}
+                  className="aspect-[4/3] w-full rounded-3xl glow-ring object-cover"
+                />
+              ) : (
+                <CoverArt
+                  seed={page.slug}
+                  label={page.title}
+                  className="aspect-[4/3] w-full rounded-3xl glow-ring"
+                />
+              )}
             </div>
           </div>
         </div>
