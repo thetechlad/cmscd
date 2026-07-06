@@ -41,6 +41,7 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
     ? parseSubsections(faqSection.body).map((s) => ({ q: s.title, a: s.body }))
     : [];
   const cta = parseCta(ctaSection?.body);
+  const heroImg = getPageImage(page.slug);
 
   return (
     <Layout title={page.seoTitle || page.title} description={page.metaDescription}>
