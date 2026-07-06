@@ -40,7 +40,7 @@ const DiagramBand = ({
             </defs>
 
             {/* connector line */}
-            <line x1="120" y1="120" x2="780" y2="120" stroke="url(#${gid})" strokeWidth="2" opacity="0.35" />
+            <line x1="120" y1="120" x2="780" y2="120" stroke={`url(#${gid})`} strokeWidth="2" opacity="0.35" />
             <line
               x1="120"
               y1="120"
