@@ -99,10 +99,23 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
       {/* Intro statement */}
       {intro && (
         <Reveal as="section" className="section">
-          <div className="container-tight">
-            <p className="display text-2xl md:text-[32px] font-semibold leading-[1.3] max-w-4xl">
-              {intro}
-            </p>
+          <div className="container-tight grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
+              <p className="display text-2xl md:text-[32px] font-semibold leading-[1.3]">
+                {intro}
+              </p>
+              <p className="text-muted-foreground mt-6 leading-[1.7] text-[15px] max-w-xl">
+                We stay close to your operating reality — the constraints, the edge cases, and the
+                people who have to run the system after launch — so the work holds up long after
+                the first release.
+              </p>
+            </div>
+            <FeatureImage
+              slug={page.slug}
+              label={page.title}
+              className="lg:col-span-5"
+              aspect="aspect-[4/3]"
+            />
           </div>
         </Reveal>
       )}
