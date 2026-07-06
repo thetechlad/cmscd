@@ -16,6 +16,7 @@ import ContentPage from "./pages/ContentPage";
 import StartProject from "./pages/StartProject";
 import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
+import Analytics from "./components/Analytics";
 
 const queryClient = new QueryClient();
 
