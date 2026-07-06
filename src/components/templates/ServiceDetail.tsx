@@ -9,6 +9,9 @@ import ProofStrip from "@/components/templates/ProofStrip";
 import FaqAccordion from "@/components/templates/FaqAccordion";
 import RelatedContent from "@/components/templates/RelatedContent";
 import CoverArt from "@/components/templates/CoverArt";
+import ContrastBand from "@/components/templates/ContrastBand";
+import FeatureImage from "@/components/templates/FeatureImage";
+import { getPageImage } from "@/data/pageImages";
 import { ContentPage } from "@/data/pageData";
 import {
   parseSections,
