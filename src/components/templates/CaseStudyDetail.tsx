@@ -27,6 +27,7 @@ const CaseStudyDetail = ({ page }: { page: ContentPage }) => {
 
   const features = includes ? parseSubsections(includes.body) : [];
   const cta = parseCta(ctaSection?.body);
+  const heroImg = getPageImage(page.slug);
 
   const narrative = [direction, experience, engineering, outcome, next].filter(Boolean) as {
     title: string;
