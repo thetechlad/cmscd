@@ -170,6 +170,28 @@ const CaseStudyDetail = ({ page }: { page: ContentPage }) => {
         </div>
       </section>
 
+      <ProblemSolution slug={page.slug} label={page.title} />
+
+      <MediaGallery
+        slug={page.slug}
+        label={page.title}
+        eyebrow="Screenshot gallery"
+        headline="A walk through the product surfaces"
+        intro="Representative screens from the build. Client details are generalized for confidentiality."
+      />
+
+      <FeatureWalkthrough
+        slug={page.slug}
+        eyebrow="Interactive highlights"
+        headline="The moments that made this product work"
+        steps={[
+          { title: "Framed the real problem", body: "We started from the outcome and the riskiest assumption, not a feature list." },
+          { title: "Designed the core flow", body: "The critical path was prototyped and pressure-tested before a line of production code." },
+          { title: "Built for production", body: "Testing, monitoring, and documentation shipped with the product — not bolted on later." },
+          { title: "Left room to grow", body: "Foundations that support the next phase instead of blocking it." },
+        ]}
+      />
+
       <ContrastBand
         eyebrow="What this build demonstrates"
         headline="How we turn an ambiguous brief into a working product"
