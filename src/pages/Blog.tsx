@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import CoverArt from "@/components/templates/CoverArt";
+import { getBlogImage } from "@/data/blogImages";
 import { blogPosts, blogCategories } from "@/data/blogData";
 
 const Blog = () => {
@@ -63,11 +64,20 @@ const Blog = () => {
                 className="reveal-child card-light overflow-hidden group flex flex-col"
               >
                 <div className="relative h-44 overflow-hidden">
-                  <CoverArt
-                    seed={p.slug}
-                    category={p.categorySlug}
-                    className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105"
-                  />
+                  {getBlogImage(p.slug) ? (
+                    <img
+                      src={getBlogImage(p.slug)}
+                      alt={p.title}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <CoverArt
+                      seed={p.slug}
+                      category={p.categorySlug}
+                      className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105"
+                    />
+                  )}
                   <span className="absolute top-4 left-4 text-[10px] font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full bg-white/90 text-foreground backdrop-blur">
                     {p.category}
                   </span>

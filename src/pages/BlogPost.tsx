@@ -7,6 +7,7 @@ import Reveal from "@/components/Reveal";
 import CoverArt from "@/components/templates/CoverArt";
 import { getPostBySlug, blogPosts, blogCategories } from "@/data/blogData";
 import { blogExtra } from "@/data/blogExtra";
+import { getBlogImage } from "@/data/blogImages";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -62,12 +63,20 @@ const BlogPost = () => {
             <p className="text-lg text-muted-foreground leading-[1.7]">{post.excerpt}</p>
           </div>
           <div className="container-tight max-w-4xl mt-10">
-            <CoverArt
-              seed={post.slug}
-              category={post.categorySlug}
-              label={post.category}
-              className="w-full h-56 md:h-80 rounded-2xl glow-ring"
-            />
+            {getBlogImage(post.slug) ? (
+              <img
+                src={getBlogImage(post.slug)}
+                alt={post.title}
+                className="w-full h-56 md:h-80 object-cover rounded-2xl glow-ring"
+              />
+            ) : (
+              <CoverArt
+                seed={post.slug}
+                category={post.categorySlug}
+                label={post.category}
+                className="w-full h-56 md:h-80 rounded-2xl glow-ring"
+              />
+            )}
           </div>
         </section>
 
@@ -113,11 +122,20 @@ const BlogPost = () => {
                     className="reveal-child card-light overflow-hidden group flex flex-col"
                   >
                     <div className="relative h-36 overflow-hidden">
-                      <CoverArt
-                        seed={p.slug}
-                        category={p.categorySlug}
-                        className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105"
-                      />
+                      {getBlogImage(p.slug) ? (
+                        <img
+                          src={getBlogImage(p.slug)}
+                          alt={p.title}
+                          loading="lazy"
+                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      ) : (
+                        <CoverArt
+                          seed={p.slug}
+                          category={p.categorySlug}
+                          className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105"
+                        />
+                      )}
                       <span className="absolute top-3 left-3 text-[10px] font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full bg-white/90 text-foreground backdrop-blur">
                         {p.category}
                       </span>
