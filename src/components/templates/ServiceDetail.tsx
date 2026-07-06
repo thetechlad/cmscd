@@ -169,6 +169,18 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
         </Reveal>
       )}
 
+      <ContrastBand
+        eyebrow="What working with us feels like"
+        headline="Substance over slideware, from first call to production"
+        intro="This is the part most vendors skip. We make the trade-offs visible, keep the team who scoped the work close to the build, and hand over something your business can actually own."
+        points={[
+          { title: "One accountable team", body: "Product, design, and engineering decisions stay under one roof — no hand-offs that lose the plot." },
+          { title: "Visible increments", body: "You see working software on a steady cadence, not status theatre or surprise reveals." },
+          { title: "Built to be owned", body: "Documented architecture, clean handover, and code your own team can extend confidently." },
+          { title: "Risk raised early", body: "We surface the expensive unknowns up front instead of discovering them at launch." },
+        ]}
+      />
+
       {/* Approach */}
       {steps.length > 0 && (
         <Reveal as="section" className="bg-foreground/[0.02] section border-y border-border">
