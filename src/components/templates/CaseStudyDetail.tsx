@@ -52,11 +52,21 @@ const CaseStudyDetail = ({ page }: { page: ContentPage }) => {
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-[1.55] mb-10">
             {page.subtitle}
           </p>
-          <CoverArt
-            seed={page.slug}
-            label={page.title}
-            className="w-full h-56 md:h-80 rounded-2xl glow-ring"
-          />
+          {heroImg ? (
+            <img
+              src={heroImg}
+              alt={page.title}
+              width={1280}
+              height={896}
+              className="w-full h-56 md:h-96 rounded-2xl glow-ring object-cover"
+            />
+          ) : (
+            <CoverArt
+              seed={page.slug}
+              label={page.title}
+              className="w-full h-56 md:h-80 rounded-2xl glow-ring"
+            />
+          )}
         </div>
       </section>
 
