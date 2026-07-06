@@ -7,6 +7,7 @@ import Reveal from "@/components/Reveal";
 import CoverArt from "@/components/templates/CoverArt";
 import { getPostBySlug, blogPosts, blogCategories } from "@/data/blogData";
 import { blogExtra } from "@/data/blogExtra";
+import { getBlogImage } from "@/data/blogImages";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
