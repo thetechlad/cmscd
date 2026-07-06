@@ -47,8 +47,24 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
   const cta = parseCta(ctaSection?.body);
   const heroImg = getPageImage(page.slug);
 
+  const jsonLd = [
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Services", path: "/services" },
+      { name: page.title, path: page.url },
+    ]),
+    serviceSchema({ name: page.title, description: page.metaDescription || page.subtitle, path: page.url }),
+    faqSchema(faqs),
+  ];
+
   return (
-    <Layout title={page.seoTitle || page.title} description={page.metaDescription}>
+    <Layout
+      title={page.seoTitle || page.title}
+      description={page.metaDescription}
+      path={page.url}
+      image={heroImg}
+      jsonLd={jsonLd}
+    >
       {/* Hero */}
       <section className="bg-mesh pt-[132px] pb-16 md:pb-24 border-b border-border relative overflow-hidden">
         <div className="container-tight relative">
