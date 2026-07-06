@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import CoverArt from "@/components/templates/CoverArt";
+import { getBlogImage } from "@/data/blogImages";
 import { blogPosts, blogCategories } from "@/data/blogData";
 
 const Blog = () => {
