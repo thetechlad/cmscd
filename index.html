@@ -12,16 +12,11 @@
     <meta name="author" content="CodersDive" />
     <meta name="keywords" content="product engineering, software studio, web app development, AI engineering, SaaS development, design and development" />
 
-    <!-- Social/OG + canonical tags are managed per-route by react-helmet-async
-         (see src/components/Seo.tsx) so every page has unique, correct previews.
-         Static fallbacks below cover non-JS crawlers; hosting injects an
-         og:image at serve time when a route provides none. -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="CodersDive" />
-    <meta property="og:title" content="CodersDive — Engineering for the Ambitious">
-    <meta property="og:description" content="CodersDive is the elite product engineering studio for ambitious teams. We design, build and ship category-defining software — fast.">
-    <meta property="og:image" content="https://code-depth-showcase.lovable.app/og/default.jpg">
-    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Canonical + OG/Twitter tags are managed per-route by react-helmet-async
+         (src/components/Seo.tsx) so each page has unique, correct previews with
+         no duplicate tags. Hosting injects an og:image at serve time when a
+         route provides none for non-JS social crawlers. -->
+
 
 
     <script type="application/ld+json">
