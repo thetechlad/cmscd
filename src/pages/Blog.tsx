@@ -17,6 +17,7 @@ const Blog = () => {
     <Layout
       title="Insights"
       description="Useful thinking for teams building software — AI engineering, product strategy, SaaS growth, and more."
+      path="/insights"
     >
       <section className="bg-background pt-[120px] pb-12 border-b border-border">
         <div className="container-tight">
