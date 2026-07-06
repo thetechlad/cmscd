@@ -4,7 +4,7 @@ import BrandWork from "@/components/BrandWork";
 import CTABand from "@/components/CTABand";
 
 const PortfolioPage = () => (
-  <Layout title="Selected Work" description="Products we've designed, engineered and shipped, plus brand identities, logos and websites crafted for founders worldwide.">
+  <Layout title="Selected Work" description="Products we've designed, engineered and shipped, plus brand identities, logos and websites crafted for founders worldwide." path="/portfolio">
     <section className="bg-background pt-[120px] pb-12 border-b border-border">
       <div className="container-tight">
         <div className="label-eyebrow mb-6">Client Work</div>

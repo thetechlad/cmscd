@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import WorkProcess from "@/components/WorkProcess";
 
 const ProcessPage = () => (
-  <Layout title="Process" description="A predictable, four-stage path from brief to shipped product.">
+  <Layout title="Process" description="A predictable, four-stage path from brief to shipped product." path="/process">
     <section className="bg-background pt-[120px] pb-12 border-b border-border">
       <div className="container-tight">
         <div className="label-eyebrow mb-6">How we work</div>

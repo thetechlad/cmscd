@@ -14,7 +14,7 @@ const PageHero = ({ eyebrow, title }: { eyebrow: string; title: React.ReactNode 
 );
 
 const AboutPage = () => (
-  <Layout title="About" description="A small, senior product engineering team obsessed with shipping.">
+  <Layout title="About" description="A small, senior product engineering team obsessed with shipping." path="/about">
     <PageHero eyebrow="The Studio" title={<>A small team that takes shipping <span style={{ color: "hsl(var(--accent-blue))" }}>very seriously</span>.</>} />
     <About />
     <Testimonials />
