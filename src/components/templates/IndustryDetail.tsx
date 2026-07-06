@@ -144,6 +144,20 @@ const IndustryDetail = ({ page }: { page: ContentPage }) => {
         </Reveal>
       )}
 
+      <ContrastBand
+        eyebrow="Why teams in this sector work with us"
+        headline="Domain reality, not generic software"
+        intro="We've shipped into regulated, high-stakes, integration-heavy environments. That means we design for the constraints that actually break projects in this space."
+        points={[
+          { title: "Compliance-aware", body: "Security, privacy, and audit requirements treated as first-class design inputs — not afterthoughts." },
+          { title: "Integration-ready", body: "We plan for the legacy systems, APIs, and data flows your operation already depends on." },
+          { title: "Workflow-led", body: "Built around how your team actually works, so adoption isn't a fight." },
+          { title: "Scales with demand", body: "Architecture that holds up as volume, users, and complexity grow." },
+        ]}
+      />
+
+
+
       {(approach || engagement) && (
         <Reveal as="section" className="bg-foreground/[0.02] section border-y border-border">
           <div className="container-tight grid lg:grid-cols-2 gap-12">
