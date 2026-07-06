@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Check, Loader2 } from "lucide-react";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/templates/Breadcrumbs";
 import { useToast } from "@/hooks/use-toast";
+import { track } from "@/lib/analytics";
 
 const EMAIL = "hello@codersdive.com";
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
