@@ -9,7 +9,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <Layout title="Page Not Found" description="The page you're looking for doesn't exist.">
+    <Layout title="Page Not Found" description="The page you're looking for doesn't exist." path="/404" noindex>
       <section className="bg-background section pt-[160px]">
         <div className="container-tight text-center max-w-2xl mx-auto">
           <div className="display text-7xl md:text-8xl font-bold mb-6" style={{ color: "hsl(var(--accent-blue))" }}>

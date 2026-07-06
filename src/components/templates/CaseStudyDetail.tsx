@@ -9,7 +9,11 @@ import RelatedContent from "@/components/templates/RelatedContent";
 import CoverArt from "@/components/templates/CoverArt";
 import ContrastBand from "@/components/templates/ContrastBand";
 import FeatureImage from "@/components/templates/FeatureImage";
+import MediaGallery from "@/components/templates/MediaGallery";
+import ProblemSolution from "@/components/templates/ProblemSolution";
+import FeatureWalkthrough from "@/components/templates/FeatureWalkthrough";
 import { getPageImage } from "@/data/pageImages";
+import { breadcrumbSchema, articleSchema } from "@/lib/seo";
 import { ContentPage } from "@/data/pageData";
 import { parseSections, findSection, parseSubsections, parseCta } from "@/lib/content";
 
@@ -34,8 +38,30 @@ const CaseStudyDetail = ({ page }: { page: ContentPage }) => {
     body: string;
   }[];
 
+  const jsonLd = [
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Work", path: "/portfolio" },
+      { name: page.title, path: page.url },
+    ]),
+    articleSchema({
+      title: page.seoTitle || page.title,
+      description: page.metaDescription || page.subtitle,
+      path: page.url,
+      image: heroImg || "",
+      section: "Case study",
+    }),
+  ];
+
   return (
-    <Layout title={page.seoTitle || page.title} description={page.metaDescription}>
+    <Layout
+      title={page.seoTitle || page.title}
+      description={page.metaDescription}
+      path={page.url}
+      image={heroImg}
+      type="article"
+      jsonLd={jsonLd}
+    >
       <section className="bg-mesh pt-[132px] pb-14 md:pb-20 border-b border-border">
         <div className="container-tight">
           <Breadcrumbs
@@ -143,6 +169,28 @@ const CaseStudyDetail = ({ page }: { page: ContentPage }) => {
           </div>
         </div>
       </section>
+
+      <ProblemSolution slug={page.slug} label={page.title} />
+
+      <MediaGallery
+        slug={page.slug}
+        label={page.title}
+        eyebrow="Screenshot gallery"
+        headline="A walk through the product surfaces"
+        intro="Representative screens from the build. Client details are generalized for confidentiality."
+      />
+
+      <FeatureWalkthrough
+        slug={page.slug}
+        eyebrow="Interactive highlights"
+        headline="The moments that made this product work"
+        steps={[
+          { title: "Framed the real problem", body: "We started from the outcome and the riskiest assumption, not a feature list." },
+          { title: "Designed the core flow", body: "The critical path was prototyped and pressure-tested before a line of production code." },
+          { title: "Built for production", body: "Testing, monitoring, and documentation shipped with the product — not bolted on later." },
+          { title: "Left room to grow", body: "Foundations that support the next phase instead of blocking it." },
+        ]}
+      />
 
       <ContrastBand
         eyebrow="What this build demonstrates"

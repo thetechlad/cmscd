@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Check, Loader2 } from "lucide-react";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/templates/Breadcrumbs";
 import { useToast } from "@/hooks/use-toast";
+import { track } from "@/lib/analytics";
 
 const EMAIL = "hello@codersdive.com";
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
@@ -117,6 +118,7 @@ const StartProject = () => {
       });
       if (!res.ok) throw new Error("Request failed");
       sessionStorage.removeItem(STORAGE_KEY);
+      track("form_submit", { form: "start_project", priorities: data.priorities.length });
       navigate("/thank-you");
     } catch {
       toast({
@@ -136,6 +138,7 @@ const StartProject = () => {
     <Layout
       title="Start a project | CodersDive"
       description="Tell us what you're building. A short, optional intake so we can prepare a useful first conversation."
+      path="/start-a-project"
     >
       <section className="bg-mesh pt-[128px] pb-12 border-b border-border">
         <div className="container-tight">

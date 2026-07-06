@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import Testimonials from "@/components/Testimonials";
 
 const TestimonialsPage = () => (
-  <Layout title="Testimonials" description="What founders and product leaders say about working with CodersDive.">
+  <Layout title="Testimonials" description="What founders and product leaders say about working with CodersDive." path="/testimonials">
     <section className="bg-background pt-[120px] pb-12 border-b border-border">
       <div className="container-tight">
         <div className="label-eyebrow mb-6">Testimonials</div>

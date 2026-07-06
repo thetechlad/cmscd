@@ -3,7 +3,7 @@ import Services from "@/components/Services";
 import TechStack from "@/components/TechStack";
 
 const ServicesPage = () => (
-  <Layout title="Services" description="Product engineering, AI, mobile, cloud, design and growth — under one roof.">
+  <Layout title="Services" description="Product engineering, AI, mobile, cloud, design and growth — under one roof." path="/services">
     <section className="bg-background pt-[120px] pb-12 border-b border-border">
       <div className="container-tight">
         <div className="label-eyebrow mb-6">What we do</div>

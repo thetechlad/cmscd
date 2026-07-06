@@ -11,7 +11,11 @@ import RelatedContent from "@/components/templates/RelatedContent";
 import CoverArt from "@/components/templates/CoverArt";
 import ContrastBand from "@/components/templates/ContrastBand";
 import FeatureImage from "@/components/templates/FeatureImage";
+import FeatureWalkthrough from "@/components/templates/FeatureWalkthrough";
+import MediaGallery from "@/components/templates/MediaGallery";
+import DiagramBand from "@/components/templates/DiagramBand";
 import { getPageImage } from "@/data/pageImages";
+import { breadcrumbSchema, serviceSchema, faqSchema } from "@/lib/seo";
 import { ContentPage } from "@/data/pageData";
 import {
   parseSections,
@@ -43,8 +47,24 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
   const cta = parseCta(ctaSection?.body);
   const heroImg = getPageImage(page.slug);
 
+  const jsonLd = [
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Services", path: "/services" },
+      { name: page.title, path: page.url },
+    ]),
+    serviceSchema({ name: page.title, description: page.metaDescription || page.subtitle, path: page.url }),
+    faqSchema(faqs),
+  ];
+
   return (
-    <Layout title={page.seoTitle || page.title} description={page.metaDescription}>
+    <Layout
+      title={page.seoTitle || page.title}
+      description={page.metaDescription}
+      path={page.url}
+      image={heroImg}
+      jsonLd={jsonLd}
+    >
       {/* Hero */}
       <section className="bg-mesh pt-[132px] pb-16 md:pb-24 border-b border-border relative overflow-hidden">
         <div className="container-tight relative">
@@ -181,6 +201,14 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
         ]}
       />
 
+      <FeatureWalkthrough slug={page.slug} />
+
+      <MediaGallery
+        slug={page.slug}
+        label={page.title}
+        intro="A spread of the surfaces we design and build for engagements like this — from the primary workspace to mobile and reporting."
+      />
+
       {/* Approach */}
       {steps.length > 0 && (
         <Reveal as="section" className="bg-foreground/[0.02] section border-y border-border">
@@ -248,6 +276,11 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
           </div>
         </Reveal>
       )}
+
+      <DiagramBand
+        seed={page.slug}
+        intro="We design the whole pipeline — from where data originates to where your team takes action — so nothing important lives in a spreadsheet or someone's head."
+      />
 
       <RelatedContent currentUrl={page.url} />
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Check, Calendar, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { track } from "@/lib/analytics";
 
 const CAL_URL = "https://cal.com/tayyabirfan/15min";
 const EMAIL = "hello@codersdive.com";
@@ -27,6 +28,7 @@ const Contact = ({ asPage = false }: { asPage?: boolean }) => {
       });
       if (!res.ok) throw new Error("Request failed");
       toast({ title: "Message sent", description: "We'll be in touch within 4 hours." });
+      track("form_submit", { form: "contact", timeline: data.timeline });
       setData({ name: "", email: "", company: "", message: "", timeline: "ASAP" });
     } catch {
       toast({

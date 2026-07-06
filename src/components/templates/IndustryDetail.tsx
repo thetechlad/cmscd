@@ -9,7 +9,10 @@ import RelatedContent from "@/components/templates/RelatedContent";
 import CoverArt from "@/components/templates/CoverArt";
 import ContrastBand from "@/components/templates/ContrastBand";
 import FeatureImage from "@/components/templates/FeatureImage";
+import MediaGallery from "@/components/templates/MediaGallery";
+import DiagramBand from "@/components/templates/DiagramBand";
 import { getPageImage } from "@/data/pageImages";
+import { breadcrumbSchema, serviceSchema } from "@/lib/seo";
 import { ContentPage } from "@/data/pageData";
 import {
   parseSections,
@@ -33,8 +36,23 @@ const IndustryDetail = ({ page }: { page: ContentPage }) => {
   const cta = parseCta(ctaSection?.body);
   const heroImg = getPageImage(page.slug);
 
+  const jsonLd = [
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Industries", path: "/industries" },
+      { name: page.title, path: page.url },
+    ]),
+    serviceSchema({ name: page.title, description: page.metaDescription || page.subtitle, path: page.url }),
+  ];
+
   return (
-    <Layout title={page.seoTitle || page.title} description={page.metaDescription}>
+    <Layout
+      title={page.seoTitle || page.title}
+      description={page.metaDescription}
+      path={page.url}
+      image={heroImg}
+      jsonLd={jsonLd}
+    >
       <section className="bg-mesh pt-[132px] pb-16 md:pb-24 border-b border-border relative overflow-hidden">
         <div className="container-tight relative">
           <Breadcrumbs
@@ -154,6 +172,21 @@ const IndustryDetail = ({ page }: { page: ContentPage }) => {
           { title: "Workflow-led", body: "Built around how your team actually works, so adoption isn't a fight." },
           { title: "Scales with demand", body: "Architecture that holds up as volume, users, and complexity grow." },
         ]}
+      />
+
+      <MediaGallery
+        slug={page.slug}
+        label={page.title}
+        eyebrow="What we build here"
+        headline="Product surfaces tuned to this industry"
+        intro="Representative views of the kind of software we ship into this sector — operational dashboards, records, mobile access, and reporting."
+      />
+
+      <DiagramBand
+        seed={page.slug}
+        headline="How the pieces connect in this sector"
+        intro="From the systems your operation already runs on, through the logic and rules unique to this industry, to the surfaces your team and customers touch."
+        nodes={["Existing systems", "Compliance & rules", "Product surface", "Reporting & audit"]}
       />
 
 

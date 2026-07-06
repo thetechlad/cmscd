@@ -12,6 +12,8 @@ const ThankYou = () => {
     <Layout
       title="Thank you | CodersDive"
       description="Your project brief is in. Here's what happens next."
+      path="/thank-you"
+      noindex
     >
       <section className="bg-mesh pt-[140px] pb-20 min-h-[70vh] flex items-center">
         <div className="container-tight">

@@ -402,6 +402,11 @@
 .cv-sheen { animation: cover-sheen 7.5s ease-in-out infinite; }
 .cv-dash { stroke-dasharray: 6 8; animation: cover-dash 2.4s linear infinite; }
 
+/* Pause all cover animations when the art scrolls off-screen (perf). */
+.cv-paused .cv-spin, .cv-paused .cv-spin-rev, .cv-paused .cv-float,
+.cv-paused .cv-float2, .cv-paused .cv-pulse, .cv-paused .cv-sheen,
+.cv-paused .cv-dash { animation-play-state: paused !important; }
+
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
