@@ -38,8 +38,30 @@ const CaseStudyDetail = ({ page }: { page: ContentPage }) => {
     body: string;
   }[];
 
+  const jsonLd = [
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Work", path: "/portfolio" },
+      { name: page.title, path: page.url },
+    ]),
+    articleSchema({
+      title: page.seoTitle || page.title,
+      description: page.metaDescription || page.subtitle,
+      path: page.url,
+      image: heroImg || "",
+      section: "Case study",
+    }),
+  ];
+
   return (
-    <Layout title={page.seoTitle || page.title} description={page.metaDescription}>
+    <Layout
+      title={page.seoTitle || page.title}
+      description={page.metaDescription}
+      path={page.url}
+      image={heroImg}
+      type="article"
+      jsonLd={jsonLd}
+    >
       <section className="bg-mesh pt-[132px] pb-14 md:pb-20 border-b border-border">
         <div className="container-tight">
           <Breadcrumbs
