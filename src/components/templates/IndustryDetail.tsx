@@ -7,6 +7,9 @@ import Breadcrumbs from "@/components/templates/Breadcrumbs";
 import CtaRibbon from "@/components/templates/CtaRibbon";
 import RelatedContent from "@/components/templates/RelatedContent";
 import CoverArt from "@/components/templates/CoverArt";
+import ContrastBand from "@/components/templates/ContrastBand";
+import FeatureImage from "@/components/templates/FeatureImage";
+import { getPageImage } from "@/data/pageImages";
 import { ContentPage } from "@/data/pageData";
 import {
   parseSections,
