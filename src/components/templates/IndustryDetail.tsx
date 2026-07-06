@@ -58,11 +58,21 @@ const IndustryDetail = ({ page }: { page: ContentPage }) => {
               </Link>
             </div>
             <div className="lg:col-span-5">
-              <CoverArt
-                seed={page.slug}
-                label={page.title}
-                className="aspect-[4/3] w-full rounded-3xl glow-ring"
-              />
+              {heroImg ? (
+                <img
+                  src={heroImg}
+                  alt={page.title}
+                  width={1280}
+                  height={896}
+                  className="aspect-[4/3] w-full rounded-3xl glow-ring object-cover"
+                />
+              ) : (
+                <CoverArt
+                  seed={page.slug}
+                  label={page.title}
+                  className="aspect-[4/3] w-full rounded-3xl glow-ring"
+                />
+              )}
             </div>
           </div>
         </div>
@@ -70,10 +80,24 @@ const IndustryDetail = ({ page }: { page: ContentPage }) => {
 
       {intro && (
         <Reveal as="section" className="section">
-          <div className="container-tight">
-            <p className="display text-2xl md:text-[32px] font-semibold leading-[1.3] max-w-4xl">
-              {intro}
-            </p>
+          <div className="container-tight grid lg:grid-cols-12 gap-12 items-center">
+            <FeatureImage
+              slug={page.slug}
+              category={page.slug}
+              label={page.title}
+              className="lg:col-span-5 order-last lg:order-first"
+              aspect="aspect-[4/3]"
+            />
+            <div className="lg:col-span-7">
+              <p className="display text-2xl md:text-[32px] font-semibold leading-[1.3]">
+                {intro}
+              </p>
+              <p className="text-muted-foreground mt-6 leading-[1.7] text-[15px] max-w-xl">
+                We pair product and engineering judgement with the specific realities of this
+                sector — its data, its compliance pressure, its integrations, and the workflows
+                your team lives in every day.
+              </p>
+            </div>
           </div>
         </Reveal>
       )}
