@@ -201,6 +201,14 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
         ]}
       />
 
+      <FeatureWalkthrough slug={page.slug} />
+
+      <MediaGallery
+        slug={page.slug}
+        label={page.title}
+        intro="A spread of the surfaces we design and build for engagements like this — from the primary workspace to mobile and reporting."
+      />
+
       {/* Approach */}
       {steps.length > 0 && (
         <Reveal as="section" className="bg-foreground/[0.02] section border-y border-border">
