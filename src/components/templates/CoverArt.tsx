@@ -178,6 +178,7 @@ const CoverArt = ({
 
         <line x1="0" y1="210" x2="400" y2="210" stroke="#ffffff" strokeWidth="1" opacity="0.14" />
       </svg>
+      )}
 
       {label && (
         <span className="absolute bottom-3 left-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/80">
