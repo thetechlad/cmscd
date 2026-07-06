@@ -9,7 +9,11 @@ import RelatedContent from "@/components/templates/RelatedContent";
 import CoverArt from "@/components/templates/CoverArt";
 import ContrastBand from "@/components/templates/ContrastBand";
 import FeatureImage from "@/components/templates/FeatureImage";
+import MediaGallery from "@/components/templates/MediaGallery";
+import ProblemSolution from "@/components/templates/ProblemSolution";
+import FeatureWalkthrough from "@/components/templates/FeatureWalkthrough";
 import { getPageImage } from "@/data/pageImages";
+import { breadcrumbSchema, articleSchema } from "@/lib/seo";
 import { ContentPage } from "@/data/pageData";
 import { parseSections, findSection, parseSubsections, parseCta } from "@/lib/content";
 
