@@ -9,6 +9,9 @@ import ProofStrip from "@/components/templates/ProofStrip";
 import FaqAccordion from "@/components/templates/FaqAccordion";
 import RelatedContent from "@/components/templates/RelatedContent";
 import CoverArt from "@/components/templates/CoverArt";
+import ContrastBand from "@/components/templates/ContrastBand";
+import FeatureImage from "@/components/templates/FeatureImage";
+import { getPageImage } from "@/data/pageImages";
 import { ContentPage } from "@/data/pageData";
 import {
   parseSections,
@@ -38,6 +41,7 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
     ? parseSubsections(faqSection.body).map((s) => ({ q: s.title, a: s.body }))
     : [];
   const cta = parseCta(ctaSection?.body);
+  const heroImg = getPageImage(page.slug);
 
   return (
     <Layout title={page.seoTitle || page.title} description={page.metaDescription}>
@@ -70,11 +74,21 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
               </div>
             </div>
             <div className="lg:col-span-5">
-              <CoverArt
-                seed={page.slug}
-                label={page.title}
-                className="aspect-[4/3] w-full rounded-3xl glow-ring"
-              />
+              {heroImg ? (
+                <img
+                  src={heroImg}
+                  alt={page.title}
+                  width={1280}
+                  height={896}
+                  className="aspect-[4/3] w-full rounded-3xl glow-ring object-cover"
+                />
+              ) : (
+                <CoverArt
+                  seed={page.slug}
+                  label={page.title}
+                  className="aspect-[4/3] w-full rounded-3xl glow-ring"
+                />
+              )}
             </div>
           </div>
         </div>
@@ -85,10 +99,23 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
       {/* Intro statement */}
       {intro && (
         <Reveal as="section" className="section">
-          <div className="container-tight">
-            <p className="display text-2xl md:text-[32px] font-semibold leading-[1.3] max-w-4xl">
-              {intro}
-            </p>
+          <div className="container-tight grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
+              <p className="display text-2xl md:text-[32px] font-semibold leading-[1.3]">
+                {intro}
+              </p>
+              <p className="text-muted-foreground mt-6 leading-[1.7] text-[15px] max-w-xl">
+                We stay close to your operating reality — the constraints, the edge cases, and the
+                people who have to run the system after launch — so the work holds up long after
+                the first release.
+              </p>
+            </div>
+            <FeatureImage
+              slug={page.slug}
+              label={page.title}
+              className="lg:col-span-5"
+              aspect="aspect-[4/3]"
+            />
           </div>
         </Reveal>
       )}
@@ -141,6 +168,18 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
           </div>
         </Reveal>
       )}
+
+      <ContrastBand
+        eyebrow="What working with us feels like"
+        headline="Substance over slideware, from first call to production"
+        intro="This is the part most vendors skip. We make the trade-offs visible, keep the team who scoped the work close to the build, and hand over something your business can actually own."
+        points={[
+          { title: "One accountable team", body: "Product, design, and engineering decisions stay under one roof — no hand-offs that lose the plot." },
+          { title: "Visible increments", body: "You see working software on a steady cadence, not status theatre or surprise reveals." },
+          { title: "Built to be owned", body: "Documented architecture, clean handover, and code your own team can extend confidently." },
+          { title: "Risk raised early", body: "We surface the expensive unknowns up front instead of discovering them at launch." },
+        ]}
+      />
 
       {/* Approach */}
       {steps.length > 0 && (

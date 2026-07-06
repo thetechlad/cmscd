@@ -7,6 +7,9 @@ import Breadcrumbs from "@/components/templates/Breadcrumbs";
 import CtaRibbon from "@/components/templates/CtaRibbon";
 import RelatedContent from "@/components/templates/RelatedContent";
 import CoverArt from "@/components/templates/CoverArt";
+import ContrastBand from "@/components/templates/ContrastBand";
+import FeatureImage from "@/components/templates/FeatureImage";
+import { getPageImage } from "@/data/pageImages";
 import { ContentPage } from "@/data/pageData";
 import { parseSections, findSection, parseSubsections, parseCta } from "@/lib/content";
 
@@ -24,6 +27,7 @@ const CaseStudyDetail = ({ page }: { page: ContentPage }) => {
 
   const features = includes ? parseSubsections(includes.body) : [];
   const cta = parseCta(ctaSection?.body);
+  const heroImg = getPageImage(page.slug);
 
   const narrative = [direction, experience, engineering, outcome, next].filter(Boolean) as {
     title: string;
@@ -48,11 +52,21 @@ const CaseStudyDetail = ({ page }: { page: ContentPage }) => {
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-[1.55] mb-10">
             {page.subtitle}
           </p>
-          <CoverArt
-            seed={page.slug}
-            label={page.title}
-            className="w-full h-56 md:h-80 rounded-2xl glow-ring"
-          />
+          {heroImg ? (
+            <img
+              src={heroImg}
+              alt={page.title}
+              width={1280}
+              height={896}
+              className="w-full h-56 md:h-96 rounded-2xl glow-ring object-cover"
+            />
+          ) : (
+            <CoverArt
+              seed={page.slug}
+              label={page.title}
+              className="w-full h-56 md:h-80 rounded-2xl glow-ring"
+            />
+          )}
         </div>
       </section>
 
@@ -111,14 +125,36 @@ const CaseStudyDetail = ({ page }: { page: ContentPage }) => {
             )}
 
             {narrative.map((s, i) => (
-              <Reveal key={i}>
-                <div className="label-eyebrow mb-4">{s.title}</div>
-                <Markdown content={s.body} />
-              </Reveal>
+              <div key={i} className="space-y-14">
+                <Reveal>
+                  <div className="label-eyebrow mb-4">{s.title}</div>
+                  <Markdown content={s.body} />
+                </Reveal>
+                {i === 0 && (
+                  <FeatureImage
+                    slug={page.slug}
+                    label={page.title}
+                    aspect="aspect-[16/10]"
+                    caption="Representative product surface. Client details generalized for confidentiality."
+                  />
+                )}
+              </div>
             ))}
           </div>
         </div>
       </section>
+
+      <ContrastBand
+        eyebrow="What this build demonstrates"
+        headline="How we turn an ambiguous brief into a working product"
+        intro="Every engagement is different, but the operating principles behind this work are consistent — and they're the reason projects like this ship and stay shipped."
+        points={[
+          { title: "Clear problem framing", body: "We start from the outcome and the riskiest assumption, not a feature wishlist." },
+          { title: "Design + engineering as one", body: "Interface, data, and architecture decisions made together, not in silos." },
+          { title: "Production discipline", body: "Testing, monitoring, and documentation built in so launch isn't a cliff edge." },
+          { title: "Room to evolve", body: "Foundations that support the next phase instead of blocking it." },
+        ]}
+      />
 
       <RelatedContent currentUrl={page.url} />
 

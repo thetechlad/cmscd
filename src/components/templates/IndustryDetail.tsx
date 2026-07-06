@@ -7,6 +7,9 @@ import Breadcrumbs from "@/components/templates/Breadcrumbs";
 import CtaRibbon from "@/components/templates/CtaRibbon";
 import RelatedContent from "@/components/templates/RelatedContent";
 import CoverArt from "@/components/templates/CoverArt";
+import ContrastBand from "@/components/templates/ContrastBand";
+import FeatureImage from "@/components/templates/FeatureImage";
+import { getPageImage } from "@/data/pageImages";
 import { ContentPage } from "@/data/pageData";
 import {
   parseSections,
@@ -28,6 +31,7 @@ const IndustryDetail = ({ page }: { page: ContentPage }) => {
   const challengeBullets = challenges ? parseBullets(challenges.body) : [];
   const buildItems = build ? parseSubsections(build.body) : [];
   const cta = parseCta(ctaSection?.body);
+  const heroImg = getPageImage(page.slug);
 
   return (
     <Layout title={page.seoTitle || page.title} description={page.metaDescription}>
@@ -54,11 +58,21 @@ const IndustryDetail = ({ page }: { page: ContentPage }) => {
               </Link>
             </div>
             <div className="lg:col-span-5">
-              <CoverArt
-                seed={page.slug}
-                label={page.title}
-                className="aspect-[4/3] w-full rounded-3xl glow-ring"
-              />
+              {heroImg ? (
+                <img
+                  src={heroImg}
+                  alt={page.title}
+                  width={1280}
+                  height={896}
+                  className="aspect-[4/3] w-full rounded-3xl glow-ring object-cover"
+                />
+              ) : (
+                <CoverArt
+                  seed={page.slug}
+                  label={page.title}
+                  className="aspect-[4/3] w-full rounded-3xl glow-ring"
+                />
+              )}
             </div>
           </div>
         </div>
@@ -66,10 +80,24 @@ const IndustryDetail = ({ page }: { page: ContentPage }) => {
 
       {intro && (
         <Reveal as="section" className="section">
-          <div className="container-tight">
-            <p className="display text-2xl md:text-[32px] font-semibold leading-[1.3] max-w-4xl">
-              {intro}
-            </p>
+          <div className="container-tight grid lg:grid-cols-12 gap-12 items-center">
+            <FeatureImage
+              slug={page.slug}
+              category={page.slug}
+              label={page.title}
+              className="lg:col-span-5 order-last lg:order-first"
+              aspect="aspect-[4/3]"
+            />
+            <div className="lg:col-span-7">
+              <p className="display text-2xl md:text-[32px] font-semibold leading-[1.3]">
+                {intro}
+              </p>
+              <p className="text-muted-foreground mt-6 leading-[1.7] text-[15px] max-w-xl">
+                We pair product and engineering judgement with the specific realities of this
+                sector — its data, its compliance pressure, its integrations, and the workflows
+                your team lives in every day.
+              </p>
+            </div>
           </div>
         </Reveal>
       )}
@@ -115,6 +143,20 @@ const IndustryDetail = ({ page }: { page: ContentPage }) => {
           </div>
         </Reveal>
       )}
+
+      <ContrastBand
+        eyebrow="Why teams in this sector work with us"
+        headline="Domain reality, not generic software"
+        intro="We've shipped into regulated, high-stakes, integration-heavy environments. That means we design for the constraints that actually break projects in this space."
+        points={[
+          { title: "Compliance-aware", body: "Security, privacy, and audit requirements treated as first-class design inputs — not afterthoughts." },
+          { title: "Integration-ready", body: "We plan for the legacy systems, APIs, and data flows your operation already depends on." },
+          { title: "Workflow-led", body: "Built around how your team actually works, so adoption isn't a fight." },
+          { title: "Scales with demand", body: "Architecture that holds up as volume, users, and complexity grow." },
+        ]}
+      />
+
+
 
       {(approach || engagement) && (
         <Reveal as="section" className="bg-foreground/[0.02] section border-y border-border">
