@@ -31,6 +31,7 @@ const IndustryDetail = ({ page }: { page: ContentPage }) => {
   const challengeBullets = challenges ? parseBullets(challenges.body) : [];
   const buildItems = build ? parseSubsections(build.body) : [];
   const cta = parseCta(ctaSection?.body);
+  const heroImg = getPageImage(page.slug);
 
   return (
     <Layout title={page.seoTitle || page.title} description={page.metaDescription}>
