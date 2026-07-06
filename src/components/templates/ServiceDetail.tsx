@@ -277,6 +277,11 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
         </Reveal>
       )}
 
+      <DiagramBand
+        seed={page.slug}
+        intro="We design the whole pipeline — from where data originates to where your team takes action — so nothing important lives in a spreadsheet or someone's head."
+      />
+
       <RelatedContent currentUrl={page.url} />
 
       <CtaRibbon headline={cta.headline} action={cta.action} />
