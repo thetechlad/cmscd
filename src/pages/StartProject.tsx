@@ -118,6 +118,7 @@ const StartProject = () => {
       });
       if (!res.ok) throw new Error("Request failed");
       sessionStorage.removeItem(STORAGE_KEY);
+      track("form_submit", { form: "start_project", priorities: data.priorities.length });
       navigate("/thank-you");
     } catch {
       toast({
