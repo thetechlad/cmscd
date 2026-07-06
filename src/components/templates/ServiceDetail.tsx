@@ -11,7 +11,11 @@ import RelatedContent from "@/components/templates/RelatedContent";
 import CoverArt from "@/components/templates/CoverArt";
 import ContrastBand from "@/components/templates/ContrastBand";
 import FeatureImage from "@/components/templates/FeatureImage";
+import FeatureWalkthrough from "@/components/templates/FeatureWalkthrough";
+import MediaGallery from "@/components/templates/MediaGallery";
+import DiagramBand from "@/components/templates/DiagramBand";
 import { getPageImage } from "@/data/pageImages";
+import { breadcrumbSchema, serviceSchema, faqSchema } from "@/lib/seo";
 import { ContentPage } from "@/data/pageData";
 import {
   parseSections,
