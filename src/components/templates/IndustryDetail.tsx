@@ -174,6 +174,21 @@ const IndustryDetail = ({ page }: { page: ContentPage }) => {
         ]}
       />
 
+      <MediaGallery
+        slug={page.slug}
+        label={page.title}
+        eyebrow="What we build here"
+        headline="Product surfaces tuned to this industry"
+        intro="Representative views of the kind of software we ship into this sector — operational dashboards, records, mobile access, and reporting."
+      />
+
+      <DiagramBand
+        seed={page.slug}
+        headline="How the pieces connect in this sector"
+        intro="From the systems your operation already runs on, through the logic and rules unique to this industry, to the surfaces your team and customers touch."
+        nodes={["Existing systems", "Compliance & rules", "Product surface", "Reporting & audit"]}
+      />
+
 
 
       {(approach || engagement) && (
