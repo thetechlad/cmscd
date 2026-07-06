@@ -17,6 +17,7 @@ const Index = () => (
   <Layout
     title="Engineering for the ambitious"
     description="CodersDive is a premium software agency for founders, executives and operators who want industry-leading products — built fast, without compromise."
+    path="/"
   >
     <Hero />
     <LogoStrip />
