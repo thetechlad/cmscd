@@ -34,7 +34,7 @@ const PricingCard = ({
     }`}
     style={
       popular
-        ? { background: "linear-gradient(135deg, hsl(var(--accent-blue)) 0%, hsl(221 100% 42%) 100%)", boxShadow: "0 30px 80px -20px rgba(37, 99, 235, 0.45)" }
+        ? { background: "linear-gradient(135deg, hsl(var(--accent-blue)) 0%, hsl(188 100% 38%) 100%)", boxShadow: "0 30px 80px -20px rgba(0, 196, 225, 0.45)" }
         : { boxShadow: "0 10px 40px -20px rgba(0,0,0,0.1)" }
     }
   >
