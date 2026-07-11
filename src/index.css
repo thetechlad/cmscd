@@ -184,7 +184,7 @@
   .glow-ring {
     box-shadow:
       0 0 0 1px hsl(var(--border)),
-      0 30px 60px -20px rgba(37, 99, 235, 0.25),
+      0 30px 60px -20px rgba(0, 196, 225, 0.25),
       0 60px 120px -40px rgba(10, 10, 10, 0.18);
   }
 
