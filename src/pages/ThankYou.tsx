@@ -3,7 +3,7 @@ import { ArrowUpRight, Check, Mail } from "lucide-react";
 import Layout from "@/components/Layout";
 import { blogPosts } from "@/data/blogData";
 
-const EMAIL = "hello@codersdive.com";
+const EMAIL = "codersdive@gmail.com";
 
 const ThankYou = () => {
   const suggestions = blogPosts.slice(0, 2);

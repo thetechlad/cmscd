@@ -6,7 +6,7 @@ import Breadcrumbs from "@/components/templates/Breadcrumbs";
 import { useToast } from "@/hooks/use-toast";
 import { track } from "@/lib/analytics";
 
-const EMAIL = "hello@codersdive.com";
+const EMAIL = "codersdive@gmail.com";
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
 const STORAGE_KEY = "cd_intake_draft";
 
