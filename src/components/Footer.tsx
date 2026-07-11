@@ -3,7 +3,7 @@ import { Linkedin, Twitter, Github, ArrowRight } from "lucide-react";
 import logo from "@/assets/logo-full.png";
 
 const CAL_URL = "https://cal.com/tayyabirfan/15min";
-const EMAIL = "hello@codersdive.com";
+const EMAIL = "codersdive@gmail.com";
 const SOCIALS: { icon: any; href: string; label: string }[] = [
   { icon: Linkedin, href: "https://www.linkedin.com/company/codersdive", label: "LinkedIn" },
   { icon: Twitter,  href: "https://x.com/codersdive",                     label: "X (Twitter)" },
