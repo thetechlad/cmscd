@@ -13,14 +13,14 @@ import { hashString } from "@/lib/content";
 type Palette = { from: string; to: string; accent: string };
 
 const palettes: Palette[] = [
-  { from: "#0057FF", to: "#00C2FF", accent: "#B9E4FF" }, // cobalt → sky
+  { from: "#00C4E1", to: "#00E0FF", accent: "#B9F3FF" }, // cyan → sky
   { from: "#3B2CFF", to: "#B14BFF", accent: "#E7D5FF" }, // indigo → violet
   { from: "#0B1220", to: "#1E3A8A", accent: "#60A5FA" }, // deep navy
   { from: "#0E7C66", to: "#2FD3A5", accent: "#C6F7E6" }, // teal
   { from: "#FF5A3C", to: "#FF9A3C", accent: "#FFE0C2" }, // sunset
   { from: "#C1121F", to: "#F15B4C", accent: "#FFD1CC" }, // crimson
   { from: "#1A1A2E", to: "#4C1D95", accent: "#C4B5FD" }, // midnight purple
-  { from: "#0057FF", to: "#001A66", accent: "#8FB4FF" }, // electric blue
+  { from: "#00C4E1", to: "#006680", accent: "#8FE4FF" }, // electric cyan
 ];
 
 // Keep a distinct, recognizable palette per content category (the "color

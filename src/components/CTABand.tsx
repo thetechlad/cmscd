@@ -11,7 +11,7 @@ const CTABand = () => (
     <div className="container-tight relative">
       <div
         className="reveal-child relative rounded-3xl overflow-hidden border border-[hsl(var(--accent-blue))]/30 text-white p-10 md:p-16 glow-ring"
-        style={{ background: "linear-gradient(135deg, hsl(var(--accent-blue)) 0%, hsl(221 100% 42%) 100%)" }}
+        style={{ background: "linear-gradient(135deg, hsl(var(--accent-blue)) 0%, hsl(188 100% 38%) 100%)" }}
       >
         {/* internal glow */}
         <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full pointer-events-none"

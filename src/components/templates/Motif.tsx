@@ -7,7 +7,7 @@ import { hashString } from "@/lib/content";
 const Motif = ({ seed, className = "" }: { seed: string; className?: string }) => {
   const h = hashString(seed);
   const variant = h % 4;
-  const blue = "hsl(221 100% 50%)";
+  const blue = "hsl(188 100% 44%)";
   const ink = "hsl(0 0% 5%)";
 
   return (
