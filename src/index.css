@@ -19,9 +19,9 @@
     --primary: 0 0% 5%;                 /* #0D0D0D */
     --primary-foreground: 0 0% 100%;
 
-    --accent-blue: 221 100% 50%;        /* #0057FF cobalt */
-    --accent-blue-soft: 222 95% 95%;    /* #E8EFFE */
-    --accent-blue-tint: 221 100% 88%;   /* light cobalt */
+    --accent-blue: 188 100% 44%;        /* #00C4E1 cyan */
+    --accent-blue-soft: 188 85% 94%;    /* #E1F8FC */
+    --accent-blue-tint: 188 90% 80%;    /* light cyan */
 
     --secondary: 210 17% 98%;
     --secondary-foreground: 0 0% 4%;
