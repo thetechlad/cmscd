@@ -139,6 +139,19 @@ const Contact = ({ asPage = false }: { asPage?: boolean }) => {
             </div>
           </div>
         </div>
+
+        <div className="mt-20 pt-16 border-t border-border">
+          <div className="max-w-2xl mb-10">
+            <div className="text-[11px] uppercase tracking-[0.15em] text-[hsl(var(--accent-blue))] mb-5 font-medium">Book a Consultation</div>
+            <h2 className="display text-[24px] md:text-[36px] font-bold leading-[1.1] mb-4">
+              Pick a time that works for you
+            </h2>
+            <p className="text-muted-foreground leading-[1.7] text-lg">
+              Grab a free consulting slot directly on our calendar — no back-and-forth emails.
+            </p>
+          </div>
+          <CalEmbed />
+        </div>
       </div>
     </section>
   );
