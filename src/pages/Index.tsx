@@ -6,6 +6,7 @@ import Services from "@/components/Services";
 import WorkProcess from "@/components/WorkProcess";
 import ProjectsGallery from "@/components/ProjectsGallery";
 import ProjectMarquee from "@/components/ProjectMarquee";
+import FaqSection from "@/components/FaqSection";
 import Pricing from "@/components/Pricing";
 import TickerBand from "@/components/TickerBand";
 import TechStack from "@/components/TechStack";
@@ -30,8 +31,9 @@ const Index = () => (
     <CTABand />
     <TechStack />
     <Testimonials />
-    <Pricing />
-    <Contact />
+      <Pricing />
+      <FaqSection />
+      <Contact />
   </Layout>
 );
 

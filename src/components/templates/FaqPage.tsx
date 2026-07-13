@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/templates/Breadcrumbs";
 import CtaRibbon from "@/components/templates/CtaRibbon";
 import FaqAccordion from "@/components/templates/FaqAccordion";
+import FaqSection from "@/components/FaqSection";
 import { ContentPage } from "@/data/pageData";
 import { parseSections } from "@/lib/content";
 
@@ -30,6 +31,8 @@ const FaqPage = ({ page }: { page: ContentPage }) => {
           <FaqAccordion items={items} defaultOpen={0} />
         </div>
       </section>
+
+      <FaqSection withHeading />
 
       <CtaRibbon />
     </Layout>

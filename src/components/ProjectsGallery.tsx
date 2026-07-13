@@ -1,24 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
-import imgNook from "@/assets/shot-nooktravel.png";
-import imgSuuper from "@/assets/shot-suuper.png";
-import imgPlural from "@/assets/shot-plural.png";
-import imgModisoft from "@/assets/shot-modisoft.png";
-import imgKidan from "@/assets/shot-kidan.png";
-import imgVinn from "@/assets/shot-vinncorp.png";
-import imgOrganix from "@/assets/shot-ogorganix.png";
+import { projects, CATEGORY_LABELS } from "@/data/projects";
 
-const projects = [
-  { url: "https://suuper.cc",          name: "Suuper",          img: imgSuuper,   desc: "AI support that answers customers in seconds",  tags: ["AI", "React", "Realtime"] },
-  { url: "https://kidan.co",           name: "Kidan",           img: imgKidan,    desc: "End-to-end IT services for Swiss enterprises",   tags: ["Enterprise", "Security", "Cloud"] },
-  { url: "https://modisoft.com",       name: "Modisoft",        img: imgModisoft, desc: "Retail & restaurant POS + back-office platform",  tags: ["SaaS", "POS", "Stripe"] },
-  { url: "https://pluraldynamics.com", name: "Plural Dynamics", img: imgPlural,   desc: "Global technology consulting & IT solutions",     tags: ["TypeScript", "AWS", "GraphQL"] },
-  { url: "https://vinncorp.com",       name: "VinnCorp",        img: imgVinn,     desc: "On-demand engineering & product talent",          tags: ["Web", "Mobile", "Teams"] },
-  { url: "https://nooktravel.space",   name: "NookTravel",      img: imgNook,     desc: "AI trip planning & itinerary platform",           tags: ["AI", "Next.js", "Postgres"] },
-  { url: "https://ogorganix.com.pk",   name: "OG Organix",      img: imgOrganix,  desc: "Science-led skincare e-commerce store",           tags: ["E-commerce", "Shopify", "Brand"] },
-];
-
+// Featured selection for the homepage gallery (one strong pick per category + more)
+const featured = projects.slice(0, 6);
 
 const ProjectsGallery = () => (
   <Reveal as="section" className="bg-background section">
@@ -34,22 +20,21 @@ const ProjectsGallery = () => (
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {projects.map((p) => (
-          <a href={p.url} target="_blank" rel="noreferrer" key={p.name} className="gallery-tile group reveal-child block hover:-translate-y-1 transition-transform duration-500">
-            <img src={p.img} alt={`${p.name} website screenshot`} loading="lazy" />
+        {featured.map((p) => (
+          <Link to={`/portfolio/${p.slug}`} key={p.slug} className="gallery-tile group reveal-child block hover:-translate-y-1 transition-transform duration-500">
+            <img src={p.shot} alt={`${p.name} website screenshot`} loading="lazy" />
             <div className="gallery-overlay">
               <div className="gallery-meta">
                 <div className="flex flex-wrap gap-1.5 mb-3">
-                  {p.tags.map((t) => (
-                    <span key={t} className="text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full"
-                          style={{ background: "hsl(var(--accent-blue))", color: "white" }}>{t}</span>
-                  ))}
+                  <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full"
+                        style={{ background: "hsl(var(--accent-blue))", color: "white" }}>{CATEGORY_LABELS[p.category]}</span>
+                  <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-white/15 text-white">{p.tag}</span>
                 </div>
                 <div className="display text-2xl font-bold leading-tight">{p.name}</div>
-                <div className="text-sm text-white/70 mt-1">{p.desc}</div>
+                <div className="text-sm text-white/70 mt-1">{p.summary}</div>
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>
