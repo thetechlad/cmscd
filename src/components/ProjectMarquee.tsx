@@ -1,44 +1,32 @@
+import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
-import imgNook from "@/assets/proj-nooktravel.jpg";
-import imgSuuper from "@/assets/proj-suuper.jpg";
-import imgPlural from "@/assets/proj-plural.jpg";
-import imgModisoft from "@/assets/proj-modisoft.jpg";
-import imgKidan from "@/assets/proj-kidan.jpg";
+import { projects } from "@/data/projects";
 
-const row1 = [
-  { url: "https://nooktravel.space",   name: "NookTravel",       tag: "Travel",      img: imgNook },
-  { url: "https://suuper.cc",          name: "Suuper",           tag: "Consumer",    img: imgSuuper },
-  { url: "https://pluraldynamics.com", name: "Plural Dynamics",  tag: "Enterprise",  img: imgPlural },
-  { url: "https://modisoft.com",       name: "Modisoft",         tag: "Retail SaaS", img: imgModisoft },
-  { url: "https://kidan.cc",           name: "Kidan",            tag: "Web3",        img: imgKidan },
-];
+const row1 = projects.slice(0, Math.ceil(projects.length / 2));
+const row2 = projects.slice(Math.ceil(projects.length / 2)).reverse();
 
-
-const row2 = [...row1].reverse();
-
-type CardP = { img: string; name: string; tag: string; url: string };
-const Card = ({ img, name, tag, url }: CardP) => (
-  <a
-    href={url}
-    target="_blank"
-    rel="noreferrer"
-    className="group relative shrink-0 w-[460px] mx-3 block"
-  >
+type CardP = { shot: string; name: string; tag: string; slug: string; bg: string };
+const Card = ({ shot, name, tag, slug, bg }: CardP) => (
+  <Link to={`/portfolio/${slug}`} className="group relative shrink-0 w-[460px] mx-3 block">
     <div className="relative overflow-hidden rounded-2xl border border-border bg-white shadow-[0_10px_40px_-20px_rgba(0,0,0,0.18)] transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.28)] group-hover:border-[hsl(var(--accent-blue))]/40">
-      <img src={img} alt={name} loading="lazy" className="w-full h-[280px] object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+      <div style={{ background: bg }}>
+        <img src={shot} alt={name} loading="lazy" className="w-full h-[280px] object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]" />
+      </div>
       <div className="absolute top-4 left-4 tag-pill !bg-white/90 !text-foreground">{tag}</div>
     </div>
     <div className="display font-bold text-lg mt-4 px-1 group-hover:text-accent-blue transition-colors">{name}</div>
-  </a>
+  </Link>
 );
 
-const Track = ({ items, speed }: { items: typeof row1; speed: "marquee-slow" | "marquee-fast" }) => (
+const Track = ({ items, speed }: { items: CardP[]; speed: "marquee-slow" | "marquee-fast" }) => (
   <div className={`flex w-max ${speed}`}>
     {[...items, ...items].map((p, i) => (
       <Card key={i} {...p} />
     ))}
   </div>
 );
+
+const toCard = (p: (typeof projects)[number]): CardP => ({ shot: p.shot, name: p.name, tag: p.tag, slug: p.slug, bg: p.bg });
 
 const ProjectMarquee = () => (
   <Reveal as="section" className="bg-background-soft section overflow-hidden">
@@ -53,8 +41,8 @@ const ProjectMarquee = () => (
     </div>
 
     <div className="marquee-pause space-y-6">
-      <Track items={row1} speed="marquee-slow" />
-      <Track items={row2} speed="marquee-fast" />
+      <Track items={row1.map(toCard)} speed="marquee-slow" />
+      <Track items={row2.map(toCard)} speed="marquee-fast" />
     </div>
   </Reveal>
 );

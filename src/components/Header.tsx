@@ -218,7 +218,7 @@ const Header = () => {
         >
           <div className="px-8 py-9">
             {mega === "services" && <ServicesMega />}
-            {mega === "work" && <ListMega title="Selected work" items={WORK_ITEMS} footer={{ label: "View all work", to: "/portfolio" }} feature={{ eyebrow: "Featured", title: "Modisoft · Retail SaaS platform", desc: "Built from scratch for thousands of operators.", to: "/portfolio" }} />}
+            {mega === "work" && <ListMega title="Selected work" items={WORK_ITEMS} footer={{ label: "View all work", to: "/portfolio" }} feature={{ eyebrow: "Featured", title: "Suuper · AI Support SaaS", desc: "AI replies across web and WhatsApp, live in under a minute.", to: "/portfolio/suuper" }} />}
             {mega === "industries" && <ListMega title="Industries we serve" items={INDUSTRY_ITEMS} footer={{ label: "Industries overview", to: "/industries" }} feature={{ eyebrow: "Approach", title: "Context changes the product", desc: "Regulations, workflows and trust signals shape what we build.", to: "/industries" }} columns={2} />}
             {mega === "company" && <CompanyMega />}
           </div>
