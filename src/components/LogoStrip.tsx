@@ -27,7 +27,7 @@ const LogoStrip = () => {
                 loading="lazy"
                 className="h-9 w-9 md:h-10 md:w-10 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
               />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-foreground/70 group-hover:text-foreground transition-colors">
+              <span className="text-center text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-foreground/70 group-hover:text-foreground transition-colors">
                 {c.name}
               </span>
             </a>
