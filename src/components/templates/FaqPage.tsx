@@ -32,6 +32,8 @@ const FaqPage = ({ page }: { page: ContentPage }) => {
         </div>
       </section>
 
+      <FaqSection withHeading />
+
       <CtaRibbon />
     </Layout>
   );
