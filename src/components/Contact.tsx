@@ -120,6 +120,14 @@ const Contact = ({ asPage = false }: { asPage?: boolean }) => {
               <div className="mt-3 text-xs text-muted-foreground">
                 Or email <a href={`mailto:${EMAIL}`} className="text-foreground hover:text-[hsl(var(--accent-blue))] underline-offset-2 hover:underline">{EMAIL}</a>
               </div>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 inline-flex items-center gap-2 text-sm text-foreground hover:text-[hsl(var(--accent-blue))] transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" /> WhatsApp {WHATSAPP_DISPLAY}
+              </a>
             </div>
 
             <ul className="space-y-3">
@@ -137,11 +145,29 @@ const Contact = ({ asPage = false }: { asPage?: boolean }) => {
               ))}
             </ul>
 
-            <div className="pt-6 border-t border-border text-sm text-muted-foreground">
-              Remote-first · Karachi, PK · Serving clients globally
+            <div className="pt-6 border-t border-border">
+              <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4 font-medium">Our Offices</div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="rounded-xl border border-border bg-background p-4">
+                  <div className="flex items-center gap-2 mb-1">
+                    <MapPin className="w-4 h-4 text-[hsl(var(--accent-blue))]" />
+                    <div className="text-sm font-semibold text-foreground">Wyoming, USA</div>
+                  </div>
+                  <div className="text-xs text-muted-foreground">Headquarters</div>
+                </div>
+                <div className="rounded-xl border border-border bg-background p-4">
+                  <div className="flex items-center gap-2 mb-1">
+                    <MapPin className="w-4 h-4 text-[hsl(var(--accent-blue))]" />
+                    <div className="text-sm font-semibold text-foreground">Karachi, PK</div>
+                  </div>
+                  <div className="text-xs text-muted-foreground">Engineering Studio</div>
+                </div>
+              </div>
+              <div className="mt-4 text-sm text-muted-foreground">Remote-first · Serving clients globally</div>
             </div>
           </div>
         </div>
+
 
         <div className="mt-20 pt-16 border-t border-border">
           <div className="max-w-2xl mb-10">
