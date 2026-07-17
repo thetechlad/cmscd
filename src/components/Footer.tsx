@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Twitter, Github, ArrowRight } from "lucide-react";
+import { Linkedin, Twitter, Github, ArrowRight, MessageCircle, MapPin } from "lucide-react";
 import logo from "@/assets/logo-full.png";
 
 const CAL_URL = "https://cal.com/tayyabirfan/15min";
 const EMAIL = "codersdive@gmail.com";
+const WHATSAPP_DISPLAY = "+1 (782) 203-0162";
+const WHATSAPP_URL = "https://wa.me/17822030162";
 const SOCIALS: { icon: any; href: string; label: string }[] = [
   { icon: Linkedin, href: "https://www.linkedin.com/company/codersdive", label: "LinkedIn" },
   { icon: Twitter,  href: "https://x.com/codersdive",                     label: "X (Twitter)" },
   { icon: Github,   href: "https://github.com/codersdive",                label: "GitHub" },
 ];
+
 
 const Footer = () => (
   <footer className="bg-background border-t border-border text-foreground">
