@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Twitter, Github, ArrowRight } from "lucide-react";
+import { Linkedin, Twitter, Github, ArrowRight, MessageCircle, MapPin } from "lucide-react";
 import logo from "@/assets/logo-full.png";
 
 const CAL_URL = "https://cal.com/tayyabirfan/15min";
 const EMAIL = "codersdive@gmail.com";
+const WHATSAPP_DISPLAY = "+1 (782) 203-0162";
+const WHATSAPP_URL = "https://wa.me/17822030162";
 const SOCIALS: { icon: any; href: string; label: string }[] = [
   { icon: Linkedin, href: "https://www.linkedin.com/company/codersdive", label: "LinkedIn" },
   { icon: Twitter,  href: "https://x.com/codersdive",                     label: "X (Twitter)" },
   { icon: Github,   href: "https://github.com/codersdive",                label: "GitHub" },
 ];
+
 
 const Footer = () => (
   <footer className="bg-background border-t border-border text-foreground">
@@ -56,7 +59,28 @@ const Footer = () => (
 
         <div className="lg:col-span-3">
           <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-5 font-medium">Connect</div>
-          <a href={`mailto:${EMAIL}`} className="block text-foreground hover:text-[hsl(var(--accent-blue))] mb-5 text-sm transition-colors">{EMAIL}</a>
+          <a href={`mailto:${EMAIL}`} className="block text-foreground hover:text-[hsl(var(--accent-blue))] mb-2 text-sm transition-colors">{EMAIL}</a>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-foreground hover:text-[hsl(var(--accent-blue))] mb-5 transition-colors"
+          >
+            <MessageCircle className="w-4 h-4" /> WhatsApp {WHATSAPP_DISPLAY}
+          </a>
+
+          <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-3 font-medium">Offices</div>
+          <ul className="space-y-2 mb-6 text-sm text-muted-foreground">
+            <li className="flex items-start gap-2">
+              <MapPin className="w-4 h-4 mt-0.5 text-[hsl(var(--accent-blue))]" />
+              <span><span className="text-foreground font-medium">Wyoming, USA</span> — HQ</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <MapPin className="w-4 h-4 mt-0.5 text-[hsl(var(--accent-blue))]" />
+              <span><span className="text-foreground font-medium">Karachi, PK</span> — Engineering</span>
+            </li>
+          </ul>
+
           <a
             href={CAL_URL}
             target="_blank"
@@ -66,6 +90,7 @@ const Footer = () => (
             Book a Call <ArrowRight className="w-4 h-4" />
           </a>
         </div>
+
       </div>
 
       <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row gap-3 items-start md:items-center justify-between text-sm text-muted-foreground">
