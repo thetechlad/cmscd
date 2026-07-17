@@ -1,12 +1,15 @@
 import { useState } from "react";
-import { ArrowRight, Check, Calendar, Loader2 } from "lucide-react";
+import { ArrowRight, Check, Calendar, Loader2, MessageCircle, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { track } from "@/lib/analytics";
 import CalEmbed from "@/components/CalEmbed";
 
 const CAL_URL = "https://cal.com/tayyabirfan/15min";
 const EMAIL = "codersdive@gmail.com";
+const WHATSAPP_DISPLAY = "+1 (782) 203-0162";
+const WHATSAPP_URL = "https://wa.me/17822030162";
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
+
 
 const Contact = ({ asPage = false }: { asPage?: boolean }) => {
   const Heading = asPage ? "h1" : "h2";
