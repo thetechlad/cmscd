@@ -1,9 +1,12 @@
 import Layout from "@/components/Layout";
 import Hero from "@/components/Hero";
 import LogoStrip from "@/components/LogoStrip";
-import About from "@/components/About";
+import FlagshipWork from "@/components/FlagshipWork";
+import Automate from "@/components/Automate";
+import CaseBreakdown from "@/components/CaseBreakdown";
+import ProcessStrip from "@/components/ProcessStrip";
+import Team from "@/components/Team";
 import Services from "@/components/Services";
-import WorkProcess from "@/components/WorkProcess";
 import ProjectsGallery from "@/components/ProjectsGallery";
 import ProjectMarquee from "@/components/ProjectMarquee";
 import FaqSection from "@/components/FaqSection";
@@ -16,24 +19,26 @@ import Contact from "@/components/Contact";
 
 const Index = () => (
   <Layout
-    title="Engineering for the ambitious"
-    description="CodersDive is a premium software agency for founders, executives and operators who want industry-leading products — built fast, without compromise."
+    title="We build AI-powered software that eliminates manual work"
+    description="CodersDive builds AI-powered software and automation that removes manual work from sales, operations and support. Get a free automation audit."
     path="/"
   >
     <Hero />
     <LogoStrip />
-    <ProjectMarquee />
-    <About />
+    <FlagshipWork />
+    <Automate />
+    <CaseBreakdown />
+    <ProcessStrip />
     <TickerBand />
     <Services />
-    <WorkProcess />
     <ProjectsGallery />
+    <Team />
     <CTABand />
     <TechStack />
     <Testimonials />
-      <Pricing />
-      <FaqSection />
-      <Contact />
+    <Pricing />
+    <FaqSection />
+    <Contact />
   </Layout>
 );
 
