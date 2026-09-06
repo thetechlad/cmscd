@@ -195,7 +195,7 @@ const Header = () => {
             className="hidden md:inline-flex whitespace-nowrap items-center gap-1.5 h-11 px-5 rounded-full text-[13px] font-semibold transition-all hover:scale-[1.03] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue/50"
             style={{ background: "hsl(var(--accent-blue))", color: "#fff" }}
           >
-            Start a project
+            Get a Free Automation Audit
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
           <button
@@ -233,7 +233,7 @@ const Header = () => {
           </div>
           <div className="fixed bottom-0 inset-x-0 p-4 bg-background/95 backdrop-blur border-t border-border">
             <Link to="/start-a-project" className="btn-blue w-full h-12">
-              Start a project <ArrowUpRight className="w-4 h-4" />
+              Get a Free Automation Audit <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -336,7 +336,7 @@ const CompanyMega = () => (
       <div className="display font-bold text-lg mb-2">Bring us the messy version.</div>
       <p className="text-sm text-muted-foreground mb-5">Tell us what's slow, broken, or strategically important.</p>
       <Link to="/start-a-project" className="btn-blue h-11 w-full">
-        Start a project <ArrowUpRight className="w-4 h-4" />
+        Get a Free Automation Audit <ArrowUpRight className="w-4 h-4" />
       </Link>
     </div>
   </div>
