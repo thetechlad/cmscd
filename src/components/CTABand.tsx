@@ -25,22 +25,22 @@ const CTABand = () => (
               <span className="text-[11px] uppercase tracking-[0.15em] text-white/90 font-semibold">Booking Q3 · 2 slots left</span>
             </div>
             <h2 className="display text-[32px] md:text-[44px] lg:text-[56px] font-bold leading-[1.05] mb-5 text-white">
-              Ready to ship the product <br className="hidden md:block" />
-              that defines your category?
+What could you stop doing <br className="hidden md:block" />
+              manually next month?
             </h2>
             <p className="text-white/80 leading-[1.7] max-w-xl text-base md:text-lg">
-              30-minute strategy call. No pitch. We'll map out scope, timeline and budget so you know exactly what shipping with us looks like.
+              We map your workflows, find the highest-value automation opportunity, and show you what building it looks like. No pitch.
             </p>
           </div>
           <div className="lg:col-span-4 flex flex-col gap-3">
-            <Link to="/contact" className="btn-shine group inline-flex items-center justify-center gap-2 h-14 px-7 rounded-full font-semibold text-sm text-[hsl(var(--accent-blue))] bg-white hover:scale-[1.03] transition-transform shadow-lg">
-              Start a Project
+            <Link to="/start-a-project" className="btn-shine group inline-flex items-center justify-center gap-2 h-14 px-7 rounded-full font-semibold text-sm text-[hsl(var(--accent-blue))] bg-white hover:scale-[1.03] transition-transform shadow-lg">
+              Get a Free Automation Audit
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <a href={CAL_URL} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 h-14 px-7 rounded-full font-semibold text-sm text-white border border-white/40 hover:bg-white hover:text-[hsl(var(--accent-blue))] hover:scale-[1.03] transition-all">
+            <Link to="/portfolio" className="inline-flex items-center justify-center gap-2 h-14 px-7 rounded-full font-semibold text-sm text-white border border-white/40 hover:bg-white hover:text-[hsl(var(--accent-blue))] hover:scale-[1.03] transition-all">
               <Calendar className="w-4 h-4" />
-              Book a Call
-            </a>
+              View Our Work
+            </Link>
             <div className="text-center text-xs text-white/70 mt-1">Reply within 4 hours · Mon–Fri</div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { ArrowRight, Sparkles, Star, Zap } from "lucide-react";
 import macbook from "@/assets/mockup-macbook.png";
 import iphone from "@/assets/mockup-iphone.png";
 
-const headlineWords = ["We", "ship", "the", "software", "that"];
+const headlineWords = ["We", "build", "AI-powered", "software"];
 
 const Hero = () => {
   return (
@@ -32,25 +32,25 @@ const Hero = () => {
                 <span key={i} style={{ animationDelay: `${i * 60}ms` }}>{w}&nbsp;</span>
               ))}
               <span className="block">
-                <span className="squiggle" style={{ animationDelay: `${headlineWords.length * 60}ms`, color: "hsl(var(--accent-blue))" }}>
-                  defines
-                </span>{" "}
-                <span style={{ animationDelay: `${(headlineWords.length + 1) * 60}ms` }}>your category.</span>
+                <span style={{ animationDelay: `${headlineWords.length * 60}ms` }}>that eliminates</span>{" "}
+                <span className="squiggle" style={{ animationDelay: `${(headlineWords.length + 1) * 60}ms`, color: "hsl(var(--accent-blue))" }}>
+                  manual work.
+                </span>
               </span>
             </h1>
 
             <p className="text-base md:text-[19px] text-muted-foreground max-w-[540px] leading-[1.6] mb-7">
-              CodersDive is a premium software studio for founders, executives and operators who want industry-leading products, engineered fast, without compromise.
+              We design and ship AI systems and custom software that take repetitive work out of sales, operations and support, so your team spends time on the decisions instead.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <Link to="/contact" className="btn-primary btn-shine group" style={{ height: 56, padding: "0 28px", fontSize: "15px" }}>
+              <Link to="/start-a-project" className="btn-primary btn-shine group" style={{ height: 56, padding: "0 28px", fontSize: "15px" }}>
                 <Sparkles className="w-4 h-4" />
-                Start a Project
+                Get a Free Automation Audit
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link to="/portfolio" className="btn-secondary group" style={{ height: 56, padding: "0 28px", fontSize: "15px" }}>
-                See Our Work
+                View Our Work
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>

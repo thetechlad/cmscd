@@ -87,7 +87,7 @@ const Footer = () => (
             rel="noreferrer"
             className="btn-blue"
           >
-            Book a Call <ArrowRight className="w-4 h-4" />
+            Get a Free Automation Audit <ArrowRight className="w-4 h-4" />
           </a>
         </div>
 
