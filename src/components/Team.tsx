@@ -48,15 +48,17 @@ const Team = () => (
                 {p.role}
               </div>
               <p className="text-sm text-muted-foreground leading-[1.7] mb-4">{p.line}</p>
-              <a
-                href={p.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="link-blue text-sm font-semibold"
-                aria-label={`${p.name} on LinkedIn`}
-              >
-                <Linkedin className="w-4 h-4" /> LinkedIn
-              </a>
+              {p.linkedin && (
+                <a
+                  href={p.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-blue text-sm font-semibold"
+                  aria-label={`${p.name} on LinkedIn`}
+                >
+                  <Linkedin className="w-4 h-4" /> LinkedIn
+                </a>
+              )}
             </div>
           </div>
         ))}
