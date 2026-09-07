@@ -1,6 +1,7 @@
 import { Linkedin } from "lucide-react";
 import Reveal from "./Reveal";
 import founder from "@/assets/team-founder.jpg";
+import cto from "@/assets/team-cto.jpg";
 
 const people = [
   {
@@ -9,6 +10,12 @@ const people = [
     photo: founder,
     line: "Runs every engagement end to end, from the first audit call to the production launch.",
     linkedin: "https://www.linkedin.com/in/tayyabirfan/",
+  },
+  {
+    name: "Areeb Khan",
+    role: "CTO",
+    photo: cto,
+    line: "Leads architecture, AI systems and engineering delivery across every product we ship.",
   },
 ];
 
@@ -41,15 +48,17 @@ const Team = () => (
                 {p.role}
               </div>
               <p className="text-sm text-muted-foreground leading-[1.7] mb-4">{p.line}</p>
-              <a
-                href={p.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="link-blue text-sm font-semibold"
-                aria-label={`${p.name} on LinkedIn`}
-              >
-                <Linkedin className="w-4 h-4" /> LinkedIn
-              </a>
+              {p.linkedin && (
+                <a
+                  href={p.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-blue text-sm font-semibold"
+                  aria-label={`${p.name} on LinkedIn`}
+                >
+                  <Linkedin className="w-4 h-4" /> LinkedIn
+                </a>
+              )}
             </div>
           </div>
         ))}
