@@ -1,6 +1,7 @@
 import { Linkedin } from "lucide-react";
 import Reveal from "./Reveal";
 import founder from "@/assets/team-founder.jpg";
+import cto from "@/assets/team-cto.jpg";
 
 const people = [
   {
@@ -9,6 +10,12 @@ const people = [
     photo: founder,
     line: "Runs every engagement end to end, from the first audit call to the production launch.",
     linkedin: "https://www.linkedin.com/in/tayyabirfan/",
+  },
+  {
+    name: "Areeb Khan",
+    role: "CTO",
+    photo: cto,
+    line: "Leads architecture, AI systems and engineering delivery across every product we ship.",
   },
 ];
 
