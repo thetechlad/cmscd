@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Calendar, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Sparkles } from "lucide-react";
 import Reveal from "./Reveal";
-
-const CAL_URL = "https://cal.com/tayyabirfan/15min";
 
 const CTABand = () => (
   <Reveal as="section" className="relative section overflow-hidden">
@@ -38,7 +36,7 @@ What could you stop doing <br className="hidden md:block" />
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link to="/portfolio" className="inline-flex items-center justify-center gap-2 h-14 px-7 rounded-full font-semibold text-sm text-white border border-white/40 hover:bg-white hover:text-[hsl(var(--accent-blue))] hover:scale-[1.03] transition-all">
-              <Calendar className="w-4 h-4" />
+              <ArrowUpRight className="w-4 h-4" />
               View Our Work
             </Link>
             <div className="text-center text-xs text-white/70 mt-1">Reply within 4 hours · Mon–Fri</div>
