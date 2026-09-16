@@ -34,6 +34,8 @@ jobs:
 
       - name: Deploy to Hostinger
         run: |
+          echo "SSH_KEY length: ${#SSH_KEY}"
+          echo "SSH_KEY first line: $(echo "$SSH_KEY" | head -1)"
           mkdir -p ~/.ssh
           echo "$SSH_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
