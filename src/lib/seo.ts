@@ -1,7 +1,7 @@
 // Central SEO helpers: canonical base URL, Open Graph image resolution, and
 // JSON-LD structured-data builders used across routes.
 
-export const BASE_URL = "https://code-depth-showcase.lovable.app";
+export const BASE_URL = "https://codersdive.com";
 export const SITE_NAME = "CodersDive";
 export const DEFAULT_OG_IMAGE = `${BASE_URL}/og/default.jpg`;
 
@@ -22,9 +22,9 @@ export const organizationSchema = (): Json => ({
   "@type": "Organization",
   name: SITE_NAME,
   url: BASE_URL,
-  logo: `${BASE_URL}/favicon.png`,
+  logo: `${BASE_URL}/android-chrome-512x512.png`,
   description:
-    "CodersDive is the elite product engineering studio for ambitious teams. We design, build and ship category-defining software.",
+    "CodersDive builds AI-powered software and automation that eliminates manual work in sales, operations and support.",
   sameAs: [],
 });
 
@@ -83,7 +83,7 @@ export const articleSchema = (opts: {
   publisher: {
     "@type": "Organization",
     name: SITE_NAME,
-    logo: { "@type": "ImageObject", url: `${BASE_URL}/favicon.png` },
+    logo: { "@type": "ImageObject", url: `${BASE_URL}/android-chrome-512x512.png` },
   },
   ...(opts.datePublished ? { datePublished: opts.datePublished } : {}),
   ...(opts.section ? { articleSection: opts.section } : {}),

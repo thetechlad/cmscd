@@ -2,13 +2,13 @@ import { useState } from "react";
 import { ArrowRight, Check, Calendar, Loader2, MessageCircle, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { track } from "@/lib/analytics";
+import { createLead } from "@/lib/strapi";
 import CalEmbed from "@/components/CalEmbed";
 
 const CAL_URL = "https://cal.com/tayyabirfan/15min";
 const EMAIL = "codersdive@gmail.com";
-const WHATSAPP_DISPLAY = "+1 (782) 203-0162";
-const WHATSAPP_URL = "https://wa.me/17822030162";
-const FORM_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
+const WHATSAPP_DISPLAY = "+1 (601) 907-5950";
+const WHATSAPP_URL = "https://wa.me/16019075950";
 
 
 const Contact = ({ asPage = false }: { asPage?: boolean }) => {
@@ -21,16 +21,7 @@ const Contact = ({ asPage = false }: { asPage?: boolean }) => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          _subject: `New project inquiry from ${data.name}`,
-          _template: "table",
-          ...data,
-        }),
-      });
-      if (!res.ok) throw new Error("Request failed");
+      await createLead({ formType: "contact", sourcePath: window.location.pathname, ...data });
       toast({ title: "Message sent", description: "We'll be in touch within 4 hours." });
       track("form_submit", { form: "contact", timeline: data.timeline });
       setData({ name: "", email: "", company: "", message: "", timeline: "ASAP" });
@@ -55,9 +46,9 @@ const Contact = ({ asPage = false }: { asPage?: boolean }) => {
     <section className={`bg-background-soft text-foreground section ${asPage ? "pt-[140px] md:pt-[160px]" : ""}`}>
       <div className="container-tight">
         <div className="max-w-3xl mb-14">
-          <div className="text-[11px] uppercase tracking-[0.15em] text-[hsl(var(--accent-blue))] mb-5 font-medium">Let's Dive In</div>
+          <div className="text-[11px] uppercase tracking-[0.15em] text-accent-blue-ink mb-5 font-medium">Let's Dive In</div>
           <Heading className="display text-[28px] md:text-[40px] lg:text-[52px] font-bold leading-[1.1] mb-5">
-            Your idea deserves more than <span style={{ color: "hsl(var(--accent-blue))" }}>average execution</span>.
+            Your idea deserves more than <span style={{ color: "hsl(var(--accent-blue-ink))" }}>average execution</span>.
           </Heading>
           <p className="text-muted-foreground leading-[1.7] text-lg max-w-2xl">
             Tell us about your project. Most clients hear back within 4 hours.
@@ -118,13 +109,13 @@ const Contact = ({ asPage = false }: { asPage?: boolean }) => {
                 Schedule a 30-min call
               </a>
               <div className="mt-3 text-xs text-muted-foreground">
-                Or email <a href={`mailto:${EMAIL}`} className="text-foreground hover:text-[hsl(var(--accent-blue))] underline-offset-2 hover:underline">{EMAIL}</a>
+                Or email <a href={`mailto:${EMAIL}`} className="text-foreground hover:text-accent-blue-ink underline-offset-2 hover:underline">{EMAIL}</a>
               </div>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-3 inline-flex items-center gap-2 text-sm text-foreground hover:text-[hsl(var(--accent-blue))] transition-colors"
+                className="mt-3 inline-flex items-center gap-2 text-sm text-foreground hover:text-accent-blue-ink transition-colors"
               >
                 <MessageCircle className="w-4 h-4" /> WhatsApp {WHATSAPP_DISPLAY}
               </a>
@@ -138,7 +129,7 @@ const Contact = ({ asPage = false }: { asPage?: boolean }) => {
               ].map((t) => (
                 <li key={t} className="flex items-center gap-3 text-foreground/80">
                   <span className="w-6 h-6 rounded-full bg-[hsl(var(--accent-blue))]/10 border border-[hsl(var(--accent-blue))]/30 flex items-center justify-center">
-                    <Check className="w-3.5 h-3.5 text-[hsl(var(--accent-blue))]" />
+                    <Check className="w-3.5 h-3.5 text-accent-blue-ink" />
                   </span>
                   <span className="text-sm">{t}</span>
                 </li>
@@ -150,14 +141,14 @@ const Contact = ({ asPage = false }: { asPage?: boolean }) => {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="rounded-xl border border-border bg-background p-4">
                   <div className="flex items-center gap-2 mb-1">
-                    <MapPin className="w-4 h-4 text-[hsl(var(--accent-blue))]" />
+                    <MapPin className="w-4 h-4 text-accent-blue-ink" />
                     <div className="text-sm font-semibold text-foreground">Wyoming, USA</div>
                   </div>
                   <div className="text-xs text-muted-foreground">Headquarters</div>
                 </div>
                 <div className="rounded-xl border border-border bg-background p-4">
                   <div className="flex items-center gap-2 mb-1">
-                    <MapPin className="w-4 h-4 text-[hsl(var(--accent-blue))]" />
+                    <MapPin className="w-4 h-4 text-accent-blue-ink" />
                     <div className="text-sm font-semibold text-foreground">Karachi, PK</div>
                   </div>
                   <div className="text-xs text-muted-foreground">Engineering Studio</div>
@@ -171,7 +162,7 @@ const Contact = ({ asPage = false }: { asPage?: boolean }) => {
 
         <div className="mt-20 pt-16 border-t border-border">
           <div className="max-w-2xl mb-10">
-            <div className="text-[11px] uppercase tracking-[0.15em] text-[hsl(var(--accent-blue))] mb-5 font-medium">Book a Consultation</div>
+            <div className="text-[11px] uppercase tracking-[0.15em] text-accent-blue-ink mb-5 font-medium">Book a Consultation</div>
             <h2 className="display text-[24px] md:text-[36px] font-bold leading-[1.1] mb-4">
               Pick a time that works for you
             </h2>

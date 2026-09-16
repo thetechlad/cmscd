@@ -132,7 +132,7 @@ const IndustryDetail = ({ page }: { page: ContentPage }) => {
             <div className="grid sm:grid-cols-2 gap-5">
               {challengeBullets.map((b, i) => (
                 <div key={i} className="reveal-child flex gap-4 card-light p-6">
-                  <AlertCircle className="w-5 h-5 text-accent-blue shrink-0 mt-0.5" />
+                  <AlertCircle className="w-5 h-5 text-accent-blue-ink shrink-0 mt-0.5" />
                   <span className="text-muted-foreground leading-[1.6] text-[15px]">{b}</span>
                 </div>
               ))}

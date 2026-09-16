@@ -26,7 +26,7 @@ const PortfolioPage = () => {
         <div className="container-tight">
           <div className="label-eyebrow mb-6">Client Work</div>
           <h1 className="display text-[34px] md:text-[42px] lg:text-[68px] font-bold leading-[1.05] max-w-4xl">
-            Products that <span style={{ color: "hsl(var(--accent-blue))" }}>earn their keep</span>.
+            Products that <span style={{ color: "hsl(var(--accent-blue-ink))" }}>earn their keep</span>.
           </h1>
           <p className="text-muted-foreground mt-6 max-w-2xl">
             Shipped software across AI, SaaS and design — built end to end for founders and operators across the globe. Explore a case study for the full story.

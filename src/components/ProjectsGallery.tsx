@@ -13,7 +13,7 @@ const ProjectsGallery = () => (
         <div>
           <div className="label-eyebrow mb-6">Our Work</div>
           <h2 className="display text-[28px] md:text-[40px] lg:text-[56px] font-bold leading-[1.05] max-w-3xl">
-            We design <span className="squiggle" style={{ color: "hsl(var(--accent-blue))" }}>SaaS products</span> for founders, creators and visionaries.
+            We design <span className="squiggle" style={{ color: "hsl(var(--accent-blue-ink))" }}>SaaS products</span> for founders, creators and visionaries.
           </h2>
         </div>
         <Link to="/portfolio" className="link-blue shrink-0">View all <ArrowUpRight className="w-4 h-4" /></Link>
@@ -27,7 +27,7 @@ const ProjectsGallery = () => (
               <div className="gallery-meta">
                 <div className="flex flex-wrap gap-1.5 mb-3">
                   <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full"
-                        style={{ background: "hsl(var(--accent-blue))", color: "white" }}>{CATEGORY_LABELS[p.category]}</span>
+                        style={{ background: "hsl(var(--accent-blue))", color: "hsl(var(--primary))" }}>{CATEGORY_LABELS[p.category]}</span>
                   <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-white/15 text-white">{p.tag}</span>
                 </div>
                 <div className="display text-2xl font-bold leading-tight">{p.name}</div>

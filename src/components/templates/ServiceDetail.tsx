@@ -154,7 +154,7 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
               {usefulBullets.map((b, i) => (
                 <li key={i} className="reveal-child flex gap-3">
                   <span className="shrink-0 w-6 h-6 rounded-full bg-accent-blue-soft flex items-center justify-center mt-0.5">
-                    <Check className="w-3.5 h-3.5 text-accent-blue" />
+                    <Check className="w-3.5 h-3.5 text-accent-blue-ink" />
                   </span>
                   <span className="text-muted-foreground leading-[1.6] text-[15px]">{b}</span>
                 </li>
@@ -243,7 +243,7 @@ const ServiceDetail = ({ page }: { page: ContentPage }) => {
                 <ul className="space-y-4">
                   {receiveBullets.map((b, i) => (
                     <li key={i} className="flex gap-3 border-b border-border pb-4">
-                      <Check className="w-4 h-4 text-accent-blue shrink-0 mt-1" />
+                      <Check className="w-4 h-4 text-accent-blue-ink shrink-0 mt-1" />
                       <span className="text-muted-foreground leading-[1.6] text-[15px]">{b}</span>
                     </li>
                   ))}

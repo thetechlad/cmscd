@@ -5,7 +5,7 @@ import FlagshipWork from "@/components/FlagshipWork";
 import Automate from "@/components/Automate";
 import CaseBreakdown from "@/components/CaseBreakdown";
 import ProcessStrip from "@/components/ProcessStrip";
-import Team from "@/components/Team";
+// import Team from "@/components/Team"; // hidden for now
 import Services from "@/components/Services";
 import ProjectsGallery from "@/components/ProjectsGallery";
 import ProjectMarquee from "@/components/ProjectMarquee";
@@ -32,7 +32,7 @@ const Index = () => (
     <TickerBand />
     <Services />
     <ProjectsGallery />
-    <Team />
+    {/* <Team /> hidden for now */}
     <CTABand />
     <TechStack />
     <Testimonials />

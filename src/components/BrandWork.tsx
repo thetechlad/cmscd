@@ -90,7 +90,7 @@ const BrandWork = () => (
             Brand Identity
           </div>
           <h2 className="display text-[30px] md:text-[44px] lg:text-[56px] font-bold leading-[1.05] mb-5">
-            Identities built to be <span style={{ color: "hsl(var(--accent-blue))" }}>remembered</span>.
+            Identities built to be <span style={{ color: "hsl(var(--accent-blue-ink))" }}>remembered</span>.
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Full visual systems including logo, palette, packaging and collateral, crafted end to end for founders across cosmetics, food, tech and luxury.
@@ -118,7 +118,7 @@ const BrandWork = () => (
                 <div className="flex items-center gap-3 mb-4">
                   <span
                     className="text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full"
-                    style={{ background: "hsl(var(--accent-blue-soft))", color: "hsl(var(--accent-blue))" }}
+                    style={{ background: "hsl(var(--accent-blue-soft))", color: "hsl(var(--accent-blue-ink))" }}
                   >
                     {c.industry}
                   </span>
@@ -148,7 +148,7 @@ const BrandWork = () => (
         <div className="mb-12 reveal-child">
           <div className="label-eyebrow mb-6">Logofolio</div>
           <h2 className="display text-[28px] md:text-[42px] font-bold leading-[1.05] max-w-3xl">
-            A hundred marks, one standard of <span style={{ color: "hsl(var(--accent-blue))" }}>craft</span>.
+            A hundred marks, one standard of <span style={{ color: "hsl(var(--accent-blue-ink))" }}>craft</span>.
           </h2>
         </div>
         <div className="space-y-6">
@@ -189,7 +189,7 @@ const BrandWork = () => (
         <div className="mb-12 reveal-child">
           <div className="label-eyebrow mb-6">Website Design</div>
           <h2 className="display text-[28px] md:text-[42px] font-bold leading-[1.05] max-w-3xl">
-            Sites that look the part and <span style={{ color: "hsl(var(--accent-blue))" }}>convert</span>.
+            Sites that look the part and <span style={{ color: "hsl(var(--accent-blue-ink))" }}>convert</span>.
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6">

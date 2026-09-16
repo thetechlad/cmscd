@@ -1,0 +1,48 @@
+name: Rebuild and deploy
+
+# Fires when Strapi publishes/updates content (via repository_dispatch from a
+# Strapi lifecycle hook), on a schedule as a fallback in case a webhook call
+# is ever missed, or manually from the Actions tab.
+on:
+  repository_dispatch:
+    types: [strapi-publish]
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: Install headless Chromium for prerendering
+        run: |
+          npx playwright install --with-deps chromium
+          echo "PLAYWRIGHT_CHROMIUM_PATH=$(node -e "console.log(require('playwright-core').chromium.executablePath())")" >> "$GITHUB_ENV"
+
+      - name: Configure production Strapi URL
+        run: echo "VITE_STRAPI_URL=https://cms.codersdive.com" > .env
+
+      - run: npm run build
+
+      - name: Deploy to Hostinger
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          rsync -avz --delete-after \
+            -e "ssh -i ~/.ssh/deploy_key -p $SSH_PORT" \
+            dist/ "$SSH_USER@$SSH_HOST:~/domains/codersdive.com/public_html/"
+        env:
+          SSH_KEY: ${{ secrets.HOSTINGER_DEPLOY_KEY }}
+          SSH_HOST: "194.36.184.132"
+          SSH_PORT: "65002"
+          SSH_USER: "u149863251"

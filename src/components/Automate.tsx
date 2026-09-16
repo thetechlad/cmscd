@@ -27,7 +27,7 @@ const Automate = () => (
       <div className="reveal-child mb-10 md:mb-14 max-w-3xl">
         <div className="label-eyebrow mb-5">Automation</div>
         <h2 className="display text-[28px] md:text-[40px] lg:text-[52px] font-bold leading-[1.05]">
-          What can we <span style={{ color: "hsl(var(--accent-blue))" }}>automate</span>?
+          What can we <span style={{ color: "hsl(var(--accent-blue-ink))" }}>automate</span>?
         </h2>
       </div>
 
@@ -45,7 +45,7 @@ const Automate = () => (
                     className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
                     style={{ background: "hsl(var(--accent-blue-soft))" }}
                   >
-                    <Check className="w-3 h-3 text-accent-blue" />
+                    <Check className="w-3 h-3 text-accent-blue-ink" />
                   </span>
                   {it}
                 </li>

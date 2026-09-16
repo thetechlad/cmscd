@@ -46,7 +46,7 @@ const Markdown = ({ content }: { content: string }) => {
             <ol key={idx} className="space-y-3 list-none counter-reset">
               {lines.map((l, i) => (
                 <li key={i} className="flex gap-3 text-muted-foreground leading-[1.7]">
-                  <span className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold mt-0.5" style={{ background: "hsl(var(--accent-blue-soft))", color: "hsl(var(--accent-blue))" }}>
+                  <span className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold mt-0.5" style={{ background: "hsl(var(--accent-blue-soft))", color: "hsl(var(--accent-blue-ink))" }}>
                     {i + 1}
                   </span>
                   <span>{renderInline(l.replace(/^\d+\.\s/, ""))}</span>

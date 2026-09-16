@@ -8,7 +8,7 @@ const CTABand = () => (
     <div className="absolute inset-0 grid-lines pointer-events-none" />
     <div className="container-tight relative">
       <div
-        className="reveal-child relative rounded-3xl overflow-hidden border border-[hsl(var(--accent-blue))]/30 text-white p-10 md:p-16 glow-ring"
+        className="reveal-child relative rounded-3xl overflow-hidden border border-[hsl(var(--accent-blue))]/30 text-primary p-10 md:p-16 glow-ring"
         style={{ background: "linear-gradient(135deg, hsl(var(--accent-blue)) 0%, hsl(188 100% 38%) 100%)" }}
       >
         {/* internal glow */}
@@ -18,28 +18,28 @@ const CTABand = () => (
 
         <div className="relative grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 border border-white/25 mb-6">
-              <Sparkles className="w-3.5 h-3.5 text-white" />
-              <span className="text-[11px] uppercase tracking-[0.15em] text-white/90 font-semibold">Booking Q3 · 2 slots left</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/40 border border-primary/15 mb-6">
+              <Sparkles className="w-3.5 h-3.5 text-primary" />
+              <span className="text-[11px] uppercase tracking-[0.15em] text-primary font-semibold">Booking Q3 · 2 slots left</span>
             </div>
-            <h2 className="display text-[32px] md:text-[44px] lg:text-[56px] font-bold leading-[1.05] mb-5 text-white">
+            <h2 className="display text-[32px] md:text-[44px] lg:text-[56px] font-bold leading-[1.05] mb-5 text-primary">
 What could you stop doing <br className="hidden md:block" />
               manually next month?
             </h2>
-            <p className="text-white/80 leading-[1.7] max-w-xl text-base md:text-lg">
+            <p className="text-primary/80 leading-[1.7] max-w-xl text-base md:text-lg">
               We map your workflows, find the highest-value automation opportunity, and show you what building it looks like. No pitch.
             </p>
           </div>
           <div className="lg:col-span-4 flex flex-col gap-3">
-            <Link to="/start-a-project" className="btn-shine group inline-flex items-center justify-center gap-2 h-14 px-7 rounded-full font-semibold text-sm text-[hsl(var(--accent-blue))] bg-white hover:scale-[1.03] transition-transform shadow-lg">
+            <Link to="/start-a-project" className="btn-shine group inline-flex items-center justify-center gap-2 h-14 px-7 rounded-full font-semibold text-sm text-accent-blue-ink bg-white hover:scale-[1.03] transition-transform shadow-lg">
               Get a Free Automation Audit
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link to="/portfolio" className="inline-flex items-center justify-center gap-2 h-14 px-7 rounded-full font-semibold text-sm text-white border border-white/40 hover:bg-white hover:text-[hsl(var(--accent-blue))] hover:scale-[1.03] transition-all">
+            <Link to="/portfolio" className="inline-flex items-center justify-center gap-2 h-14 px-7 rounded-full font-semibold text-sm text-primary border border-primary/40 hover:bg-white hover:text-accent-blue-ink hover:scale-[1.03] transition-all">
               <ArrowUpRight className="w-4 h-4" />
               View Our Work
             </Link>
-            <div className="text-center text-xs text-white/70 mt-1">Reply within 4 hours · Mon–Fri</div>
+            <div className="text-center text-xs text-primary/70 mt-1">Reply within 4 hours · Mon–Fri</div>
           </div>
         </div>
       </div>

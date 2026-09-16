@@ -127,8 +127,8 @@ const ProjectCaseStudy = () => {
         <div className="container-tight grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
           {project.stats.map((s) => (
             <div key={s.label}>
-              <div className="display text-4xl md:text-5xl font-bold text-white">{s.value}</div>
-              <div className="text-white/80 text-sm mt-2 uppercase tracking-[0.12em]">{s.label}</div>
+              <div className="display text-4xl md:text-5xl font-bold text-primary">{s.value}</div>
+              <div className="text-primary/80 text-sm mt-2 uppercase tracking-[0.12em]">{s.label}</div>
             </div>
           ))}
         </div>
@@ -144,7 +144,7 @@ const ProjectCaseStudy = () => {
               {project.features.map((f) => (
                 <li key={f} className="flex items-start gap-3">
                   <span className="shrink-0 mt-0.5 w-6 h-6 rounded-full flex items-center justify-center"
-                        style={{ background: "hsl(var(--accent-blue-tint))", color: "hsl(var(--accent-blue))" }}>
+                        style={{ background: "hsl(var(--accent-blue-tint))", color: "hsl(var(--accent-blue-ink))" }}>
                     <Check className="w-3.5 h-3.5" />
                   </span>
                   <span className="text-foreground/90 leading-[1.6]">{f}</span>

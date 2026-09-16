@@ -42,7 +42,7 @@ const RelatedContent = ({ currentUrl }: { currentUrl: string }) => {
               to={c.to}
               className="reveal-child group card-light p-7 flex flex-col"
             >
-              <div className="text-[11px] uppercase tracking-[0.12em] text-accent-blue font-medium mb-4">
+              <div className="text-[11px] uppercase tracking-[0.12em] text-accent-blue-ink font-medium mb-4">
                 {c.kind}
               </div>
               <div className="display text-lg font-bold leading-snug mb-2 group-hover:text-accent-blue transition-colors">

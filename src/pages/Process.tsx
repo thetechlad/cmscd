@@ -7,7 +7,7 @@ const ProcessPage = () => (
       <div className="container-tight">
         <div className="label-eyebrow mb-6">How we work</div>
         <h1 className="display text-[34px] md:text-[42px] lg:text-[68px] font-bold leading-[1.05] max-w-4xl">
-          A predictable path from idea to <span style={{ color: "hsl(var(--accent-blue))" }}>shipped</span>.
+          A predictable path from idea to <span style={{ color: "hsl(var(--accent-blue-ink))" }}>shipped</span>.
         </h1>
       </div>
     </section>

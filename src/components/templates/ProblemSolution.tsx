@@ -52,7 +52,7 @@ const ProblemSolution = ({
 
         <div className="flex items-center justify-center gap-3 text-sm text-muted-foreground mb-6">
           <span className="hidden sm:inline">The result in production</span>
-          <ArrowRight className="w-4 h-4 text-accent-blue" />
+          <ArrowRight className="w-4 h-4 text-accent-blue-ink" />
         </div>
 
         <MockupFrame url={`${slug}.codersdive.app`}>

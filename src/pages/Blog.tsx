@@ -23,7 +23,7 @@ const Blog = () => {
         <div className="container-tight">
           <div className="label-eyebrow mb-6">Insights</div>
           <h1 className="display text-[34px] md:text-[42px] lg:text-[68px] font-bold leading-[1.05] max-w-4xl mb-5">
-            Useful thinking for teams <span style={{ color: "hsl(var(--accent-blue))" }}>building software</span>.
+            Useful thinking for teams <span style={{ color: "hsl(var(--accent-blue-ink))" }}>building software</span>.
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl leading-[1.7]">
             Practical essays on AI engineering, product strategy, SaaS growth, web and mobile UX, cloud and quality, and digital transformation.
@@ -37,7 +37,7 @@ const Blog = () => {
             <button
               onClick={() => setActive("all")}
               className={`tag-pill transition-all ${active === "all" ? "ring-1 ring-accent-blue" : "hover:bg-foreground/5"}`}
-              style={active === "all" ? { background: "hsl(var(--accent-blue-soft))", color: "hsl(var(--accent-blue))" } : undefined}
+              style={active === "all" ? { background: "hsl(var(--accent-blue-soft))", color: "hsl(var(--accent-blue-ink))" } : undefined}
             >
               All posts
             </button>
@@ -46,7 +46,7 @@ const Blog = () => {
                 key={c.slug}
                 onClick={() => setActive(c.slug)}
                 className={`tag-pill transition-all ${active === c.slug ? "ring-1 ring-accent-blue" : "hover:bg-foreground/5"}`}
-                style={active === c.slug ? { background: "hsl(var(--accent-blue-soft))", color: "hsl(var(--accent-blue))" } : undefined}
+                style={active === c.slug ? { background: "hsl(var(--accent-blue-soft))", color: "hsl(var(--accent-blue-ink))" } : undefined}
               >
                 {c.name}
               </button>

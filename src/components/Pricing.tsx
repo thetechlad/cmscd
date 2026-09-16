@@ -30,11 +30,11 @@ const PricingCard = ({
 }) => (
   <div
     className={`reveal-child tilt-card border-glow relative overflow-hidden rounded-2xl p-8 md:p-10 ${
-      popular ? "text-white" : "bg-white border border-border"
+      popular ? "text-primary" : "bg-white border border-border"
     }`}
     style={
       popular
-        ? { background: "linear-gradient(135deg, hsl(var(--accent-blue)) 0%, hsl(188 100% 38%) 100%)", boxShadow: "0 30px 80px -20px rgba(0, 196, 225, 0.45)" }
+        ? { background: "linear-gradient(135deg, hsl(var(--accent-blue)) 0%, hsl(188 100% 38%) 100%)", boxShadow: "0 30px 80px -20px hsl(var(--accent-blue) / 0.45)" }
         : { boxShadow: "0 10px 40px -20px rgba(0,0,0,0.1)" }
     }
   >
@@ -42,12 +42,12 @@ const PricingCard = ({
     {popular && <div className="pricing-tag">MOST POPULAR</div>}
 
     <div className="flex items-center gap-3 mb-6">
-      <h3 className={`display text-2xl font-bold ${popular ? "text-background" : "text-foreground"}`}>{name}</h3>
+      <h3 className={`display text-2xl font-bold ${popular ? "text-primary" : "text-foreground"}`}>{name}</h3>
       <span
         className="text-[10px] font-bold px-2.5 py-1 rounded-full"
         style={{
-          background: popular ? "rgba(255,255,255,0.2)" : "hsl(var(--accent-blue-soft))",
-          color: popular ? "white" : "hsl(var(--accent-blue))",
+          background: popular ? "rgba(255,255,255,0.5)" : "hsl(var(--accent-blue-soft))",
+          color: popular ? "hsl(var(--primary))" : "hsl(var(--accent-blue-ink))",
         }}
       >
 
@@ -56,15 +56,15 @@ const PricingCard = ({
     </div>
 
     <div className="flex items-baseline gap-3 mb-5">
-      <span className={`text-lg line-through ${popular ? "text-background/40" : "text-muted-foreground/60"}`}>{oldPrice}</span>
+      <span className={`text-lg line-through ${popular ? "text-primary/40" : "text-muted-foreground/60"}`}>{oldPrice}</span>
       <span className="display text-5xl md:text-6xl font-bold tracking-tight">{price}</span>
     </div>
 
-    <p className={`text-sm leading-relaxed mb-8 ${popular ? "text-background/70" : "text-muted-foreground"}`}>{desc}</p>
+    <p className={`text-sm leading-relaxed mb-8 ${popular ? "text-primary/70" : "text-muted-foreground"}`}>{desc}</p>
 
-    <div className={`h-px w-full mb-8 ${popular ? "bg-background/15" : "bg-border"}`} />
+    <div className={`h-px w-full mb-8 ${popular ? "bg-primary/15" : "bg-border"}`} />
 
-    <div className={`text-[11px] font-bold uppercase tracking-[0.15em] mb-5 ${popular ? "text-background/60" : "text-muted-foreground"}`}>
+    <div className={`text-[11px] font-bold uppercase tracking-[0.15em] mb-5 ${popular ? "text-primary/60" : "text-muted-foreground"}`}>
       Deliverables include
     </div>
     <ul className="space-y-3 mb-10">
@@ -73,14 +73,14 @@ const PricingCard = ({
           <span
             className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
             style={{
-              background: popular ? "rgba(255,255,255,0.2)" : "hsl(var(--accent-blue-soft))",
-              color: popular ? "white" : "hsl(var(--accent-blue))",
+              background: popular ? "rgba(255,255,255,0.5)" : "hsl(var(--accent-blue-soft))",
+              color: popular ? "hsl(var(--primary))" : "hsl(var(--accent-blue-ink))",
             }}
           >
 
             <Check className="w-3 h-3" strokeWidth={3} />
           </span>
-          <span className={popular ? "text-background/90 font-medium" : "text-foreground"}>{f}</span>
+          <span className={popular ? "text-primary/90 font-medium" : "text-foreground"}>{f}</span>
         </li>
       ))}
     </ul>
@@ -90,7 +90,7 @@ const PricingCard = ({
       className="flex items-center justify-center w-full h-14 rounded-full font-bold text-sm transition-transform hover:scale-[1.02]"
       style={
         popular
-          ? { background: "white", color: "hsl(var(--accent-blue))" }
+          ? { background: "white", color: "hsl(var(--accent-blue-ink))" }
           : { background: "hsl(var(--foreground))", color: "hsl(var(--background))" }
       }
 
@@ -110,7 +110,7 @@ const Pricing = () => (
       <div className="text-center mb-16 reveal-child">
         <div className="label-eyebrow mb-6 justify-center" style={{ display: "inline-flex" }}>Pricing</div>
         <h2 className="display text-[34px] md:text-[48px] lg:text-[64px] font-bold leading-[1.05] mb-6">
-          The right <span className="squiggle" style={{ color: "hsl(var(--accent-blue))" }}>plans</span> for your ideas.
+          The right <span className="squiggle" style={{ color: "hsl(var(--accent-blue-ink))" }}>plans</span> for your ideas.
         </h2>
         <p className="text-muted-foreground italic">
           Get the quality and speed of big agencies, at <strong className="text-foreground not-italic">honest prices</strong>.

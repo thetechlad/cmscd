@@ -19,7 +19,7 @@ const ThankYou = () => {
         <div className="container-tight">
           <div className="max-w-2xl">
             <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-accent-blue-soft mb-8">
-              <Check className="w-7 h-7 text-accent-blue" />
+              <Check className="w-7 h-7 text-accent-blue-ink" />
             </span>
             <div className="label-eyebrow mb-5">Received</div>
             <h1 className="display text-[34px] md:text-[52px] font-bold leading-[1.05] mb-5">
@@ -33,9 +33,9 @@ const ThankYou = () => {
             <div className="card-light p-6 mb-10">
               <div className="text-sm font-semibold mb-3">What happens next</div>
               <ol className="space-y-2.5 text-sm text-muted-foreground">
-                <li className="flex gap-3"><span className="text-accent-blue font-semibold">1.</span> We review your context and priorities.</li>
-                <li className="flex gap-3"><span className="text-accent-blue font-semibold">2.</span> We reply with questions or a suggested first step.</li>
-                <li className="flex gap-3"><span className="text-accent-blue font-semibold">3.</span> If it's a fit, we book a focused discovery call.</li>
+                <li className="flex gap-3"><span className="text-accent-blue-ink font-semibold">1.</span> We review your context and priorities.</li>
+                <li className="flex gap-3"><span className="text-accent-blue-ink font-semibold">2.</span> We reply with questions or a suggested first step.</li>
+                <li className="flex gap-3"><span className="text-accent-blue-ink font-semibold">3.</span> If it's a fit, we book a focused discovery call.</li>
               </ol>
             </div>
 
@@ -51,7 +51,7 @@ const ThankYou = () => {
               <div className="grid sm:grid-cols-2 gap-4">
                 {suggestions.map((p) => (
                   <Link key={p.slug} to={`/insights/${p.slug}`} className="group card-light p-5">
-                    <div className="text-[11px] uppercase tracking-[0.1em] text-accent-blue mb-2">{p.category}</div>
+                    <div className="text-[11px] uppercase tracking-[0.1em] text-accent-blue-ink mb-2">{p.category}</div>
                     <div className="display font-bold leading-snug group-hover:text-accent-blue transition-colors">{p.title}</div>
                     <span className="link-blue mt-3 text-xs">Read <ArrowUpRight className="w-3 h-3" /></span>
                   </Link>

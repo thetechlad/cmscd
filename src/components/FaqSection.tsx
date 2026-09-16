@@ -22,7 +22,7 @@ const FaqSection = ({ withHeading = true, className = "" }: Props) => {
             <div className="label-eyebrow mb-6">FAQ</div>
             <h2 className="display text-[28px] md:text-[40px] lg:text-[48px] font-bold leading-[1.08]">
               Answers on{" "}
-              <span style={{ color: "hsl(var(--accent-blue))" }}>services, timelines</span> and pricing.
+              <span style={{ color: "hsl(var(--accent-blue-ink))" }}>services, timelines</span> and pricing.
             </h2>
             <p className="text-muted-foreground mt-5 leading-[1.7]">
               The questions founders and operators ask us most. Still unsure? A quick discovery call clears it up fast.

@@ -40,7 +40,7 @@ const Testimonials = () => (
               {q.quote}
             </blockquote>
             <figcaption className="flex items-center gap-3 pt-5 border-t border-white/10">
-              <div className="w-10 h-10 rounded-full bg-[hsl(var(--accent-blue))] text-white flex items-center justify-center font-semibold text-sm">
+              <div className="w-10 h-10 rounded-full bg-[hsl(var(--accent-blue))] text-primary flex items-center justify-center font-semibold text-sm">
                 {q.initials}
               </div>
               <div>

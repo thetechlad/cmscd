@@ -176,9 +176,9 @@ const StartProject = () => {
                       <span
                         className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-semibold border ${
                           state === "done"
-                            ? "bg-accent-blue text-white border-accent-blue"
+                            ? "bg-accent-blue text-primary border-accent-blue"
                             : state === "current"
-                            ? "border-accent-blue text-accent-blue"
+                            ? "border-accent-blue text-accent-blue-ink"
                             : "border-border"
                         }`}
                       >
@@ -253,7 +253,7 @@ const StartProject = () => {
                         aria-pressed={data.priorities.includes(p)}
                         className={`px-4 py-2.5 rounded-full border text-sm font-medium transition ${
                           data.priorities.includes(p)
-                            ? "border-accent-blue bg-accent-blue text-white"
+                            ? "border-accent-blue bg-accent-blue text-primary"
                             : "border-border bg-background-soft hover:border-accent-blue/40"
                         }`}
                       >
@@ -321,7 +321,7 @@ const StartProject = () => {
                   </div>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     We use your details only to respond to this enquiry. No phone number required. See our{" "}
-                    <a href="/privacy" className="text-accent-blue hover:underline">privacy notice</a>.
+                    <a href="/privacy" className="text-accent-blue-ink underline underline-offset-2">privacy notice</a>.
                   </p>
                 </div>
               )}

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Star, Zap } from "lucide-react";
-import macbook from "@/assets/mockup-macbook.png";
-import iphone from "@/assets/mockup-iphone.png";
+import macbook from "@/assets/mockup-macbook.webp";
+import iphone from "@/assets/mockup-iphone.webp";
 
 const headlineWords = ["We", "build", "AI-powered", "software"];
 
@@ -22,18 +22,18 @@ const Hero = () => {
             {/* trust badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-border shadow-sm mb-5 animate-fade-in">
               <span className="flex items-center gap-0.5">
-                {[0,1,2,3,4].map(i => <Star key={i} className="w-3.5 h-3.5 fill-accent-blue text-accent-blue" />)}
+                {[0,1,2,3,4].map(i => <Star key={i} className="w-3.5 h-3.5 fill-accent-blue-ink text-accent-blue-ink" />)}
               </span>
               <span className="text-xs font-semibold text-foreground">Trusted by 120+ founders worldwide</span>
             </div>
 
-            <h1 className="display font-bold tracking-tight leading-[1.02] text-[44px] md:text-[60px] lg:text-[84px] mb-5 word-rise">
+            <h1 className="display font-bold tracking-tight leading-[1.08] text-[34px] md:text-[46px] lg:text-[60px] mb-5 word-rise">
               {headlineWords.map((w, i) => (
                 <span key={i} style={{ animationDelay: `${i * 60}ms` }}>{w}&nbsp;</span>
               ))}
               <span className="block">
                 <span style={{ animationDelay: `${headlineWords.length * 60}ms` }}>that eliminates</span>{" "}
-                <span className="squiggle" style={{ animationDelay: `${(headlineWords.length + 1) * 60}ms`, color: "hsl(var(--accent-blue))" }}>
+                <span className="squiggle" style={{ animationDelay: `${(headlineWords.length + 1) * 60}ms`, color: "hsl(var(--accent-blue-ink))" }}>
                   manual work.
                 </span>
               </span>

@@ -34,7 +34,7 @@ const ProjectMarquee = () => (
       <div className="label-eyebrow mb-6">Showreel</div>
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <h2 className="display text-[28px] md:text-[40px] lg:text-[56px] font-bold leading-[1.05] max-w-3xl">
-          Recent shipments, <span style={{ color: "hsl(var(--accent-blue))" }}>live in production</span>.
+          Recent shipments, <span style={{ color: "hsl(var(--accent-blue-ink))" }}>live in production</span>.
         </h2>
         <p className="text-muted-foreground max-w-sm">A snapshot of products we've designed, built and shipped over the last 12 months.</p>
       </div>

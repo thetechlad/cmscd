@@ -35,7 +35,7 @@ const DiagramBand = ({
             <defs>
               <linearGradient id={gid} x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0%" stopColor="hsl(var(--accent-blue))" />
-                <stop offset="100%" stopColor="#00C2FF" />
+                <stop offset="100%" stopColor="hsl(var(--accent-blue-tint))" />
               </linearGradient>
             </defs>
 

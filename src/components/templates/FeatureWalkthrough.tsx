@@ -70,14 +70,14 @@ const FeatureWalkthrough = ({
                     onClick={() => setActive(i)}
                     className={`w-full text-left rounded-2xl border p-5 transition-all ${
                       on
-                        ? "border-accent-blue bg-background shadow-[0_16px_40px_-24px_rgba(0,87,255,0.5)]"
+                        ? "border-accent-blue bg-background shadow-[0_16px_40px_-24px_hsl(var(--accent-blue)/0.5)]"
                         : "border-border bg-background/60 hover:border-accent-blue/40"
                     }`}
                   >
                     <div className="flex items-center gap-3 mb-1.5">
                       <span
                         className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
-                          on ? "bg-accent-blue text-white" : "bg-accent-blue-soft text-accent-blue"
+                          on ? "bg-accent-blue text-primary" : "bg-accent-blue-soft text-accent-blue-ink"
                         }`}
                       >
                         {i + 1}

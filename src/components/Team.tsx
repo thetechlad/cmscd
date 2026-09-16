@@ -44,7 +44,7 @@ const Team = () => (
             </div>
             <div className="p-6">
               <div className="display text-lg font-bold">{p.name}</div>
-              <div className="text-xs uppercase tracking-[0.15em] font-semibold mb-3" style={{ color: "hsl(var(--accent-blue))" }}>
+              <div className="text-xs uppercase tracking-[0.15em] font-semibold mb-3" style={{ color: "hsl(var(--accent-blue-ink))" }}>
                 {p.role}
               </div>
               <p className="text-sm text-muted-foreground leading-[1.7] mb-4">{p.line}</p>

@@ -37,6 +37,7 @@ export default {
           DEFAULT: 'hsl(var(--accent-blue))',
           soft: 'hsl(var(--accent-blue-soft))',
           tint: 'hsl(var(--accent-blue-tint))',
+          ink: 'hsl(var(--accent-blue-ink))',
         },
       },
       borderRadius: {

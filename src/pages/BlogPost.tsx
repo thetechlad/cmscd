@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
@@ -6,7 +6,6 @@ import Markdown from "@/components/Markdown";
 import Reveal from "@/components/Reveal";
 import CoverArt from "@/components/templates/CoverArt";
 import { getPostBySlug, blogPosts, blogCategories } from "@/data/blogData";
-import { blogExtra } from "@/data/blogExtra";
 import { getBlogImage } from "@/data/blogImages";
 import { blogOgImage, articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo";
 
@@ -30,6 +29,14 @@ const BlogPost = () => {
   const navigate = useNavigate();
   const post = slug ? getPostBySlug(slug) : undefined;
   const isCategory = slug ? blogCategories.some((c) => c.slug === slug) : false;
+
+  // blogExtra.ts holds extended writing for every post (~320KB) — split into its
+  // own chunk and loaded on demand instead of bundled into every blog post page,
+  // so the main article (from the much smaller blogData) can render immediately.
+  const [blogExtra, setBlogExtra] = useState<Record<string, string>>({});
+  useEffect(() => {
+    import("@/data/blogExtra").then((m) => setBlogExtra(m.blogExtra));
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -142,7 +149,7 @@ const BlogPost = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 h-11 px-5 rounded-full text-[13px] font-semibold transition-all hover:scale-[1.03]"
-                style={{ background: "hsl(var(--accent-blue))", color: "#fff" }}
+                style={{ background: "hsl(var(--accent-blue))", color: "hsl(var(--primary))" }}
               >
                 {post.suggestedCta}
                 <ArrowUpRight className="w-3.5 h-3.5" />

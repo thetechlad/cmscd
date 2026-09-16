@@ -1,13 +1,10 @@
-// Auto-mapped illustrated cover images for service / industry / case-study pages
-// (src/assets/pages/{slug}.jpg). Any new file dropped into that folder is picked
-// up automatically at build time. Pages without a generated image fall back to
-// the animated CoverArt component.
-const files = import.meta.glob("../assets/pages/*.jpg", { eager: true, import: "default" });
-
-export const pageImages: Record<string, string> = {};
-for (const path in files) {
-  const slug = path.split("/").pop()!.replace(/\.jpg$/, "");
-  pageImages[slug] = files[path] as string;
-}
+// Content page cover images — now Strapi media URLs (the page's `image`
+// field), populated at app boot. Pages without one fall back to CoverArt.
+export let pageImages: Record<string, string> = {};
 
 export const getPageImage = (slug: string): string | undefined => pageImages[slug];
+
+/** Called once by cmsBootstrap.ts after fetching from Strapi. */
+export function _setPageImages(images: Record<string, string>) {
+  pageImages = images;
+}

@@ -13,7 +13,7 @@ const EngagementLayout = ({ sections, last }: { sections: Section[]; last?: Sect
       <div className="grid md:grid-cols-2 gap-5">
         {sections.map((s, i) => (
           <div key={s.title} className="reveal-child card-light p-8 flex flex-col">
-            <div className="text-xs font-mono text-accent-blue mb-4">
+            <div className="text-xs font-mono text-accent-blue-ink mb-4">
               {String(i + 1).padStart(2, "0")}
             </div>
             <h2 className="display text-xl font-bold mb-3 leading-snug">{s.title}</h2>
@@ -89,7 +89,7 @@ const GenericLayout = ({ intro, sections }: { intro: string; sections: Section[]
       >
         <div className="container-tight grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
-            <div className="text-xs font-mono text-accent-blue mb-3">
+            <div className="text-xs font-mono text-accent-blue-ink mb-3">
               {String(i + 1).padStart(2, "0")}
             </div>
             <h2 className="display text-2xl md:text-3xl font-bold leading-snug">{s.title}</h2>
