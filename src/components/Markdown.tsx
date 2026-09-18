@@ -16,8 +16,57 @@ const renderInline = (text: string) => {
   });
 };
 
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-");
+
+export interface HeadingInfo {
+  level: 2 | 3;
+  text: string;
+  id: string;
+}
+
+/** Walks the same block-splitting logic the renderer uses, to produce a
+ * heading list (with the exact same ids the rendered <h2>/<h3> elements will
+ * get) without re-rendering JSX. Used by BlogToc. */
+export function extractHeadings(content: string): HeadingInfo[] {
+  const blocks = content.trim().split(/\n\s*\n/);
+  const headings: HeadingInfo[] = [];
+  const seen = new Map<string, number>();
+
+  const takeSlug = (text: string) => {
+    const base = slugify(text);
+    const count = seen.get(base) ?? 0;
+    seen.set(base, count + 1);
+    return count === 0 ? base : `${base}-${count + 1}`;
+  };
+
+  for (const block of blocks) {
+    const lines = block.split("\n").map((l) => l.trim()).filter(Boolean);
+    if (lines.length === 0) continue;
+    if (lines[0].startsWith("### ")) {
+      const text = lines[0].replace(/^###\s+/, "");
+      headings.push({ level: 3, text, id: takeSlug(text) });
+    } else if (lines[0].startsWith("## ") || lines[0].startsWith("# ")) {
+      const text = lines[0].replace(/^#+\s+/, "");
+      headings.push({ level: 2, text, id: takeSlug(text) });
+    }
+  }
+  return headings;
+}
+
 const Markdown = ({ content }: { content: string }) => {
   const blocks = content.trim().split(/\n\s*\n/);
+  const seen = new Map<string, number>();
+  const takeSlug = (text: string) => {
+    const base = slugify(text);
+    const count = seen.get(base) ?? 0;
+    seen.set(base, count + 1);
+    return count === 0 ? base : `${base}-${count + 1}`;
+  };
 
   return (
     <div className="space-y-6">
@@ -26,16 +75,18 @@ const Markdown = ({ content }: { content: string }) => {
         if (lines.length === 0) return null;
 
         if (lines[0].startsWith("### ")) {
+          const text = lines[0].replace(/^###\s+/, "");
           return (
-            <h3 key={idx} className="display text-lg md:text-xl font-bold mt-4 leading-snug">
-              {lines[0].replace(/^###\s+/, "")}
+            <h3 key={idx} id={takeSlug(text)} className="display text-lg md:text-xl font-bold mt-4 leading-snug scroll-mt-28">
+              {text}
             </h3>
           );
         }
         if (lines[0].startsWith("## ") || lines[0].startsWith("# ")) {
+          const text = lines[0].replace(/^#+\s+/, "");
           return (
-            <h2 key={idx} className="display text-xl md:text-2xl font-bold mt-6 leading-snug">
-              {lines[0].replace(/^#+\s+/, "")}
+            <h2 key={idx} id={takeSlug(text)} className="display text-xl md:text-2xl font-bold mt-6 leading-snug scroll-mt-28">
+              {text}
             </h2>
           );
         }

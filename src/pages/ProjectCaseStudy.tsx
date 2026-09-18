@@ -57,6 +57,15 @@ const ProjectCaseStudy = () => {
           />
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             <div className="lg:col-span-6">
+              {project.logo && (
+                <div
+                  className={`inline-flex items-center justify-center h-12 px-4 rounded-xl mb-5 ${
+                    project.dark ? "bg-foreground" : "bg-background-soft border border-border"
+                  }`}
+                >
+                  <img src={project.logo} alt={`${project.name} logo`} className="h-6 w-auto" />
+                </div>
+              )}
               <div className="flex items-center gap-3 mb-6">
                 <span className="tag-pill">{CATEGORY_LABELS[project.category]}</span>
                 <span className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground font-semibold">
@@ -89,8 +98,8 @@ const ProjectCaseStudy = () => {
       </section>
 
       {/* Meta strip */}
-      <section className="bg-background-soft border-b border-border">
-        <div className="container-tight py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+      <Reveal as="section" className="bg-background-soft border-b border-border">
+        <div className="container-tight py-8 grid grid-cols-2 md:grid-cols-4 gap-6 reveal-child">
           {[
             ["Client", project.name],
             ["Sector", project.sector],
@@ -105,7 +114,7 @@ const ProjectCaseStudy = () => {
             </div>
           ))}
         </div>
-      </section>
+      </Reveal>
 
       {/* Narrative blocks (alternating surfaces) */}
       {blocks.map((b, i) => (
@@ -183,7 +192,7 @@ const ProjectCaseStudy = () => {
               <Link
                 key={p.slug}
                 to={`/portfolio/${p.slug}`}
-                className="reveal-child card-light overflow-hidden group hover:-translate-y-1 transition-transform duration-500 block"
+                className="reveal-child card-light overflow-hidden group block"
               >
                 <div className="overflow-hidden" style={{ background: p.bg }}>
                   <img
@@ -193,7 +202,7 @@ const ProjectCaseStudy = () => {
                     className="w-full h-44 object-cover object-top group-hover:scale-[1.04] transition-transform duration-700"
                   />
                 </div>
-                <div className="p-6 bg-white">
+                <div className="p-6 bg-card">
                   <div className="display text-lg font-bold group-hover:text-accent-blue transition-colors">
                     {p.name}
                   </div>

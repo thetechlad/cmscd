@@ -101,7 +101,7 @@ const BrandWork = () => (
           {brandCases.map((c, i) => (
             <div
               key={c.name}
-              className={`reveal-child grid lg:grid-cols-2 gap-6 lg:gap-10 items-center rounded-2xl bg-white border border-border p-5 md:p-7 ${
+              className={`reveal-child grid lg:grid-cols-2 gap-6 lg:gap-10 items-center rounded-2xl bg-card border border-border p-5 md:p-7 ${
                 i % 2 === 1 ? "lg:[&>div:first-child]:order-2" : ""
               }`}
               style={{ boxShadow: "0 10px 40px -22px rgba(0,0,0,0.18)" }}
@@ -155,7 +155,7 @@ const BrandWork = () => (
           {stripItems.map((s, i) => (
             <div
               key={i}
-              className="reveal-child overflow-hidden rounded-2xl border border-border bg-white p-4 md:p-6"
+              className="reveal-child overflow-hidden rounded-2xl border border-border bg-card p-4 md:p-6"
               style={{ boxShadow: "0 10px 40px -24px rgba(0,0,0,0.15)" }}
             >
               <img src={s.image} alt="Logo design collection" loading="lazy" className="w-full" />
@@ -169,12 +169,12 @@ const BrandWork = () => (
     <Reveal as="section" className="bg-background-soft section">
       <div className="container-tight">
         <div className="grid lg:grid-cols-2 gap-6">
-          <div className="reveal-child rounded-2xl border border-border bg-white p-5 md:p-7" style={{ boxShadow: "0 10px 40px -24px rgba(0,0,0,0.15)" }}>
+          <div className="reveal-child rounded-2xl border border-border bg-card p-5 md:p-7" style={{ boxShadow: "0 10px 40px -24px rgba(0,0,0,0.15)" }}>
             <div className="label-eyebrow mb-4">Social Media</div>
             <h3 className="display text-2xl md:text-3xl font-bold mb-5">Scroll-stopping content systems.</h3>
             <img src={social1} alt="Social media post designs" loading="lazy" className="w-full rounded-xl" />
           </div>
-          <div className="reveal-child rounded-2xl border border-border bg-white p-5 md:p-7" style={{ boxShadow: "0 10px 40px -24px rgba(0,0,0,0.15)" }}>
+          <div className="reveal-child rounded-2xl border border-border bg-card p-5 md:p-7" style={{ boxShadow: "0 10px 40px -24px rgba(0,0,0,0.15)" }}>
             <div className="label-eyebrow mb-4">Print &amp; Packaging</div>
             <h3 className="display text-2xl md:text-3xl font-bold mb-5">Tangible brand, done right.</h3>
             <img src={print1} alt="Print and packaging design" loading="lazy" className="w-full rounded-xl" />

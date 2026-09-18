@@ -43,7 +43,7 @@ const FlagshipWork = () => {
               <Link
                 to={`/portfolio/${p.slug}`}
                 key={p.slug}
-                className="reveal-child group block rounded-3xl overflow-hidden bg-white border border-border shadow-sm hover:shadow-xl transition-all duration-500"
+                className="reveal-child group block rounded-3xl overflow-hidden bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-500"
               >
                 <div className={`grid lg:grid-cols-12 ${i % 2 ? "lg:[direction:rtl]" : ""}`}>
                   {/* screenshot = dominant visual area */}

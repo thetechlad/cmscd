@@ -30,7 +30,7 @@ const PricingCard = ({
 }) => (
   <div
     className={`reveal-child tilt-card border-glow relative overflow-hidden rounded-2xl p-8 md:p-10 ${
-      popular ? "text-primary" : "bg-white border border-border"
+      popular ? "text-primary" : "bg-card border border-border"
     }`}
     style={
       popular

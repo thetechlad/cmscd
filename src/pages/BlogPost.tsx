@@ -5,6 +5,9 @@ import Layout from "@/components/Layout";
 import Markdown from "@/components/Markdown";
 import Reveal from "@/components/Reveal";
 import CoverArt from "@/components/templates/CoverArt";
+import BlogToc from "@/components/BlogToc";
+import ReadingProgressBar from "@/components/ReadingProgressBar";
+import { useReadingProgress } from "@/hooks/useReadingProgress";
 import { getPostBySlug, blogPosts, blogCategories } from "@/data/blogData";
 import { getBlogImage } from "@/data/blogImages";
 import { blogOgImage, articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo";
@@ -42,6 +45,8 @@ const BlogPost = () => {
     window.scrollTo(0, 0);
   }, [slug]);
 
+  const { ref: progressRef, progress } = useReadingProgress<HTMLElement>();
+
   if (isCategory) return <Navigate to={`/blog?category=${slug}`} replace />;
 
   if (!post) {
@@ -61,6 +66,10 @@ const BlogPost = () => {
   const related = blogPosts
     .filter((p) => p.categorySlug === post.categorySlug && p.slug !== post.slug)
     .slice(0, 3);
+
+  // Rendered as one Markdown pass (not two separate calls) so heading ids
+  // computed here match exactly what BlogToc's scroll-spy observes.
+  const fullBody = post.body + (blogExtra[post.slug] ? `\n\n${blogExtra[post.slug]}` : "");
 
   const path = `/insights/${post.slug}`;
   const faqs = extractFaqs(blogExtra[post.slug]);
@@ -90,7 +99,8 @@ const BlogPost = () => {
       type="article"
       jsonLd={jsonLd}
     >
-      <article>
+      <ReadingProgressBar progress={progress} />
+      <article ref={progressRef}>
         {/* Hero */}
         <section className="bg-background pt-[120px] pb-10 border-b border-border">
           <div className="container-tight max-w-3xl">
@@ -131,29 +141,29 @@ const BlogPost = () => {
 
         {/* Body */}
         <section className="bg-background section">
-          <div className="container-tight max-w-3xl">
-            <Markdown content={post.body} />
-            {blogExtra[post.slug] && (
-              <div className="mt-4 pt-2">
-                <Markdown content={blogExtra[post.slug]} />
-              </div>
-            )}
+          <div className="container-tight">
+            <div className="lg:grid lg:grid-cols-[1fr_240px] lg:gap-12">
+              <div className="max-w-3xl">
+                <Markdown content={fullBody} />
 
-            {/* Final CTA */}
-            <div className="mt-12 rounded-2xl p-8 md:p-10" style={{ background: "hsl(var(--foreground))" }}>
-              <p className="text-lg md:text-xl font-medium leading-snug mb-6" style={{ color: "hsl(var(--background))" }}>
-                {post.finalCta}
-              </p>
-              <a
-                href="https://cal.com/tayyabirfan/15min"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 h-11 px-5 rounded-full text-[13px] font-semibold transition-all hover:scale-[1.03]"
-                style={{ background: "hsl(var(--accent-blue))", color: "hsl(var(--primary))" }}
-              >
-                {post.suggestedCta}
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
+                {/* Final CTA */}
+                <div className="mt-12 rounded-2xl p-8 md:p-10" style={{ background: "hsl(var(--foreground))" }}>
+                  <p className="text-lg md:text-xl font-medium leading-snug mb-6" style={{ color: "hsl(var(--background))" }}>
+                    {post.finalCta}
+                  </p>
+                  <a
+                    href="https://cal.com/tayyabirfan/15min"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 h-11 px-5 rounded-full text-[13px] font-semibold transition-all hover:scale-[1.03]"
+                    style={{ background: "hsl(var(--accent-blue))", color: "hsl(var(--primary))" }}
+                  >
+                    {post.suggestedCta}
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+              <BlogToc content={fullBody} />
             </div>
           </div>
         </section>

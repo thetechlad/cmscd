@@ -33,7 +33,7 @@ const TechStack = () => {
               className={`px-5 h-10 rounded-lg border text-sm font-medium transition-all ${
                 active === k
                   ? "bg-foreground text-background border-foreground"
-                  : "bg-white text-foreground border-border hover:border-foreground/40"
+                  : "bg-card text-foreground border-border hover:border-foreground/40"
               }`}
             >
               {k}
@@ -45,7 +45,7 @@ const TechStack = () => {
           {tabs[active].map((t) => (
             <span
               key={t}
-              className="inline-flex items-center gap-2 px-5 h-11 rounded-full bg-white border border-border text-sm font-medium text-foreground hover:border-[hsl(var(--accent-blue))] hover:text-accent-blue transition-all"
+              className="inline-flex items-center gap-2 px-5 h-11 rounded-full bg-card border border-border text-sm font-medium text-foreground hover:border-[hsl(var(--accent-blue))] hover:text-accent-blue transition-all"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-foreground/40" />
               {t}

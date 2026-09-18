@@ -8,7 +8,7 @@ const row2 = projects.slice(Math.ceil(projects.length / 2)).reverse();
 type CardP = { shot: string; name: string; tag: string; slug: string; bg: string };
 const Card = ({ shot, name, tag, slug, bg }: CardP) => (
   <Link to={`/portfolio/${slug}`} className="group relative shrink-0 w-[460px] mx-3 block">
-    <div className="relative overflow-hidden rounded-2xl border border-border bg-white shadow-[0_10px_40px_-20px_rgba(0,0,0,0.18)] transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.28)] group-hover:border-[hsl(var(--accent-blue))]/40">
+    <div className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-[0_10px_40px_-20px_rgba(0,0,0,0.18)] transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.28)] group-hover:border-[hsl(var(--accent-blue))]/40">
       <div style={{ background: bg }}>
         <img src={shot} alt={name} loading="lazy" className="w-full h-[280px] object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]" />
       </div>

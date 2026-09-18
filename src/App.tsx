@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Analytics from "./components/Analytics";
+import AppSkeleton from "@/components/AppSkeleton";
 import { initCms } from "@/lib/cmsBootstrap";
 
 const Index = lazy(() => import("./pages/Index"));
@@ -41,12 +42,15 @@ const CmsGate = ({ children }: { children: React.ReactNode }) => {
 
   if (error) {
     return (
-      <div style={{ padding: 40, textAlign: "center" }}>
-        <p>Couldn't load content from the CMS. Please refresh, or check that Strapi is running.</p>
+      <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center gap-4 px-6 text-center">
+        <p className="text-muted-foreground">Couldn't load content from the CMS. Please try again.</p>
+        <button type="button" onClick={() => window.location.reload()} className="btn-primary">
+          Retry
+        </button>
       </div>
     );
   }
-  if (!ready) return null;
+  if (!ready) return <AppSkeleton />;
   return <>{children}</>;
 };
 

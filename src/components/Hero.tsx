@@ -20,7 +20,7 @@ const Hero = () => {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <div className="lg:col-span-7">
             {/* trust badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-border shadow-sm mb-5 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border shadow-sm mb-5 animate-fade-in">
               <span className="flex items-center gap-0.5">
                 {[0,1,2,3,4].map(i => <Star key={i} className="w-3.5 h-3.5 fill-accent-blue-ink text-accent-blue-ink" />)}
               </span>

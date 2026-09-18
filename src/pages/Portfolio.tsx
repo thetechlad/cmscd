@@ -49,7 +49,7 @@ const PortfolioPage = () => {
                 className={`px-4 h-10 rounded-full text-[13px] font-semibold transition-all border inline-flex items-center gap-2 ${
                   on
                     ? "text-white border-transparent"
-                    : "bg-white text-foreground/75 border-border hover:text-foreground hover:border-foreground/30"
+                    : "bg-card text-foreground/75 border-border hover:text-foreground hover:border-foreground/30"
                 }`}
                 style={on ? { background: "hsl(var(--accent-blue))" } : undefined}
               >
@@ -81,7 +81,7 @@ const PortfolioPage = () => {
                     <span className="text-[10px] uppercase tracking-[0.12em] font-semibold px-2.5 py-1 rounded-full bg-white/90 backdrop-blur text-foreground">{CATEGORY_LABELS[p.category]}</span>
                   </div>
                 </div>
-                <div className="p-6 bg-white flex-1 flex flex-col">
+                <div className="p-6 bg-card flex-1 flex flex-col">
                   <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground font-semibold mb-2">{p.tag}</div>
                   <div className="display text-2xl font-bold tracking-tight mb-2 group-hover:text-accent-blue transition-colors">{p.name}</div>
                   <p className="text-sm text-muted-foreground leading-[1.7] mb-5 flex-1">{p.summary}</p>

@@ -22,7 +22,7 @@ const ProcessStrip = () => (
           style={{ background: "linear-gradient(90deg, hsl(var(--accent-blue) / 0.5), hsl(var(--accent-blue) / 0.12))" }}
         />
         {steps.map((s) => (
-          <div key={s.n} className="reveal-child relative bg-white rounded-2xl border border-border p-6">
+          <div key={s.n} className="reveal-child relative bg-card rounded-2xl border border-border p-6">
             <div
               className="w-[18px] h-[18px] rounded-full mb-6 ring-4 ring-white"
               style={{ background: "hsl(var(--accent-blue))" }}

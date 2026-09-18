@@ -55,7 +55,7 @@ const Automate = () => (
         ))}
       </div>
 
-      <div className="reveal-child mt-10 rounded-3xl border border-[hsl(var(--accent-blue))]/25 bg-white p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="reveal-child mt-10 rounded-3xl border border-[hsl(var(--accent-blue))]/25 bg-card p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
           <div className="display text-xl md:text-2xl font-bold mb-2">Not sure where to start?</div>
           <p className="text-muted-foreground text-[15px] leading-[1.7] max-w-xl">

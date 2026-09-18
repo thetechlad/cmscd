@@ -46,7 +46,7 @@ const FaqSection = ({ withHeading = true, className = "" }: Props) => {
                     }}
                     className={`text-left px-4 py-3 rounded-xl text-sm font-semibold transition-all border ${
                       on
-                        ? "bg-white border-border shadow-sm text-foreground"
+                        ? "bg-card border-border shadow-sm text-foreground"
                         : "border-transparent text-muted-foreground hover:text-foreground hover:bg-white/60"
                     }`}
                   >
