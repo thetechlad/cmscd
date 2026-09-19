@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import logo from "@/assets/logo-full.png";
-import ThemeToggle from "@/components/ThemeToggle";
 
 type Mega = null | "services" | "work" | "industries" | "marketing" | "company";
 
@@ -217,7 +216,6 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-2 shrink-0">
-          <ThemeToggle />
           <Link
             to="/start-a-project"
             className="hidden md:inline-flex whitespace-nowrap items-center gap-1.5 h-11 px-5 rounded-full text-[13px] font-semibold transition-all hover:scale-[1.03] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue/50 shrink-0"
@@ -260,11 +258,10 @@ const Header = () => {
           <div className="container-tight py-6 pb-32">
             <MobileNav sub={mobileSub} setSub={setMobileSub} />
           </div>
-          <div className="fixed bottom-0 inset-x-0 p-4 bg-background/95 backdrop-blur border-t border-border flex items-center gap-2">
+          <div className="fixed bottom-0 inset-x-0 p-4 bg-background/95 backdrop-blur border-t border-border">
             <Link to="/start-a-project" className="btn-blue w-full h-12">
               Get a Free Automation Audit <ArrowUpRight className="w-4 h-4" />
             </Link>
-            <ThemeToggle />
           </div>
         </div>
       )}
