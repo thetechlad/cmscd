@@ -49,7 +49,7 @@ const LegalPage = ({ page }: { page: ContentPage }) => {
           </aside>
 
           {/* Body */}
-          <div className="lg:col-span-9 max-w-[760px]">
+          <div className="lg:col-span-9 max-w-2xl">
             {intro && (
               <div className="mb-10">
                 <Markdown content={intro} />

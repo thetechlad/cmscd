@@ -143,7 +143,7 @@ const BlogPost = () => {
         <section className="bg-background section">
           <div className="container-tight">
             <div className="lg:grid lg:grid-cols-[1fr_240px] lg:gap-12">
-              <div className="max-w-3xl">
+              <div className="max-w-2xl">
                 <Markdown content={fullBody} />
 
                 {/* Final CTA */}

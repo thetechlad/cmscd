@@ -69,7 +69,7 @@ const Markdown = ({ content }: { content: string }) => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-7">
       {blocks.map((block, idx) => {
         const lines = block.split("\n").map((l) => l.trim()).filter(Boolean);
         if (lines.length === 0) return null;
@@ -122,7 +122,7 @@ const Markdown = ({ content }: { content: string }) => {
         }
 
         return (
-          <p key={idx} className="text-muted-foreground leading-[1.8] text-[15px] md:text-base">
+          <p key={idx} className="text-muted-foreground leading-[1.8] text-[15px] md:text-[17px]">
             {renderInline(lines.join(" "))}
           </p>
         );

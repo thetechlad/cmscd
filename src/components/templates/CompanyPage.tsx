@@ -24,7 +24,7 @@ const EngagementLayout = ({ sections, last }: { sections: Section[]; last?: Sect
         ))}
       </div>
       {last && (
-        <div className="mt-12 max-w-3xl">
+        <div className="mt-12 max-w-2xl">
           <h2 className="display text-2xl font-bold mb-4">{last.title}</h2>
           <Markdown content={last.body} />
         </div>
