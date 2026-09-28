@@ -2,102 +2,23 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import logo from "@/assets/logo-full.png";
+import {
+  SERVICE_CATEGORIES,
+  SOLUTIONS_ITEMS,
+  WORK_ITEMS,
+  COMPANY_ITEMS,
+  type NavLink,
+  type ServiceCategory,
+} from "@/data/nav";
 
-type Mega = null | "services" | "work" | "industries" | "marketing" | "company";
-
-interface NavLink {
-  label: string;
-  to: string;
-  desc?: string;
-}
-
-const SERVICE_GROUPS: { group: string; items: NavLink[] }[] = [
-  {
-    group: "AI & Intelligent Systems",
-    items: [
-      { label: "AI & Automation", to: "/services/ai-and-automation" },
-      { label: "AI Agents", to: "/services/ai-agents" },
-      { label: "Generative AI Applications", to: "/services/generative-ai-applications" },
-    ],
-  },
-  {
-    group: "Product Engineering",
-    items: [
-      { label: "Custom Software", to: "/services/custom-software-development" },
-      { label: "SaaS Product Development", to: "/services/saas-product-development" },
-      { label: "MVP & Proof of Concept", to: "/services/mvp-and-proof-of-concept" },
-      { label: "API & Integrations", to: "/services/api-and-systems-integration" },
-      { label: "Legacy Modernization", to: "/services/legacy-modernization" },
-    ],
-  },
-  {
-    group: "Experience",
-    items: [
-      { label: "Web Applications", to: "/services/web-application-development" },
-      { label: "Mobile Apps", to: "/services/mobile-app-development" },
-      { label: "UI/UX & Product Design", to: "/services/ui-ux-and-product-design" },
-      { label: "E-commerce", to: "/services/e-commerce-development" },
-    ],
-  },
-  {
-    group: "Platforms",
-    items: [
-      { label: "Cloud & DevOps", to: "/services/cloud-and-devops" },
-      { label: "QA & Testing", to: "/services/quality-assurance-and-testing" },
-    ],
-  },
-  {
-    group: "Partnership",
-    items: [
-      { label: "Dedicated Product Teams", to: "/services/dedicated-product-teams" },
-      { label: "Support & Improvement", to: "/services/support-and-continuous-improvement" },
-    ],
-  },
-];
-
-const WORK_ITEMS: NavLink[] = [
-  { label: "NookTravel", to: "/portfolio/nooktravel" },
-  { label: "GoodPath AI", to: "/portfolio/goodpath-ai" },
-  { label: "Kidan", to: "/portfolio/kidan" },
-  { label: "Synko", to: "/portfolio/synko" },
-  { label: "LaunchMyStore", to: "/portfolio/launch-my-store" },
-  { label: "OG Organix", to: "/portfolio/og-organix" },
-];
-
-const INDUSTRY_ITEMS: NavLink[] = [
-  { label: "SaaS & Startups", to: "/industries/saas-and-startups" },
-  { label: "E-commerce & Retail", to: "/industries/e-commerce-and-retail" },
-  { label: "Fintech", to: "/industries/fintech" },
-  { label: "Healthcare", to: "/industries/healthcare" },
-  { label: "Education & EdTech", to: "/industries/education-and-edtech" },
-  { label: "Travel & Hospitality", to: "/industries/travel-and-hospitality" },
-  { label: "Real Estate & PropTech", to: "/industries/real-estate-and-proptech" },
-  { label: "Logistics & Supply Chain", to: "/industries/logistics-and-supply-chain" },
-  { label: "Professional Services", to: "/industries/professional-services" },
-  { label: "Media & Marketplaces", to: "/industries/media-communities-and-marketplaces" },
-];
-
-const MARKETING_ITEMS: NavLink[] = [
-  { label: "Social Media Management", to: "/marketing/social-media-management", desc: "Consistent posting and community management" },
-  { label: "Content Writing", to: "/marketing/content-writing", desc: "SEO content, blog posts, and website copy" },
-  { label: "PPC", to: "/marketing/ppc", desc: "Google, Meta, and LinkedIn ad management" },
-];
-
-const COMPANY_ITEMS: NavLink[] = [
-  { label: "About", to: "/about", desc: "Who we are and how we think" },
-  { label: "How We Work", to: "/how-we-work", desc: "Our delivery process" },
-  { label: "Engagement Models", to: "/engagement-models", desc: "Ways to work with us" },
-  { label: "Technology Stack", to: "/technology-stack", desc: "Tools and platforms" },
-  { label: "AI-First Engineering", to: "/ai-first", desc: "Where AI helps, where humans stay accountable" },
-  { label: "Careers", to: "/careers", desc: "Build with us" },
-  { label: "FAQ", to: "/faq", desc: "Common questions" },
-];
+type Mega = null | "services" | "work" | "solutions" | "company";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mega, setMega] = useState<Mega>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSub, setMobileSub] = useState<string | null>(null);
+  const [mobileSubCategory, setMobileSubCategory] = useState<string | null>(null);
   const location = useLocation();
   const closeTimer = useRef<number | null>(null);
   const headerRef = useRef<HTMLElement>(null);
@@ -174,33 +95,13 @@ const Header = () => {
           </button>
           <button
             className={navBtn}
-            aria-expanded={mega === "industries"}
+            aria-expanded={mega === "solutions"}
             aria-haspopup="true"
-            onMouseEnter={() => openMega("industries")}
-            onClick={() => toggleMega("industries")}
+            onMouseEnter={() => openMega("solutions")}
+            onClick={() => toggleMega("solutions")}
           >
-            Industries <ChevronDown className={`w-3 h-3 opacity-60 transition-transform ${mega === "industries" ? "rotate-180" : ""}`} />
+            Solutions <ChevronDown className={`w-3 h-3 opacity-60 transition-transform ${mega === "solutions" ? "rotate-180" : ""}`} />
           </button>
-          <div
-            className="relative flex items-center"
-            onMouseEnter={() => openMega("marketing")}
-          >
-            <Link
-              to="/marketing"
-              className="px-3.5 h-9 rounded-l-full text-[13px] font-medium text-foreground/75 hover:text-foreground hover:bg-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue/50 transition-all inline-flex items-center"
-            >
-              Marketing
-            </Link>
-            <button
-              className="h-9 w-7 rounded-r-full flex items-center justify-center text-foreground/75 hover:text-foreground hover:bg-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue/50 transition-all"
-              aria-expanded={mega === "marketing"}
-              aria-haspopup="true"
-              aria-label="Show marketing services"
-              onClick={() => toggleMega("marketing")}
-            >
-              <ChevronDown className={`w-3 h-3 opacity-60 transition-transform ${mega === "marketing" ? "rotate-180" : ""}`} />
-            </button>
-          </div>
           <Link to="/insights" className={navBtn} onMouseEnter={() => openMega(null)}>
             Insights
           </Link>
@@ -245,8 +146,7 @@ const Header = () => {
           <div className="px-8 py-9">
             {mega === "services" && <ServicesMega />}
             {mega === "work" && <ListMega title="Selected work" items={WORK_ITEMS} footer={{ label: "View all work", to: "/portfolio" }} feature={{ eyebrow: "Featured", title: "Suuper · AI Support SaaS", desc: "AI replies across web and WhatsApp, live in under a minute.", to: "/portfolio/suuper" }} />}
-            {mega === "industries" && <ListMega title="Industries we serve" items={INDUSTRY_ITEMS} footer={{ label: "Industries overview", to: "/industries" }} feature={{ eyebrow: "Approach", title: "Context changes the product", desc: "Regulations, workflows and trust signals shape what we build.", to: "/industries" }} columns={2} />}
-            {mega === "marketing" && <MarketingMega />}
+            {mega === "solutions" && <ListMega title="Solutions by industry" items={SOLUTIONS_ITEMS} footer={{ label: "Browse by location", to: "/locations" }} feature={{ eyebrow: "Approach", title: "Built for your industry, not a template", desc: "Lead-gen, booking, and trust signals that fit how your customers actually buy.", to: "/solutions" }} columns={3} />}
             {mega === "company" && <CompanyMega />}
           </div>
         </div>
@@ -256,7 +156,15 @@ const Header = () => {
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 top-[72px] bg-background overflow-y-auto">
           <div className="container-tight py-6 pb-32">
-            <MobileNav sub={mobileSub} setSub={setMobileSub} />
+            <MobileNav
+              sub={mobileSub}
+              setSub={(s) => {
+                setMobileSub(s);
+                setMobileSubCategory(null);
+              }}
+              subCategory={mobileSubCategory}
+              setSubCategory={setMobileSubCategory}
+            />
           </div>
           <div className="fixed bottom-0 inset-x-0 p-4 bg-background/95 backdrop-blur border-t border-border">
             <Link to="/start-a-project" className="btn-blue w-full h-12">
@@ -269,17 +177,52 @@ const Header = () => {
   );
 };
 
-/* ----- Services mega ----- */
-const ServicesMega = () => (
-  <div>
-    <div className="grid grid-cols-12 gap-x-6 gap-y-8">
-      {SERVICE_GROUPS.map((g) => (
-        <div key={g.group} className="col-span-12 sm:col-span-6 lg:col-span-3">
-          <div className="text-[11px] uppercase tracking-[0.1em] font-medium text-muted-foreground mb-3">
-            {g.group}
-          </div>
+/* ----- Services mega: left-rail category selector ----- */
+const ServicesMega = () => {
+  const [active, setActive] = useState<ServiceCategory>(
+    () => SERVICE_CATEGORIES.find((c) => c.pillar) ?? SERVICE_CATEGORIES[0]
+  );
+
+  return (
+    <div>
+      <div className="grid grid-cols-12 gap-6">
+        <div className="col-span-12 lg:col-span-3 max-h-[420px] overflow-y-auto pr-2 -mr-2">
           <ul className="space-y-0.5">
-            {g.items.map((it) => (
+            {SERVICE_CATEGORIES.map((c) => (
+              <li key={c.category}>
+                <button
+                  type="button"
+                  onMouseEnter={() => setActive(c)}
+                  onClick={() => setActive(c)}
+                  className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors flex items-center justify-between gap-2 ${
+                    active.category === c.category
+                      ? "bg-accent-blue text-primary font-semibold"
+                      : "text-foreground/80 hover:bg-background-soft"
+                  }`}
+                >
+                  <span>{c.category}</span>
+                  {c.pillar && (
+                    <span
+                      className={`text-[9px] uppercase tracking-wide px-1.5 py-0.5 rounded-full ${
+                        active.category === c.category ? "bg-primary/20" : "bg-accent-blue-soft text-accent-blue-ink"
+                      }`}
+                    >
+                      Pillar
+                    </span>
+                  )}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="col-span-12 lg:col-span-6 border-l border-border pl-6">
+          <div className="flex items-center justify-between mb-4">
+            <div className="text-[11px] uppercase tracking-[0.1em] text-muted-foreground">{active.category}</div>
+            <Link to={active.to} className="link-blue text-xs">View category <ArrowUpRight className="w-3 h-3" /></Link>
+          </div>
+          <ul className="grid sm:grid-cols-2 gap-x-6">
+            {active.items.map((it) => (
               <li key={it.to}>
                 <Link
                   to={it.to}
@@ -291,22 +234,23 @@ const ServicesMega = () => (
             ))}
           </ul>
         </div>
-      ))}
-      <div className="col-span-12 lg:col-span-3 rounded-2xl p-6 flex flex-col" style={{ background: "hsl(var(--accent-blue-soft))" }}>
-        <div className="label-eyebrow mb-4">Insight</div>
-        <div className="display font-bold text-base mb-2 leading-snug">Where AI accelerates, where humans stay accountable</div>
-        <p className="text-sm text-muted-foreground mb-5">Our point of view on building with AI responsibly.</p>
-        <Link to="/ai-first" className="link-blue mt-auto">Read more <ArrowUpRight className="w-3.5 h-3.5" /></Link>
+
+        <div className="col-span-12 lg:col-span-3 rounded-2xl p-6 flex flex-col" style={{ background: "hsl(var(--accent-blue-soft))" }}>
+          <div className="label-eyebrow mb-4">Insight</div>
+          <div className="display font-bold text-base mb-2 leading-snug">Where AI accelerates, where humans stay accountable</div>
+          <p className="text-sm text-muted-foreground mb-5">Our point of view on building with AI responsibly.</p>
+          <Link to="/ai-first" className="link-blue mt-auto">Read more <ArrowUpRight className="w-3.5 h-3.5" /></Link>
+        </div>
+      </div>
+      <div className="mt-7 pt-5 border-t border-border flex items-center justify-between">
+        <span className="text-sm text-muted-foreground">Not sure where to start?</span>
+        <Link to="/services" className="link-blue">See all services <ArrowUpRight className="w-3.5 h-3.5" /></Link>
       </div>
     </div>
-    <div className="mt-7 pt-5 border-t border-border flex items-center justify-between">
-      <span className="text-sm text-muted-foreground">Not sure where to start?</span>
-      <Link to="/services" className="link-blue">See all services <ArrowUpRight className="w-3.5 h-3.5" /></Link>
-    </div>
-  </div>
-);
+  );
+};
 
-/* ----- Generic list mega (work, industries) ----- */
+/* ----- Generic list mega (work, solutions) ----- */
 const ListMega = ({
   title,
   items,
@@ -318,7 +262,7 @@ const ListMega = ({
   items: NavLink[];
   footer: { label: string; to: string };
   feature: { eyebrow: string; title: string; desc: string; to: string };
-  columns?: 1 | 2;
+  columns?: 1 | 2 | 3;
 }) => (
   <div className="grid grid-cols-12 gap-6">
     <div className="col-span-12 lg:col-span-8">
@@ -326,7 +270,7 @@ const ListMega = ({
         <div className="text-[11px] uppercase tracking-[0.1em] text-muted-foreground">{title}</div>
         <Link to={footer.to} className="link-blue text-xs">{footer.label} <ArrowUpRight className="w-3 h-3" /></Link>
       </div>
-      <ul className={`grid ${columns === 2 ? "sm:grid-cols-2" : "sm:grid-cols-2"} gap-x-6`}>
+      <ul className={`grid gap-x-6 ${columns === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
         {items.map((it) => (
           <li key={it.to}>
             <Link to={it.to} className="block py-2 text-sm text-foreground/85 hover:text-accent-blue transition-colors">
@@ -341,29 +285,6 @@ const ListMega = ({
       <div className="display font-bold text-base mb-2 leading-snug group-hover:text-accent-blue transition-colors">{feature.title}</div>
       <p className="text-sm text-muted-foreground mb-5">{feature.desc}</p>
       <span className="link-blue">Explore <ArrowUpRight className="w-3.5 h-3.5" /></span>
-    </Link>
-  </div>
-);
-
-/* ----- Marketing mega ----- */
-const MarketingMega = () => (
-  <div className="grid grid-cols-12 gap-6">
-    <div className="col-span-12 lg:col-span-8">
-      <div className="text-[11px] uppercase tracking-[0.1em] text-muted-foreground mb-4">Marketing services</div>
-      <div className="grid sm:grid-cols-2 gap-1">
-        {MARKETING_ITEMS.map((it) => (
-          <Link key={it.to} to={it.to} className="group p-3 -mx-3 rounded-lg hover:bg-background-soft transition-colors">
-            <div className="font-semibold text-sm group-hover:text-accent-blue transition-colors">{it.label}</div>
-            {it.desc && <div className="text-xs text-muted-foreground mt-0.5">{it.desc}</div>}
-          </Link>
-        ))}
-      </div>
-    </div>
-    <Link to="/marketing" className="col-span-12 lg:col-span-4 rounded-2xl p-6 group flex flex-col" style={{ background: "hsl(var(--accent-blue-soft))" }}>
-      <div className="label-eyebrow mb-4">Overview</div>
-      <div className="display font-bold text-base mb-2 leading-snug group-hover:text-accent-blue transition-colors">Marketing that compounds with the product</div>
-      <p className="text-sm text-muted-foreground mb-5">See all three services and how they work together.</p>
-      <span className="link-blue mt-auto">Explore <ArrowUpRight className="w-3.5 h-3.5" /></span>
     </Link>
   </div>
 );
@@ -392,18 +313,74 @@ const CompanyMega = () => (
   </div>
 );
 
-/* ----- Mobile ----- */
-const MobileNav = ({ sub, setSub }: { sub: string | null; setSub: (s: string | null) => void }) => {
-  const groups: Record<string, NavLink[]> = {
-    Services: SERVICE_GROUPS.flatMap((g) => g.items),
+/* ----- Mobile: two-level accordion for Services (category -> sub-items), flat for others ----- */
+const MobileNav = ({
+  sub,
+  setSub,
+  subCategory,
+  setSubCategory,
+}: {
+  sub: string | null;
+  setSub: (s: string | null) => void;
+  subCategory: string | null;
+  setSubCategory: (s: string | null) => void;
+}) => {
+  const flatGroups: Record<string, NavLink[]> = {
     Work: [...WORK_ITEMS, { label: "View all work", to: "/portfolio" }],
-    Industries: [...INDUSTRY_ITEMS, { label: "Industries overview", to: "/industries" }],
-    Marketing: [...MARKETING_ITEMS, { label: "Marketing overview", to: "/marketing" }],
+    Solutions: [...SOLUTIONS_ITEMS, { label: "Browse by location", to: "/locations" }],
     Company: COMPANY_ITEMS,
   };
+
   return (
     <div className="divide-y divide-border">
-      {Object.keys(groups).map((g) => (
+      {/* Services: nested accordion */}
+      <div>
+        <button
+          className="w-full flex items-center justify-between py-4 text-left font-semibold"
+          onClick={() => setSub(sub === "Services" ? null : "Services")}
+          aria-expanded={sub === "Services"}
+        >
+          Services
+          <ChevronDown className={`w-4 h-4 transition-transform ${sub === "Services" ? "rotate-180" : ""}`} />
+        </button>
+        {sub === "Services" && (
+          <div className="pb-4 divide-y divide-border/60">
+            {SERVICE_CATEGORIES.map((c) => (
+              <div key={c.category}>
+                <button
+                  className="w-full flex items-center justify-between py-3 text-left text-sm font-medium"
+                  onClick={() => setSubCategory(subCategory === c.category ? null : c.category)}
+                  aria-expanded={subCategory === c.category}
+                >
+                  <span className="flex items-center gap-2">
+                    {c.category}
+                    {c.pillar && <span className="text-[9px] uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-accent-blue-soft text-accent-blue-ink">Pillar</span>}
+                  </span>
+                  <ChevronDown className={`w-3.5 h-3.5 shrink-0 transition-transform ${subCategory === c.category ? "rotate-180" : ""}`} />
+                </button>
+                {subCategory === c.category && (
+                  <div className="pb-3 pl-3 grid gap-1">
+                    <Link to={c.to} className="block py-1.5 text-sm text-accent-blue-ink font-medium">
+                      View category
+                    </Link>
+                    {c.items.map((it) => (
+                      <Link key={it.to + it.label} to={it.to} className="block py-1.5 text-sm text-muted-foreground hover:text-accent-blue">
+                        {it.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+            <Link to="/services" className="block pt-3 text-sm font-medium text-accent-blue-ink">
+              See all services
+            </Link>
+          </div>
+        )}
+      </div>
+
+      {/* Work / Solutions / Company: flat lists */}
+      {Object.keys(flatGroups).map((g) => (
         <div key={g}>
           <button
             className="w-full flex items-center justify-between py-4 text-left font-semibold"
@@ -415,7 +392,7 @@ const MobileNav = ({ sub, setSub }: { sub: string | null; setSub: (s: string | n
           </button>
           {sub === g && (
             <div className="pb-4 grid grid-cols-1 gap-1">
-              {groups[g].map((it) => (
+              {flatGroups[g].map((it) => (
                 <Link key={it.to + it.label} to={it.to} className="block py-2 text-sm text-muted-foreground hover:text-accent-blue">
                   {it.label}
                 </Link>

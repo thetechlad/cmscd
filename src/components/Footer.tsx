@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Github, ArrowRight, MessageCircle, MapPin } from "lucide-react";
 import logo from "@/assets/logo-full.png";
+import { SERVICE_CATEGORIES, SOLUTIONS_ITEMS, RESOURCES_FILTERS, DIRECTORY_LINKS, type NavLink } from "@/data/nav";
 
 const CAL_URL = "https://cal.com/tayyabirfan/15min";
 const EMAIL = "codersdive@gmail.com";
@@ -13,11 +15,15 @@ const SOCIALS: { icon: any; href: string; label: string }[] = [
 ];
 
 
+const SERVICES_FOOTER_LINKS: NavLink[] = SERVICE_CATEGORIES.slice(0, 8).map((c) => ({ label: c.category, to: c.to }));
+const SOLUTIONS_FOOTER_LINKS: NavLink[] = SOLUTIONS_ITEMS.slice(0, 8);
+
 const Footer = () => (
   <footer className="bg-background border-t border-border text-foreground">
-    <div className="container-tight py-20">
-      <div className="grid lg:grid-cols-12 gap-10 lg:gap-14">
-        <div className="lg:col-span-3">
+    {/* Sitemap directory tier */}
+    <div className="container-tight pt-20 pb-14">
+      <div className="grid lg:grid-cols-12 gap-10 lg:gap-8">
+        <div className="lg:col-span-4">
           <Link to="/" className="inline-flex items-center mb-4">
             <img src={logo} alt="CodersDive" className="h-8 w-auto" />
           </Link>
@@ -40,43 +46,46 @@ const Footer = () => (
           </div>
         </div>
 
-        <FooterCol title="Services" links={[
-          ["AI & Automation", "/services/ai-and-automation"],
-          ["Custom Software", "/services/custom-software-development"],
-          ["Web Applications", "/services/web-application-development"],
-          ["Mobile Apps", "/services/mobile-app-development"],
-          ["UI/UX & Product Design", "/services/ui-ux-and-product-design"],
-          ["Cloud & DevOps", "/services/cloud-and-devops"],
-        ]} />
-        <FooterCol title="Marketing" links={[
-          ["Overview", "/marketing"],
-          ["Social Media Management", "/marketing/social-media-management"],
-          ["Content Writing", "/marketing/content-writing"],
-          ["PPC", "/marketing/ppc"],
-        ]} />
+        <FooterCol title="Services" links={SERVICES_FOOTER_LINKS} viewAll={{ label: "View all services", to: "/services" }} />
+        <FooterCol title="Solutions" links={SOLUTIONS_FOOTER_LINKS} viewAll={{ label: "View all solutions", to: "/solutions" }} />
         <FooterCol title="Company" links={[
-          ["About Us", "/about"],
-          ["Our Work", "/portfolio"],
-          ["How We Work", "/how-we-work"],
-          ["Testimonials", "/testimonials"],
-          ["Insights", "/insights"],
-          ["Contact", "/contact"],
+          { label: "About Us", to: "/about" },
+          { label: "Our Work", to: "/portfolio" },
+          { label: "How We Work", to: "/how-we-work" },
+          { label: "Testimonials", to: "/testimonials" },
+          { label: "Contact", to: "/contact" },
         ]} />
+        <FooterCol title="Resources" links={[{ label: "All Insights", to: "/insights" }, ...RESOURCES_FILTERS]}>
+          <ul className="space-y-3 mt-5 pt-5 border-t border-border">
+            {DIRECTORY_LINKS.map((d) => (
+              <li key={d.to}>
+                <Link to={d.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">{d.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </FooterCol>
+      </div>
+    </div>
 
-        <div className="lg:col-span-3">
-          <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-5 font-medium">Connect</div>
+    {/* Contact / offices tier */}
+    <div className="border-t border-border">
+      <div className="container-tight py-10 flex flex-wrap items-start justify-between gap-8">
+        <div>
+          <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-3 font-medium">Connect</div>
           <a href={`mailto:${EMAIL}`} className="block text-foreground hover:text-accent-blue-ink mb-2 text-sm transition-colors">{EMAIL}</a>
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-foreground hover:text-accent-blue-ink mb-5 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-foreground hover:text-accent-blue-ink transition-colors"
           >
             <MessageCircle className="w-4 h-4" /> WhatsApp {WHATSAPP_DISPLAY}
           </a>
+        </div>
 
+        <div>
           <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-3 font-medium">Offices</div>
-          <ul className="space-y-2 mb-6 text-sm text-muted-foreground">
+          <ul className="space-y-2 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
               <MapPin className="w-4 h-4 mt-0.5 text-accent-blue-ink" />
               <span><span className="text-foreground font-medium">Wyoming, USA</span> — HQ</span>
@@ -86,20 +95,16 @@ const Footer = () => (
               <span><span className="text-foreground font-medium">Karachi, PK</span> — Engineering</span>
             </li>
           </ul>
-
-          <a
-            href={CAL_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="btn-blue"
-          >
-            Get a Free Automation Audit <ArrowRight className="w-4 h-4" />
-          </a>
         </div>
 
+        <a href={CAL_URL} target="_blank" rel="noreferrer" className="btn-blue">
+          Get a Free Automation Audit <ArrowRight className="w-4 h-4" />
+        </a>
       </div>
+    </div>
 
-      <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row gap-3 items-start md:items-center justify-between text-sm text-muted-foreground">
+    <div className="container-tight">
+      <div className="pt-8 pb-10 border-t border-border flex flex-col md:flex-row gap-3 items-start md:items-center justify-between text-sm text-muted-foreground">
         <p>© {new Date().getFullYear()} CodersDive. All rights reserved.</p>
         <div className="flex gap-6">
           <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
@@ -111,16 +116,32 @@ const Footer = () => (
   </footer>
 );
 
-const FooterCol = ({ title, links }: { title: string; links: [string, string][] }) => (
+const FooterCol = ({
+  title,
+  links,
+  viewAll,
+  children,
+}: {
+  title: string;
+  links: NavLink[];
+  viewAll?: { label: string; to: string };
+  children?: ReactNode;
+}) => (
   <div className="lg:col-span-2">
     <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-5 font-medium">{title}</div>
     <ul className="space-y-3">
-      {links.map(([n, p]) => (
-        <li key={n}>
-          <Link to={p} className="text-sm text-muted-foreground hover:text-foreground transition-colors">{n}</Link>
+      {links.map((l) => (
+        <li key={l.to}>
+          <Link to={l.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">{l.label}</Link>
         </li>
       ))}
     </ul>
+    {viewAll && (
+      <Link to={viewAll.to} className="inline-block mt-4 text-sm font-medium text-accent-blue-ink hover:underline">
+        {viewAll.label}
+      </Link>
+    )}
+    {children}
   </div>
 );
 
