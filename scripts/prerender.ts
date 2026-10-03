@@ -87,7 +87,18 @@ async function main() {
   }
   const results: { path: string; ok: boolean; h1: string | null; words: number }[] = [];
 
-  for (const route of prerenderRoutes) {
+  // At 400+ routes a single long-lived browser accumulates enough memory
+  // pressure to crash outright ("Target page, context or browser has been
+  // closed") partway through — restarting it periodically keeps each
+  // instance's lifetime bounded regardless of total route count.
+  const RESTART_EVERY = 75;
+
+  for (let i = 0; i < prerenderRoutes.length; i++) {
+    const route = prerenderRoutes[i];
+    if (i > 0 && i % RESTART_EVERY === 0) {
+      await browser.close();
+      browser = await chromium.launch({ executablePath: findChrome(), headless: true });
+    }
     // A fresh page (and browser context) per route — not one page reused across
     // all 124 navigations. Third-party embeds (the Cal.com booking widget) mutate
     // document.head and register custom elements as a side effect of mounting;
@@ -111,7 +122,14 @@ async function main() {
     });
 
     const url = `${baseUrl}${route.path}`;
-    await page.goto(url, { waitUntil: "networkidle" });
+    // At 400+ routes, an occasional slow response on the single preview
+    // server exceeds the default 30s networkidle wait — one retry clears
+    // these without failing the whole crawl over a transient blip.
+    try {
+      await page.goto(url, { waitUntil: "networkidle", timeout: 45000 });
+    } catch {
+      await page.goto(url, { waitUntil: "networkidle", timeout: 45000 });
+    }
     await page.waitForSelector("h1", { timeout: 15000 }).catch(() => null);
 
     // Some components (the Cal.com booking embed) add a <script src> to

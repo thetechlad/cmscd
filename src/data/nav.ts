@@ -2,13 +2,12 @@
 // spreadsheet (Services + Solutions sheets). Header and Footer both import
 // from here so the two stay in sync instead of duplicating category lists.
 //
-// Sub-items under each Services category don't have their own dedicated
-// pages yet (Phase 1 only creates the 19 category-level + 22 Solutions
-// pages as stubs) — they link to an anchor on their parent category page
-// instead of a dedicated URL, so nothing 404s. Two sub-items are explicit
-// cross-links per the source sheet (UI/UX Design -> design pillar,
-// Digital Marketing & Branding -> marketing pillar) and point straight at
-// the real target page instead of an anchor.
+// Every category and sub-item now links to a real page (Strapi content-page,
+// generic templates) rather than an anchor — see the build script used to
+// create the ~270 stub pages this taxonomy links to. Two sub-items are
+// explicit cross-links per the source sheet (UI/UX Design -> design pillar,
+// Digital Marketing & Branding -> marketing pillar) and point at the real
+// existing target page instead of their own stub.
 
 export interface NavLink {
   label: string;
@@ -23,15 +22,14 @@ export interface ServiceCategory {
   items: NavLink[];
 }
 
-const anchor = (categoryTo: string, label: string) =>
-  `${categoryTo}#${label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
+const slugify = (s: string) => s.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 function category(name: string, to: string, subLabels: string[], pillar = false): ServiceCategory {
   return {
     category: name,
     to,
     pillar,
-    items: subLabels.map((label) => ({ label, to: anchor(to, label) })),
+    items: subLabels.map((label) => ({ label, to: `${to}/${slugify(label)}` })),
   };
 }
 
@@ -90,12 +88,12 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     to: "/services/advisory",
     pillar: true,
     items: [
-      { label: "Discovery Workshop", to: anchor("/services/advisory", "Discovery Workshop") },
-      { label: "Market Research", to: anchor("/services/advisory", "Market Research") },
-      { label: "Technical Feasibility Study", to: anchor("/services/advisory", "Technical Feasibility Study") },
-      { label: "Product Strategy", to: anchor("/services/advisory", "Product Strategy") },
+      { label: "Discovery Workshop", to: "/services/advisory/discovery-workshop" },
+      { label: "Market Research", to: "/services/advisory/market-research" },
+      { label: "Technical Feasibility Study", to: "/services/advisory/technical-feasibility-study" },
+      { label: "Product Strategy", to: "/services/advisory/product-strategy" },
       { label: "UI/UX Design", to: "/services/ui-ux-and-product-design" },
-      { label: "Digital Transformation", to: anchor("/services/advisory", "Digital Transformation") },
+      { label: "Digital Transformation", to: "/services/advisory/digital-transformation" },
     ],
   },
   category("Engineering", "/services/engineering", [
@@ -118,8 +116,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     to: "/services/business-enablement",
     pillar: true,
     items: [
-      { label: "Accounts & Finance", to: anchor("/services/business-enablement", "Accounts & Finance") },
-      { label: "HR & Recruitment", to: anchor("/services/business-enablement", "HR & Recruitment") },
+      { label: "Accounts & Finance", to: "/services/business-enablement/accounts-and-finance" },
+      { label: "HR & Recruitment", to: "/services/business-enablement/hr-and-recruitment" },
       { label: "Digital Marketing & Branding", to: "/services/digital-marketing" },
     ],
   },
@@ -207,8 +205,9 @@ export const COMPANY_ITEMS: NavLink[] = [
 ];
 
 /** Real blog categories (from Strapi) as filter links into /insights — the
- * Resources sheet's ~130 article titles aren't individual pages, they're a
- * future content backlog for this same blog. */
+ * Resources sheet's ~400 article titles aren't individual pages, they're a
+ * future content backlog (stored as unpublished drafts in Strapi) for this
+ * same blog. */
 export const RESOURCES_FILTERS: NavLink[] = [
   { label: "AI Engineering", to: "/insights?category=ai-engineering" },
   { label: "Product Strategy", to: "/insights?category=product-strategy" },
@@ -216,9 +215,9 @@ export const RESOURCES_FILTERS: NavLink[] = [
   { label: "Web, Mobile & UX", to: "/insights?category=web-mobile-ux" },
 ];
 
-/** Atlas (geo-SEO) and Best In Class (competitor comparison) hubs — nav
- * placement now via footer links to their hub pages; the ~200 individual
- * pages under each are later-phase work, not built yet. */
+/** Atlas (geo-SEO) and Best In Class (competitor comparison) hubs — each
+ * hub page (/solutions, /locations, /compare) renders a full card grid of
+ * its ~22-109 child pages via HubPage.tsx; these are just the entry links. */
 export const DIRECTORY_LINKS: NavLink[] = [
   { label: "Browse by Location", to: "/locations" },
   { label: "Compare Providers", to: "/compare" },
