@@ -87,7 +87,18 @@ async function main() {
   }
   const results: { path: string; ok: boolean; h1: string | null; words: number }[] = [];
 
-  for (const route of prerenderRoutes) {
+  // A single long-lived browser accumulates enough memory pressure to crash
+  // outright ("Target page, context or browser has been closed") once the
+  // route count gets large — restarting it periodically keeps each
+  // instance's lifetime bounded regardless of total route count.
+  const RESTART_EVERY = 75;
+
+  for (let i = 0; i < prerenderRoutes.length; i++) {
+    const route = prerenderRoutes[i];
+    if (i > 0 && i % RESTART_EVERY === 0) {
+      await browser.close();
+      browser = await chromium.launch({ executablePath: findChrome(), headless: true });
+    }
     // A fresh page (and browser context) per route — not one page reused across
     // all 124 navigations. Third-party embeds (the Cal.com booking widget) mutate
     // document.head and register custom elements as a side effect of mounting;
