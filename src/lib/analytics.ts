@@ -8,7 +8,7 @@
 // To enable Google Analytics 4, set your Measurement ID below and the loader
 // will inject the gtag script automatically.
 
-export const GA_MEASUREMENT_ID = ""; // e.g. "G-XXXXXXXXXX" — leave empty to disable GA
+export const GA_MEASUREMENT_ID = "G-0GF7F5CXCS";
 
 type Props = Record<string, unknown>;
 
